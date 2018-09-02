@@ -9,7 +9,6 @@ public class Reset : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.R))
 	    {
-            
             SceneManager.LoadScene("1");
         }
     }

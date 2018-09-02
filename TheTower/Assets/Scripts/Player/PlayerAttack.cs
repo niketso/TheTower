@@ -16,14 +16,8 @@ public class PlayerAttack : MonoBehaviour {
         if (timeAttack <= 0)
         {
             if (Input.GetKeyDown(KeyCode.X))
-            {
-                Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, range, whatIsEnemy);
-                for (int i = 0; i < enemies.Length; i++)
-                {
-                    enemies[i].GetComponent<EnemyHealth>().TakeDamage(damage);
-                }
-                Debug.Log("Player attacked");
-            }
+                Attack();
+
             timeAttack = startTimeAttack;
         }
         else
@@ -34,5 +28,15 @@ public class PlayerAttack : MonoBehaviour {
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPos.position, range);
+    }
+
+    private void Attack()
+    {
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, range, whatIsEnemy);
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            enemies[i].GetComponent<EnemyHealth>().TakeDamage(damage);
+        }
+        Debug.Log("Player attacked");
     }
 }
