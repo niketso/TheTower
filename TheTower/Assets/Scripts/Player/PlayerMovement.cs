@@ -10,13 +10,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashSpeed;
     [SerializeField] private float startDashTime;
     [SerializeField] private float timeToDash;
+    [SerializeField] private Transform attack;
     private float dashTime;
     private float timeDash;
 	private float lastInput;
     private Rigidbody2D rb;
+    private SpriteRenderer sprite;
 
     private void Awake()
     {
+        sprite = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         dashTime = startDashTime;
         timeDash = timeToDash;
@@ -66,5 +69,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (mov != 0)
 			lastInput = mov;
-	}
+
+        if (lastInput > 0)
+            sprite.flipX = false;
+        if (lastInput < 0)
+            sprite.flipX = true;
+    }
 }

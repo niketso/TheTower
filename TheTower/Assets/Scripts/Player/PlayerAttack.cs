@@ -22,7 +22,13 @@ public class PlayerAttack : MonoBehaviour {
         }
         else
             timeAttack -= Time.deltaTime;
-	}
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+            attackPos.localPosition = new Vector2 (-1.18f, 0);
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+            attackPos.localPosition = new Vector2(1.18f, 0);
+    }
 
     private void OnDrawGizmosSelected()
     {

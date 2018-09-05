@@ -17,18 +17,31 @@ public class PlayerHP : MonoBehaviour {
 
     private void Update()
     {
-        if (playerHP <= 0) 
+        if (playerChances != 0)
         {
-            plyDeath.Invoke();
-            playerHP = 1;
+            if (playerHP <= 0) 
+            {
+                plyDeath.Invoke();
+                playerHP = 1;
+                playerChances -= 1;
+                PlayerReset();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
             TakeEnemyDamage(1f);
+
+        if (playerChances <= 0)
+            Destroy(gameObject);
     }
 
     public void TakeEnemyDamage(float damage) 
     {
         playerHP -= damage;
+    }
+
+    private void PlayerReset()
+    {
+        transform.position = new Vector2(0, -2.50f);
     }
 }

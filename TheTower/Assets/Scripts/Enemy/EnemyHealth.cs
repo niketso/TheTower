@@ -24,6 +24,6 @@ public class EnemyHealth : MonoBehaviour {
         spRend.color = Color.white;
 
         if (health <= 0)
-            gameObject.SetActive(false);
+            Destroy(gameObject);
     }
 }
