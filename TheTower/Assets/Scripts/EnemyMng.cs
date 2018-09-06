@@ -11,9 +11,6 @@ public class EnemyMng : MonoBehaviour
     [SerializeField] private GameObject specialPrefab;
     [SerializeField] private GameObject player;
     [SerializeField] private Camera mainCamera;
-    
-    //[SerializeField] private GameObject[] spawnPoints;
-   
     [SerializeField] private float spawnRate;
     private float timer;
     private float spriteWidth = 0.8f;
@@ -54,8 +51,7 @@ public class EnemyMng : MonoBehaviour
     {
         SpriteRenderer sr = meleePrefab.GetComponent<SpriteRenderer>();
         
-        
-        float spawnPointXLeft =  mainCamera.ViewportToWorldPoint(Vector3.zero).x - sr.sprite.bounds.extents.x;
+        float spawnPointLeft =  mainCamera.ViewportToWorldPoint(Vector3.zero).x - sr.sprite.bounds.extents.x;
         float spawnPointRight = mainCamera.ViewportToWorldPoint(Vector3.one).x + sr.sprite.bounds.extents.x;
 
         if(timer <= 0) {

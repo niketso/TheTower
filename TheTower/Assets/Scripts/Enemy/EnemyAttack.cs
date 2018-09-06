@@ -16,12 +16,28 @@ public class EnemyAttack : MonoBehaviour {
 
     void Update ()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, range, toDamage);
 
-        if (hit)
-        {
-            anim.SetBool("canAttack", true);
-            
-        }
 	}
+
+    private void OnTriggerEnter2D(Collider2D collision) 
+    {
+        anim.SetBool("canAttack", true);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision) 
+    {
+        anim.SetBool("canAttack", false);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision) 
+    {
+        if(anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyAttack")) 
+        {
+            if(collision.transform.CompareTag("Player")) 
+            {
+                collision.GetComponent<PlayerHP>().TakeEnemyDamage(damage);
+                Debug.Log("Enemy has attacked");
+            }
+        }
+    }
 }

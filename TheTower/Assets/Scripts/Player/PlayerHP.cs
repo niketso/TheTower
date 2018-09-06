@@ -38,6 +38,8 @@ public class PlayerHP : MonoBehaviour {
     public void TakeEnemyDamage(float damage) 
     {
         playerHP -= damage;
+        Debug.Log("Player has been hit");
+        Debug.Break();
     }
 
     private void PlayerReset()
