@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour {
             Destroy(this.gameObject);
         }
         instance = this;
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
     }
 
     void Update ()
