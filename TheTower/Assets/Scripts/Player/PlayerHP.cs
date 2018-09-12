@@ -39,7 +39,6 @@ public class PlayerHP : MonoBehaviour {
     {
         playerHP -= damage;
         Debug.Log("Player has been hit");
-        Debug.Break();
     }
 
     private void PlayerReset()

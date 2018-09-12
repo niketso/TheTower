@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour {
 
     private Animator anim;
+    private Collider2D col;
     [SerializeField] private float range;
     [SerializeField] private float damage;
     [SerializeField] private LayerMask toDamage;
@@ -22,22 +23,19 @@ public class EnemyAttack : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) 
     {
         anim.SetBool("canAttack", true);
+        col = collision;
     }
 
     private void OnTriggerExit2D(Collider2D collision) 
     {
         anim.SetBool("canAttack", false);
+        col = null;
     }
 
-    private void OnTriggerStay2D(Collider2D collision) 
+    public void Damage()
     {
-        if(anim.GetCurrentAnimatorStateInfo(0).IsName("EnemyAttack")) 
-        {
-            if(collision.transform.CompareTag("Player")) 
-            {
-                collision.GetComponent<PlayerHP>().TakeEnemyDamage(damage);
-                Debug.Log("Enemy has attacked");
-            }
-        }
+        if(col != null)
+            if (col.transform.CompareTag("Player"))
+                col.GetComponent<PlayerHP>().TakeEnemyDamage(damage);
     }
 }
