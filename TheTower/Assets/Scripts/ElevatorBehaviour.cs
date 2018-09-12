@@ -5,8 +5,8 @@ using UnityEngine;
 public class ElevatorBehaviour : MonoBehaviour {
 
     [SerializeField] private float time;
+    private Collider2D coll;
     private float timer;
-    private Animator anim;
 
     public float Timer
     {
@@ -19,17 +19,27 @@ public class ElevatorBehaviour : MonoBehaviour {
     private void Awake()
     {
         timer = time;
-        anim = GetComponent<Animator>();
+        coll = GetComponent<Collider2D>();
     }
 
     void Update()
     {
         if (timer <= 0)
         {
+            coll.isTrigger = true;
             timer = 0;
-            anim.SetBool("Active", true);
         }
         else
             timer -= Time.deltaTime;
 	}
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        collision.GetComponent<Rigidbody2D>().gravityScale = -9.5f;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        collision.GetComponent<Rigidbody2D>().gravityScale = 9.5f;
+    }
 }
