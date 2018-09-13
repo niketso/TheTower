@@ -5,6 +5,7 @@ using UnityEngine;
 public class ElevatorBehaviour : MonoBehaviour {
 
     [SerializeField] private float time;
+    [SerializeField] private float gravityForce;
     private Collider2D coll;
     private float timer;
 
@@ -35,11 +36,11 @@ public class ElevatorBehaviour : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        collision.GetComponent<Rigidbody2D>().gravityScale = -9.5f;
+        collision.GetComponent<Rigidbody2D>().gravityScale = -gravityForce;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        collision.GetComponent<Rigidbody2D>().gravityScale = 9.5f;
+        collision.GetComponent<Rigidbody2D>().gravityScale = 9.8f;
     }
 }

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EnemyMng : MonoBehaviour
-{
+public class EnemyMng : MonoBehaviour {
     [SerializeField] private GameObject meleePrefab;
     [SerializeField] private GameObject enemyHolder;
     [SerializeField] private GameObject rangedPrefab;
     [SerializeField] private GameObject specialPrefab;
     [SerializeField] private GameObject player;
+    [SerializeField] private Transform playerPos;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private float spawnRate;
     private float timer;
@@ -31,10 +31,7 @@ public class EnemyMng : MonoBehaviour
             Destroy(this.gameObject);
         }
         instance = this;
-        // DontDestroyOnLoad(this.gameObject);
         timer = spawnRate;
-
-        
     }
 
     private void Update ()
@@ -53,19 +50,15 @@ public class EnemyMng : MonoBehaviour
         
         float spawnPointLeft =  mainCamera.ViewportToWorldPoint(Vector3.zero).x - sr.sprite.bounds.extents.x;
         float spawnPointRight = mainCamera.ViewportToWorldPoint(Vector3.one).x + sr.sprite.bounds.extents.x;
+        float spawnPointY = playerPos.position.y;
 
-        if(timer <= 0) {
-            Instantiate(meleePrefab, new Vector3(spawnPointRight,-2f,0), Quaternion.identity, enemyHolder.transform);
+        if(timer <= 0) 
+        {
+            Instantiate(meleePrefab, new Vector3(spawnPointRight, spawnPointY, 0), Quaternion.identity, enemyHolder.transform);
             Debug.Log("spawn");
-            //Debug.Break();
             timer = spawnRate;
         }
         else
             timer -= Time.deltaTime;
-    }
-
-    private void SpawnPoint() 
-    {
-        
     }
 }
