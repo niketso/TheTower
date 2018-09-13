@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerHP : MonoBehaviour {
 
     [SerializeField] private float playerChances;
+    [SerializeField] private Transform playerSpawnPoint;
     private float playerHP = 1;
     public UnityEvent plyDeath;
 
@@ -31,8 +33,14 @@ public class PlayerHP : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Q))
             TakeEnemyDamage(1f);
 
-        if (playerChances <= 0)
+        if(playerChances <= 0) {
+
             Destroy(gameObject);
+            SceneManager.LoadScene("LoseScreen");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+           
     }
 
     public void TakeEnemyDamage(float damage) 
@@ -41,8 +49,7 @@ public class PlayerHP : MonoBehaviour {
         Debug.Log("Player has been hit");
     }
 
-    private void PlayerReset()
-    {
-        transform.position = new Vector2(0, -2.50f);
+    private void PlayerReset() {
+        transform.position = playerSpawnPoint.position;
     }
 }
