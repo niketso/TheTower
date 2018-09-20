@@ -17,12 +17,23 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
 
+    public float TimeToDash
+    {
+        get
+        {
+            return timeToDash;
+        }
+
+        
+    
+    }
+
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         dashTime = startDashTime;
-        timeDash = timeToDash;
+        timeDash = TimeToDash;
     }
 
     void Update ()
@@ -40,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
 		if (timeDash <= 0) {
 			if (Input.GetKeyDown(KeyCode.Z)) {
 				gameObject.layer = 10;
-				timeDash = timeToDash;
+				timeDash = TimeToDash;
 
                 if (lastInput > 0)
                     rb.velocity = Vector2.right * dashSpeed;

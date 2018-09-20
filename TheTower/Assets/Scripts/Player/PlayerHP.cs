@@ -11,6 +11,16 @@ public class PlayerHP : MonoBehaviour {
     private float playerHP = 1;
     public UnityEvent plyDeath;
 
+    public float PlayerChances
+    {
+        get
+        {
+            return playerChances;
+        }
+
+        
+    }
+
     private void Awake()
     {
         if(plyDeath == null)
@@ -19,7 +29,7 @@ public class PlayerHP : MonoBehaviour {
 
     private void Update()
     {
-        if (playerChances != 0)
+        if (PlayerChances != 0)
         {
             if (playerHP <= 0) 
             {
@@ -33,7 +43,7 @@ public class PlayerHP : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Q))
             TakeEnemyDamage(1f);
 
-        if(playerChances <= 0) {
+        if(PlayerChances <= 0) {
 
             Destroy(gameObject);
             SceneManager.LoadScene("LoseScreen");
@@ -52,4 +62,5 @@ public class PlayerHP : MonoBehaviour {
     private void PlayerReset() {
         transform.position = playerSpawnPoint.position;
     }
+    
 }
