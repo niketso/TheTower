@@ -33,7 +33,7 @@ public class UIManager : MonoBehaviour {
 
     void Update ()
     {
-        txt.text = elevator.Timer.ToString();
+        //txt.text = elevator.Timer.ToString();
         lives.text = playerHP.PlayerChances.ToString();
         dash.text = playerMov.TimeToDash.ToString();
 	}
