@@ -15,6 +15,7 @@ public class EnemyMng : MonoBehaviour {
     private float timer;
     private float spriteWidth = 0.8f;
     private static EnemyMng instance = null;
+    private Vector3 playerDeathPos;
 
     public static EnemyMng Instance
     {
@@ -32,16 +33,24 @@ public class EnemyMng : MonoBehaviour {
         }
         instance = this;
         timer = spawnRate;
+
+        playerDeathPos = player.transform.position;
     }
 
     private void Update ()
     {
         SpawnMeleeEnemy();
+        if (playerDeathPos != player.transform.position)
+        {
+            playerDeathPos = player.transform.position;
+        }
     }
 
     public void SpawnSpecial()
     {
-        Instantiate(specialPrefab, player.transform.position, Quaternion.identity);
+
+        Instantiate(specialPrefab, playerDeathPos, Quaternion.identity);
+        Debug.Break();
     }
 
     private void SpawnMeleeEnemy() 
@@ -52,11 +61,29 @@ public class EnemyMng : MonoBehaviour {
         float spawnPointRight = mainCamera.ViewportToWorldPoint(Vector3.one).x + sr.sprite.bounds.extents.x;
         float spawnPointY = playerPos.position.y;
 
+        
         if(timer <= 0) 
         {
-            Instantiate(meleePrefab, new Vector3(spawnPointRight, spawnPointY, 0), Quaternion.identity, enemyHolder.transform);
-            Debug.Log("spawn");
-            timer = spawnRate;
+            int rand;
+            rand = Random.Range(1, 3);
+            Debug.Log(rand);
+
+            switch (rand)
+            {
+                case 1:
+                    Instantiate(meleePrefab, new Vector3(spawnPointRight, spawnPointY, 0), Quaternion.identity, enemyHolder.transform);
+                    Debug.Log("spawn Right");
+                    timer = spawnRate;
+                    break;
+                case 2:
+                    Instantiate(meleePrefab, new Vector3(spawnPointLeft, spawnPointY, 0), Quaternion.identity, enemyHolder.transform);
+                    Debug.Log("spawn Left");
+                    timer = spawnRate;
+                    break;
+            }
+           
+            
+            
         }
         else
             timer -= Time.deltaTime;

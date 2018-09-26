@@ -23,9 +23,7 @@ public class PlayerMovement : MonoBehaviour
         {
             return timeToDash;
         }
-
-        
-    
+  
     }
 
     private void Awake()

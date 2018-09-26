@@ -1100,6 +1100,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  playerDeathPos: {fileID: 0}
 --- !u!70 &469649070
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4272,7 +4273,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1940901267}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94e1e468b4bf17a44a154cce6b2ee963, type: 3}
   m_Name: 
@@ -4282,7 +4283,7 @@ MonoBehaviour:
   enemyHolder: {fileID: 433301367}
   rangedPrefab: {fileID: 1154580303787170, guid: b28982146f827b14181e0eddd68c495e,
     type: 2}
-  specialPrefab: {fileID: 1846885654485672, guid: 45d8873e7b1ad7e41b532a65d6c11d33,
+  specialPrefab: {fileID: 1998878720595330, guid: 7c78e65dacf225e48836aa0daded10c8,
     type: 2}
   player: {fileID: 1551621120317610, guid: 1cdc5ad439633834cb4ba38511268823, type: 2}
   playerPos: {fileID: 801492227}

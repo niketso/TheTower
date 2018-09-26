@@ -35,6 +35,7 @@ public class UIManager : MonoBehaviour {
     {
         //txt.text = elevator.Timer.ToString();
         lives.text = playerHP.PlayerChances.ToString();
+
         dash.text = playerMov.TimeToDash.ToString();
 	}
 }

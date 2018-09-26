@@ -10,6 +10,7 @@ public class PlayerHP : MonoBehaviour {
     [SerializeField] private Transform playerSpawnPoint;
     private float playerHP = 1;
     public UnityEvent plyDeath;
+   public Transform playerDeathPos;
 
     public float PlayerChances
     {
@@ -33,6 +34,7 @@ public class PlayerHP : MonoBehaviour {
         {
             if (playerHP <= 0) 
             {
+
                 plyDeath.Invoke();
                 playerHP = 1;
                 playerChances -= 1;
