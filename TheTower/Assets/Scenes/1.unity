@@ -1237,7 +1237,7 @@ Rigidbody2D:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 469649068}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -2153,7 +2153,7 @@ GameObject:
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2164,7 +2164,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 913791129}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.76, y: -2.86, z: -0.52982396}
+  m_LocalPosition: {x: -6.62, y: -3.14, z: -0.52982396}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3950,11 +3950,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4181020630224330, guid: f9474d23c63cd804b90f009f70525e42, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.23
+      value: -4.79
       objectReference: {fileID: 0}
     - target: {fileID: 4181020630224330, guid: f9474d23c63cd804b90f009f70525e42, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.25575608
+      value: -0.23
       objectReference: {fileID: 0}
     - target: {fileID: 4181020630224330, guid: f9474d23c63cd804b90f009f70525e42, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4494,7 +4494,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1940901267}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94e1e468b4bf17a44a154cce6b2ee963, type: 3}
   m_Name: 
@@ -4504,10 +4504,10 @@ MonoBehaviour:
   enemyHolder: {fileID: 433301367}
   rangedPrefab: {fileID: 1154580303787170, guid: b28982146f827b14181e0eddd68c495e,
     type: 2}
-  specialPrefab: {fileID: 1998878720595330, guid: 7c78e65dacf225e48836aa0daded10c8,
+  specialPrefab: {fileID: 1846885654485672, guid: 45d8873e7b1ad7e41b532a65d6c11d33,
     type: 2}
   playerTransform: {fileID: 801492227}
-  spawnRate: 5
+  spawnRate: 2
 --- !u!1 &1943480886
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,9 +12,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float timeToDash;
     [SerializeField] private Transform attack;
     private float dashTime;
-    private float timeDash;
+    private float timerToNextDash;
 	private float lastInput;
-    private Rigidbody2D rb;
+    private float timedashing;
+    
     private SpriteRenderer spriteRend;
     [SerializeField]
     private Sprite dashSprite;
@@ -35,61 +36,89 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         spriteRend = GetComponent<SpriteRenderer>();
-        rb = GetComponent<Rigidbody2D>();
+        
         dashTime = startDashTime;
-        timeDash = TimeToDash;
+        timerToNextDash = TimeToDash;
     }
 
     void Update ()
     {
 		PMov();
+        Dash();
     }
 
-	private void FixedUpdate() 
-	{
-		Dash();
-	}
+    private void Dash()
+    {
+        if (Input.GetKeyDown(KeyCode.Z) && timerToNextDash <= 0f)
+        {
+            gameObject.layer = 10;
+            spriteRend.sprite = dashSprite;
+            timerToNextDash = TimeToDash;
 
-	private void Dash() 
-	{
-		if (timeDash <= 0) {
-			if (Input.GetKeyDown(KeyCode.Z)) {
-				gameObject.layer = 10;
-                spriteRend.sprite = dashSprite;
-				timeDash = TimeToDash;
+            timedashing = 0.2f;
+        }
+        else
+        {
+            timerToNextDash -= Time.deltaTime;
+        }
 
-                if (lastInput > 0)
-                    rb.velocity = Vector2.right * dashSpeed;
-				if (lastInput < 0)
-					rb.velocity = Vector2.left * dashSpeed;
-			}
-			else {
-				if (dashTime <= 0)
-                {
-					dashTime = startDashTime;
-					rb.velocity = Vector2.zero;
-					gameObject.layer = 9;
-                    spriteRend.sprite = idleSprite;
-				}
-				else
-					dashTime -= Time.deltaTime;
-			}
-		}
-		else
-			timeDash -= Time.deltaTime;
-	}
+        if (timedashing > 0.0f)
+        {
+            if (lastInput > 0)
+                transform.Translate(Vector3.right * dashSpeed * Time.deltaTime);
+            if (lastInput < 0)
+                transform.Translate(Vector3.left * dashSpeed * Time.deltaTime);
+
+            timedashing -= Time.deltaTime;
+        }
+        else
+        {
+            gameObject.layer = 9;
+            spriteRend.sprite = idleSprite;
+            transform.Translate(Vector3.zero);
+        }
+
+    }
+        /* if (timerToNextDash <= 0f) {
+         if (Input.GetKeyDown(KeyCode.Z)) {
+
+             gameObject.layer = 10;
+             spriteRend.sprite = dashSprite;
+             timerToNextDash = TimeToDash;
+
+             if (lastInput > 0)
+                 transform.Translate +=  * dashSpeed;
+             if (lastInput < 0)
+                  transform.position += Vector3.left * dashSpeed;
+         }
+         else {
+             if (dashTime <= 0)
+             {
+                 dashTime = startDashTime;
+                 //transform.position = Vector2.zero;
+                 gameObject.layer = 9;
+                 spriteRend.sprite = idleSprite;
+             }
+             else
+                 dashTime -= Time.deltaTime;
+         }
+     }
+     else
+         timerToNextDash -= Time.deltaTime;
+        }*/
+    
 
 	private void PMov()
 	{
 		float mov = Input.GetAxis("Horizontal")* speed * Time.deltaTime ;
 		transform.position += transform.right * mov;
 
-        if (mov != 0)
+        if (mov != 0f)
 			lastInput = mov;
 
-        if (lastInput > 0)
+        if (lastInput > 0f)
             spriteRend.flipX = false;
-        if (lastInput < 0)
+        if (lastInput < 0f)
             spriteRend.flipX = true;
     }
 }

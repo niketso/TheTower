@@ -35,7 +35,7 @@ public class ElevatorBehaviour : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            collision.transform.SetPositionAndRotation(nextElevator.transform.position, Quaternion.identity);
+            collision.transform.SetPositionAndRotation(new Vector3(nextElevator.transform.position.x, nextElevator.transform.position.y + 1.5f,0), Quaternion.identity);
         }
     }
 }
