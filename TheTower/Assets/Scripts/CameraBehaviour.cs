@@ -4,9 +4,35 @@ using UnityEngine;
 
 public class CameraBehaviour : MonoBehaviour {
 
-    [SerializeField] Transform leftLimit;
-    [SerializeField] Transform rightLimit;
+    [SerializeField] private Transform leftLimit;
+    [SerializeField] private Transform rightLimit;
     private Camera cam;
+
+    public Transform LeftLimit
+    {
+        get
+        {
+            return leftLimit;
+        }
+
+        set
+        {
+            leftLimit = value;
+        }
+    }
+
+    public Transform RightLimit
+    {
+        get
+        {
+            return rightLimit;
+        }
+
+        set
+        {
+            rightLimit = value;
+        }
+    }
 
     private void Awake()
     {

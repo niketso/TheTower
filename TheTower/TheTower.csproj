@@ -299,6 +299,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BoundaryManager.cs" />
+    <Compile Include="Assets\PurpleElevator.cs" />
     <Compile Include="Assets\Scripts\CameraBehaviour.cs" />
     <Compile Include="Assets\Scripts\ElevatorBehaviour.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyAttack.cs" />
