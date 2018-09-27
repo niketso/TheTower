@@ -10,7 +10,7 @@ public class PlayerHP : MonoBehaviour {
     [SerializeField] private Transform playerSpawnPoint;
     private float playerHP = 1;
     public UnityEvent plyDeath;
-   public Transform playerDeathPos;
+   private Transform playerDeathPos;
 
     public float PlayerChances
     {
@@ -22,10 +22,22 @@ public class PlayerHP : MonoBehaviour {
         
     }
 
+    public Transform PlayerDeathPos
+    {
+        get
+        {
+            return playerDeathPos;
+        }
+
+        
+    }
+
     private void Awake()
     {
         if(plyDeath == null)
             plyDeath = new UnityEvent();
+
+        playerDeathPos = transform;
     }
 
     private void Update()
@@ -62,6 +74,12 @@ public class PlayerHP : MonoBehaviour {
     }
 
     private void PlayerReset() {
+
+        if (PlayerDeathPos.position != transform.position)
+        {
+            PlayerDeathPos.position = transform.position;
+        }
+
         transform.position = playerSpawnPoint.position;
     }
     

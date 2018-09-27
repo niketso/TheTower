@@ -4,18 +4,20 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class EnemyMng : MonoBehaviour {
+
     [SerializeField] private GameObject meleePrefab;
     [SerializeField] private GameObject enemyHolder;
     [SerializeField] private GameObject rangedPrefab;
     [SerializeField] private GameObject specialPrefab;
-    [SerializeField] private GameObject player;
-    [SerializeField] private Transform playerPos;
-    [SerializeField] private Camera mainCamera;
+
+    [SerializeField] private Transform playerTransform;
     [SerializeField] private float spawnRate;
+    private Camera mainCamera;
     private float timer;
     private float spriteWidth = 0.8f;
     private static EnemyMng instance = null;
-    private Vector3 playerDeathPos;
+    private Transform specialSpawnPoint;
+
 
     public static EnemyMng Instance
     {
@@ -34,23 +36,25 @@ public class EnemyMng : MonoBehaviour {
         instance = this;
         timer = spawnRate;
 
-        playerDeathPos = player.transform.position;
+        
+    }
+
+    private void Start()
+    {
+        mainCamera = Camera.main;
     }
 
     private void Update ()
     {
         SpawnMeleeEnemy();
-        if (playerDeathPos != player.transform.position)
-        {
-            playerDeathPos = player.transform.position;
-        }
+        
     }
 
     public void SpawnSpecial()
     {
-
-        Instantiate(specialPrefab, playerDeathPos, Quaternion.identity);
-        Debug.Break();
+        specialSpawnPoint = playerTransform.GetComponent<PlayerHP>().PlayerDeathPos;
+        Instantiate(specialPrefab, specialSpawnPoint.position, Quaternion.identity);
+        
     }
 
     private void SpawnMeleeEnemy() 
@@ -59,7 +63,7 @@ public class EnemyMng : MonoBehaviour {
         
         float spawnPointLeft =  mainCamera.ViewportToWorldPoint(Vector3.zero).x - sr.sprite.bounds.extents.x;
         float spawnPointRight = mainCamera.ViewportToWorldPoint(Vector3.one).x + sr.sprite.bounds.extents.x;
-        float spawnPointY = playerPos.position.y;
+        float spawnPointY = playerTransform.position.y;
 
         
         if(timer <= 0) 

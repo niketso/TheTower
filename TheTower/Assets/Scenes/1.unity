@@ -1100,7 +1100,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  playerDeathPos: {fileID: 0}
 --- !u!70 &469649070
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1153,6 +1152,8 @@ MonoBehaviour:
   startDashTime: 0.1
   timeToDash: 0.2
   attack: {fileID: 661643976}
+  dashSprite: {fileID: 21300000, guid: 82119cd6ba70c624f8450093e933fedf, type: 3}
+  idleSprite: {fileID: 21300000, guid: fff359cbf26efb6429d2360e6c9b4322, type: 3}
 --- !u!50 &469649073
 Rigidbody2D:
   serializedVersion: 4
@@ -4285,9 +4286,7 @@ MonoBehaviour:
     type: 2}
   specialPrefab: {fileID: 1998878720595330, guid: 7c78e65dacf225e48836aa0daded10c8,
     type: 2}
-  player: {fileID: 1551621120317610, guid: 1cdc5ad439633834cb4ba38511268823, type: 2}
-  playerPos: {fileID: 801492227}
-  mainCamera: {fileID: 1356953606}
+  playerTransform: {fileID: 801492227}
   spawnRate: 5
 --- !u!1 &1943480886
 GameObject:
