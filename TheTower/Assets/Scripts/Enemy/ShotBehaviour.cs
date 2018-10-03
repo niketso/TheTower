@@ -30,9 +30,15 @@ public class ShotBehaviour : MonoBehaviour {
             Destroy(gameObject);
 	}
 
-    private void OnCollisionEnter2D(Collision2D collision)
+   /* private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Break();
+        
+        if (collision.transform.CompareTag("Player"))
+            collision.transform.GetComponent<PlayerHP>().TakeEnemyDamage(damage);
+    }*/
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Debug.Break();
         if (collision.transform.CompareTag("Player"))
             collision.transform.GetComponent<PlayerHP>().TakeEnemyDamage(damage);
     }
