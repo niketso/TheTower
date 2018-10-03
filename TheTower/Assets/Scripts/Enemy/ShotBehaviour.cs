@@ -32,6 +32,7 @@ public class ShotBehaviour : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Break();
         if (collision.transform.CompareTag("Player"))
             collision.transform.GetComponent<PlayerHP>().TakeEnemyDamage(damage);
     }

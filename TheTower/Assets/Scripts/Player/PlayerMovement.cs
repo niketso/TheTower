@@ -15,12 +15,11 @@ public class PlayerMovement : MonoBehaviour
     private float timerToNextDash;
 	private float lastInput;
     private float timedashing;
-    
+    private Animator anim;
+
     private SpriteRenderer spriteRend;
-    [SerializeField]
-    private Sprite dashSprite;
-    [SerializeField]
-    private Sprite idleSprite;
+    [SerializeField] private Sprite dashSprite;
+    [SerializeField] private Sprite idleSprite;
 
 
 
@@ -36,7 +35,8 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         spriteRend = GetComponent<SpriteRenderer>();
-        
+        anim = GetComponent<Animator>();
+
         dashTime = startDashTime;
         timerToNextDash = TimeToDash;
     }
@@ -52,7 +52,8 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z) && timerToNextDash <= 0f)
         {
             gameObject.layer = 10;
-            spriteRend.sprite = dashSprite;
+            //spriteRend.sprite = dashSprite;
+            anim.SetBool("dashing", true);
             timerToNextDash = TimeToDash;
 
             timedashing = 0.2f;
@@ -74,7 +75,8 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             gameObject.layer = 9;
-            spriteRend.sprite = idleSprite;
+            anim.SetBool("dashing", false);
+            //spriteRend.sprite = idleSprite;
             transform.Translate(Vector3.zero);
         }
 
@@ -110,11 +112,17 @@ public class PlayerMovement : MonoBehaviour
 
 	private void PMov()
 	{
-		float mov = Input.GetAxis("Horizontal")* speed * Time.deltaTime ;
+		float mov = Input.GetAxis("Horizontal")* speed * Time.deltaTime;
 		transform.position += transform.right * mov;
 
+
         if (mov != 0f)
-			lastInput = mov;
+        {
+            lastInput = mov;
+            anim.SetBool("moving", true);
+        }
+        else
+            anim.SetBool("moving", false);
 
         if (lastInput > 0f)
             spriteRend.flipX = false;

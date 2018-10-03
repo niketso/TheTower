@@ -5,23 +5,38 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour {
 
     private float timeAttack;
+    private Animator anim;
     [SerializeField] private float damage;
     [SerializeField] private float startTimeAttack;
     [SerializeField] private Transform attackPos;
     [SerializeField] private float range;
     [SerializeField] private LayerMask whatIsEnemy;
 
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     void Update()
     {
+        /*
+            Para activar las animaciones hay que sacar el llamado a la funcion "Attack" en la deteccion de la tecla X y descomentar la linea que esta arriba del if 
+            y la que esta abajo del llamado a la funcion attack 
+        */
+
+        //anim.SetBool("attacking", false);
         if (timeAttack <= 0)
         {
             if (Input.GetKeyDown(KeyCode.X))
                 Attack();
+                //anim.SetBool("attacking", true);
 
             timeAttack = startTimeAttack;
         }
         else
+        {
             timeAttack -= Time.deltaTime;
+        }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
             attackPos.localPosition = new Vector2 (-1.18f, 0);
