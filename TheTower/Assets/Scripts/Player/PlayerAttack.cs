@@ -25,18 +25,20 @@ public class PlayerAttack : MonoBehaviour {
         */
 
         //anim.SetBool("attacking", false);
-        if (timeAttack <= 0)
-        {
+        /*if (timeAttack <= 0)
+        {*/
             if (Input.GetKeyDown(KeyCode.X))
-                Attack();
-                //anim.SetBool("attacking", true);
+            {
+                anim.SetBool("attacking",true);
+            }
+               
 
-            timeAttack = startTimeAttack;
-        }
-        else
+           /* timeAttack = startTimeAttack;
+        }/*
+       /* else
         {
             timeAttack -= Time.deltaTime;
-        }
+        }*/
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
             attackPos.localPosition = new Vector2 (-1.18f, 0);
@@ -59,5 +61,10 @@ public class PlayerAttack : MonoBehaviour {
             enemies[i].GetComponent<EnemyHealth>().TakeDamage(damage);
         }
         Debug.Log("Player attacked");
+    }
+
+    private void EndAttack()
+    {
+        anim.SetBool("attacking", false);
     }
 }

@@ -16,18 +16,18 @@ public class PlayerMovement : MonoBehaviour
 	private float lastInput;
     private float timedashing;
     private Animator anim;
-
+    private bool moving = false;
     private SpriteRenderer spriteRend;
     [SerializeField] private Sprite dashSprite;
     [SerializeField] private Sprite idleSprite;
 
 
 
-    public float TimeToDash
+    public float TimerToNextDash
     {
         get
         {
-            return timeToDash;
+            return timerToNextDash;
         }
   
     }
@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
 
         dashTime = startDashTime;
-        timerToNextDash = TimeToDash;
+        timerToNextDash = timeToDash;
     }
 
     void Update ()
@@ -53,8 +53,8 @@ public class PlayerMovement : MonoBehaviour
         {
             gameObject.layer = 10;
             //spriteRend.sprite = dashSprite;
-            anim.SetBool("dashing", true);
-            timerToNextDash = TimeToDash;
+            anim.SetBool("dashing",true);
+            timerToNextDash = timeToDash;
 
             timedashing = 0.2f;
         }
@@ -75,7 +75,14 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             gameObject.layer = 9;
+            // anim.SetTrigger("idle");
             anim.SetBool("dashing", false);
+            if (moving)
+            {
+                anim.SetTrigger("running");
+            }
+            else
+                anim.SetTrigger("idle");
             //spriteRend.sprite = idleSprite;
             transform.Translate(Vector3.zero);
         }
@@ -118,11 +125,17 @@ public class PlayerMovement : MonoBehaviour
 
         if (mov != 0f)
         {
+            moving = true;
             lastInput = mov;
-            anim.SetBool("moving", true);
+            anim.SetTrigger("running");
         }
         else
-            anim.SetBool("moving", false);
+        {
+            moving = false;
+            anim.SetTrigger("idle");
+
+        }
+            
 
         if (lastInput > 0f)
             spriteRend.flipX = false;

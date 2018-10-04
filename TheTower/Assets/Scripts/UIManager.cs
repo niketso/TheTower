@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private PlayerHP playerHP;
     [SerializeField] private Text dash;
     [SerializeField] private PlayerMovement playerMov;
+    [SerializeField]
+     private Slider dashSlider;
     private static UIManager instance = null;
 
     public static UIManager Instance
@@ -28,6 +30,7 @@ public class UIManager : MonoBehaviour {
             Destroy(this.gameObject);
         }
         instance = this;
+       
         //DontDestroyOnLoad(this.gameObject);
     }
 
@@ -35,7 +38,7 @@ public class UIManager : MonoBehaviour {
     {
         //txt.text = elevator.Timer.ToString();
         lives.text = playerHP.PlayerChances.ToString();
-
-        dash.text = playerMov.TimeToDash.ToString();
+        dashSlider.value = dashSlider.maxValue - playerMov.TimerToNextDash;//dashSlider.maxValue - dashSlider.minValue;
+        //dash.text = playerMov.TimeToDash.ToString();
 	}
 }
