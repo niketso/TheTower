@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class ElevatorBehaviour : MonoBehaviour {
 
     [SerializeField] private float time;
     [SerializeField] private GameObject nextElevator;
     private float timer;
+
+    public UnityEvent newFloor;
 
     public float Timer
     {
@@ -36,6 +40,7 @@ public class ElevatorBehaviour : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.E))
         {
             collision.transform.SetPositionAndRotation(new Vector3(nextElevator.transform.position.x, nextElevator.transform.position.y + 1.5f,0), Quaternion.identity);
+            newFloor.Invoke();
         }
     }
 }

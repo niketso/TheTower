@@ -31,4 +31,11 @@ public class BoundaryManager : MonoBehaviour {
         cam.RightLimit = rightLimits[i];
         cam.LeftLimit = leftLimits[i];
     }
+
+    public void ResetLimits()
+    {
+        i = 0;
+        cam.RightLimit = rightLimits[i];
+        cam.LeftLimit = leftLimits[i];
+    }
 }

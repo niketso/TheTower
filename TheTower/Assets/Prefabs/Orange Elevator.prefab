@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4181020630224330}
   - component: {fileID: 212243998560251316}
   - component: {fileID: 61497726242184104}
-  - component: {fileID: 114117181353993906}
   m_Layer: 0
   m_Name: Orange Elevator
   m_TagString: Untagged
@@ -36,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1819165444428410}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.23, y: -0.25575608, z: 0.27170342}
+  m_LocalPosition: {x: 0.03, y: 4.57, z: 0.27170342}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -67,19 +66,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.16, y: 1.5414}
   m_EdgeRadius: 0
---- !u!114 &114117181353993906
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1819165444428410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85192f40d55b14b479092c06b5ef1c63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  gravityForce: 5
 --- !u!212 &212243998560251316
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -116,7 +102,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: d5f66eb9d9fb14142b88980e7596ff85, type: 3}
-  m_Color: {r: 1, g: 0.3875894, b: 0.11792451, a: 1}
+  m_Color: {r: 0.9433962, g: 0.20024922, b: 0.916311, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
