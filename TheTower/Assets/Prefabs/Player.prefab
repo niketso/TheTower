@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerChances: 3
+  playerSpawnPoint: {fileID: 0}
   plyDeath:
     m_PersistentCalls:
       m_Calls:
@@ -226,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e847a66fc74dd46938ba623000fd7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 1
   startTimeAttack: 0
   attackPos: {fileID: 4907955304001592}
   range: 1.22
@@ -249,6 +250,8 @@ MonoBehaviour:
   startDashTime: 0.1
   timeToDash: 0.2
   attack: {fileID: 4907955304001592}
+  dashSprite: {fileID: 0}
+  idleSprite: {fileID: 0}
 --- !u!212 &212235176441879000
 SpriteRenderer:
   m_ObjectHideFlags: 1
