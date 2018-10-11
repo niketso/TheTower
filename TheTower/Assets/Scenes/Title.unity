@@ -918,7 +918,9 @@ MonoBehaviour:
 
     Ataque: X
 
-    Dash: Z'
+    Dash: Z
+
+    Ascensor: C'
 --- !u!222 &1693340644
 CanvasRenderer:
   m_ObjectHideFlags: 0

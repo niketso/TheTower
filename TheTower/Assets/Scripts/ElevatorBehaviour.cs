@@ -37,7 +37,7 @@ public class ElevatorBehaviour : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             collision.transform.SetPositionAndRotation(new Vector3(nextElevator.transform.position.x, nextElevator.transform.position.y + 1.5f,0), Quaternion.identity);
             newFloor.Invoke();
