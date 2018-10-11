@@ -6,6 +6,7 @@ TagManager:
   tags:
   - leftLimit
   - rightLimit
+  - Enemy
   layers:
   - Default
   - TransparentFX

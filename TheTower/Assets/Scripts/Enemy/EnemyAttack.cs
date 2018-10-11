@@ -22,8 +22,14 @@ public class EnemyAttack : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) 
     {
-        anim.SetBool("canAttack", true);
-        col = collision;
+
+        if (collision.CompareTag("Player"))
+        {
+            anim.SetBool("canAttack", true);
+            col = collision;
+        }
+
+            
     }
 
     private void OnTriggerExit2D(Collider2D collision) 
