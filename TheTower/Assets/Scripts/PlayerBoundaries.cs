@@ -4,10 +4,29 @@ using UnityEngine;
 
 public class PlayerBoundaries : MonoBehaviour {
 
-    [SerializeField] Vector3 pushDistance;
+    [SerializeField] private GameObject player;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void Update()
     {
-        collision.transform.position -= pushDistance;
+        if (player.transform.position.x <= -4.3f)
+        {
+            transform.position = new Vector2(-4.3f, transform.position.y);
+        }
+        else if (transform.position.x >= 4.3f)
+        {
+            transform.position = new Vector2(4.3f, transform.position.y);
+        }
+
+        // Y axis
+        if (transform.position.y <= -2.7f)
+        {
+            transform.position = new Vector2(transform.position.x, -2.7f);
+        }
+        else if (transform.position.y >= 2.7f)
+        {
+            transform.position = new Vector2(transform.position.x, 2.7f);
+        }
     }
+
 }

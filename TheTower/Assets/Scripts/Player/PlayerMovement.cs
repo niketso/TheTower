@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,9 +19,8 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private bool moving = false;
     private SpriteRenderer spriteRend;
-    [SerializeField] private Sprite dashSprite;
-    [SerializeField] private Sprite idleSprite;
-
+    private Transform rightLimit;
+    private Transform leftLimit;
 
 
     public float TimerToNextDash
@@ -30,6 +30,32 @@ public class PlayerMovement : MonoBehaviour
             return timerToNextDash;
         }
   
+    }
+
+    public Transform RightLimit
+    {
+        get
+        {
+            return rightLimit;
+        }
+
+        set
+        {
+            rightLimit = value;
+        }
+    }
+
+    public Transform LeftLimit
+    {
+        get
+        {
+            return leftLimit;
+        }
+
+        set
+        {
+            leftLimit = value;
+        }
     }
 
     private void Awake()
@@ -45,6 +71,19 @@ public class PlayerMovement : MonoBehaviour
     {
 		PMov();
         Dash();
+        CheckBounds();
+    }
+
+    private void CheckBounds()
+    {
+        if (transform.position.x <= rightLimit.position.x)
+        {
+            transform.position = new Vector2(rightLimit.position.x, transform.position.y);
+        }
+        else if (transform.position.x >= leftLimit.position.x)
+        {
+            transform.position = new Vector2(leftLimit.position.x, transform.position.y);
+        }
     }
 
     private void Dash()
@@ -52,7 +91,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z) && timerToNextDash <= 0f)
         {
             gameObject.layer = 10;
-            //spriteRend.sprite = dashSprite;
             anim.SetBool("dashing",true);
             timerToNextDash = timeToDash;
 
@@ -75,7 +113,6 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             gameObject.layer = 9;
-            // anim.SetTrigger("idle");
             anim.SetBool("dashing", false);
             if (moving)
             {
@@ -83,38 +120,11 @@ public class PlayerMovement : MonoBehaviour
             }
             else
                 anim.SetTrigger("idle");
-            //spriteRend.sprite = idleSprite;
+
             transform.Translate(Vector3.zero);
         }
 
     }
-        /* if (timerToNextDash <= 0f) {
-         if (Input.GetKeyDown(KeyCode.Z)) {
-
-             gameObject.layer = 10;
-             spriteRend.sprite = dashSprite;
-             timerToNextDash = TimeToDash;
-
-             if (lastInput > 0)
-                 transform.Translate +=  * dashSpeed;
-             if (lastInput < 0)
-                  transform.position += Vector3.left * dashSpeed;
-         }
-         else {
-             if (dashTime <= 0)
-             {
-                 dashTime = startDashTime;
-                 //transform.position = Vector2.zero;
-                 gameObject.layer = 9;
-                 spriteRend.sprite = idleSprite;
-             }
-             else
-                 dashTime -= Time.deltaTime;
-         }
-     }
-     else
-         timerToNextDash -= Time.deltaTime;
-        }*/
     
 
 	private void PMov()

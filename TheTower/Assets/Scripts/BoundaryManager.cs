@@ -8,7 +8,7 @@ public class BoundaryManager : MonoBehaviour {
 
     [SerializeField] private Transform[] rightLimits;
     [SerializeField] private Transform[] leftLimits;
-    private CameraBehaviour cam;
+    [SerializeField] private PlayerMovement player;
     private int i = 0;
 
     private void Awake()
@@ -18,24 +18,22 @@ public class BoundaryManager : MonoBehaviour {
             Destroy(this.gameObject);
         }
         instance = this;
-
-        cam = Camera.main.transform.GetComponent<CameraBehaviour>();
-
-        cam.RightLimit = rightLimits[i];
-        cam.LeftLimit = leftLimits[i];
+        
+        player.RightLimit = rightLimits[i];
+        player.LeftLimit = leftLimits[i];
     }
 
     public void ChangeLimits()
     {
         i++;
-        cam.RightLimit = rightLimits[i];
-        cam.LeftLimit = leftLimits[i];
+        player.RightLimit = rightLimits[i];
+        player.LeftLimit = leftLimits[i];
     }
 
     public void ResetLimits()
     {
         i = 0;
-        cam.RightLimit = rightLimits[i];
-        cam.LeftLimit = leftLimits[i];
+        player.RightLimit = rightLimits[i];
+        player.LeftLimit = leftLimits[i];
     }
 }
