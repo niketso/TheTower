@@ -2142,6 +2142,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212351472078041120, guid: 4a83d6d4be446e149baeebbab153d145,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a83d6d4be446e149baeebbab153d145, type: 2}
   m_IsPrefabAsset: 0
@@ -4843,7 +4848,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1736302326}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: Right Limit
   m_TagString: rightLimit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5400,7 +5405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1846732450}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Left Limit
   m_TagString: leftLimit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6346,7 +6351,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2129755743}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.050570965, y: 0.15523005, z: -10}
+  m_LocalPosition: {x: 0.45609617, y: 0.15361309, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

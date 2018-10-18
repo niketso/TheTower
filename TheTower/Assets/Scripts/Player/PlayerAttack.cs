@@ -19,26 +19,10 @@ public class PlayerAttack : MonoBehaviour {
 
     void Update()
     {
-        /*
-            Para activar las animaciones hay que sacar el llamado a la funcion "Attack" en la deteccion de la tecla X y descomentar la linea que esta arriba del if 
-            y la que esta abajo del llamado a la funcion attack 
-        */
-
-        //anim.SetBool("attacking", false);
-        /*if (timeAttack <= 0)
-        {*/
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                anim.SetBool("attacking",true);
-            }
-               
-
-           /* timeAttack = startTimeAttack;
-        }/*
-       /* else
+        if (Input.GetKeyDown(KeyCode.X))
         {
-            timeAttack -= Time.deltaTime;
-        }*/
+            anim.SetBool("attacking",true);
+        }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
             attackPos.localPosition = new Vector2 (-1.18f, 0);
@@ -61,8 +45,7 @@ public class PlayerAttack : MonoBehaviour {
             if (enemies[i].CompareTag("Enemy"))
             {
                 enemies[i].GetComponent<EnemyHealth>().TakeDamage(damage);
-            } 
-            //Debug.Log(enemies[i].name);
+            }
         }
         Debug.Log("Player attacked");
     }
