@@ -27,6 +27,14 @@ public class EnemyMng : MonoBehaviour {
         }
     }
 
+    public Transform PlayerTransform
+    {
+        get
+        {
+            return playerTransform;
+        }
+    }
+
     private void Awake()
     {
         if (instance != null && instance != this)

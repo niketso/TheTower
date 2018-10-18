@@ -6,6 +6,7 @@ public class ShotBehaviour : MonoBehaviour {
 	
     [SerializeField] float vel;
     [SerializeField] float damage;
+    private SpriteRenderer sprite;
     private Transform leftLimit;
     private Transform rightLimit;
     private GameObject player;
@@ -15,9 +16,16 @@ public class ShotBehaviour : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         leftLimit = GameObject.FindGameObjectWithTag("leftLimit").transform;
         rightLimit = GameObject.FindGameObjectWithTag("rightLimit").transform;
+        sprite = GetComponent<SpriteRenderer>();
 
         if (player.transform.position.x < transform.position.x)
+        {
             vel = vel * -1;
+        }
+        else
+        {
+            sprite.flipX = true;
+        }
     }
 
     void Update ()
