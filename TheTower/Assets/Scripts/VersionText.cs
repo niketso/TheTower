@@ -7,7 +7,7 @@ public class VersionText : MonoBehaviour {
     [SerializeField] Text version_Text;
     void Start() {
 
-        version_Text.text = ("Application Version : " + Application.version);
+        version_Text.text = ("Application Version: " + Application.version);
         
     }
 }
