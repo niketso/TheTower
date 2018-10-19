@@ -18,8 +18,6 @@ public class PlayerHP : MonoBehaviour {
         {
             return playerChances;
         }
-
-        
     }
 
     public Transform PlayerDeathPos
@@ -27,9 +25,7 @@ public class PlayerHP : MonoBehaviour {
         get
         {
             return playerDeathPos;
-        }
-
-        
+        } 
     }
 
     private void Awake()

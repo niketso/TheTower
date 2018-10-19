@@ -10,6 +10,7 @@ public class RangedBehaviour : MonoBehaviour {
     [SerializeField] private EnemyMng Manager;
     private float timer;
     private Animator anim;
+    bool ready = false;
 
     private void Awake()
     {
@@ -19,13 +20,16 @@ public class RangedBehaviour : MonoBehaviour {
 
     private void Update()
     {
-        if (timer <= 0)
-        {
-            TriggerAnimation();
-            timer = fireRate;
+        if (ready)
+        { 
+            if (timer <= 0)
+            {
+                TriggerAnimation();
+                timer = fireRate;
+            }
+            else
+                timer -= Time.deltaTime;
         }
-        else
-            timer -= Time.deltaTime;
     }
 
     private void TriggerAnimation()
@@ -46,5 +50,10 @@ public class RangedBehaviour : MonoBehaviour {
         pos.y = transform.position.y + 0.5f;
 
         Instantiate(shot, pos, Quaternion.identity);
+    }
+
+    public void isReady()
+    {
+        ready = true;
     }
 }
