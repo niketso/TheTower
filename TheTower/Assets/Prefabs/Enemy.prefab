@@ -83,13 +83,14 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1403654523157818}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 157fbe9a2e5cfaa49b8e86ee6f8bd2da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 4
+  fireRate: 3
   shot: {fileID: 1479425968185624, guid: e2a67bedbeb53274eb92b1a353a77ad4, type: 2}
+  Manager: {fileID: 0}
 --- !u!114 &114827978622326350
 MonoBehaviour:
   m_ObjectHideFlags: 1
