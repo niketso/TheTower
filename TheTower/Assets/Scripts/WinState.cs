@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class WinState : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        GameObject plyr = GameObject.FindGameObjectWithTag("Player");
-        if(plyr) 
+        
+        if(collision.transform.CompareTag("Player")) 
         {
             SceneManager.LoadScene("WinScreen");
         }
