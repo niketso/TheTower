@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class LoadLevelButton : MonoBehaviour {
 
+    [SerializeField] private string levelName;
+
     public void ChangeLevel() {
-        SceneManager.LoadScene("1");
+        SceneManager.LoadScene(levelName);
     }
 
     public void Menu() {
