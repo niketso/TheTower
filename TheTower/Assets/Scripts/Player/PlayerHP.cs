@@ -42,8 +42,8 @@ public class PlayerHP : MonoBehaviour {
         {
             if (playerHP <= 0) 
             {
-
-                plyDeath.Invoke();
+                
+                plyDeath.Invoke();              
                 playerHP = 1;
                 playerChances -= 1;
                 PlayerReset();
@@ -66,7 +66,7 @@ public class PlayerHP : MonoBehaviour {
     public void TakeEnemyDamage(float damage) 
     {
         playerHP -= damage;
-        Debug.Log("Player has been hit");
+       // Debug.Log("Player has been hit");
     }
 
     private void PlayerReset() {

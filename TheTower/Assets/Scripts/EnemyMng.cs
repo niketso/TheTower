@@ -14,7 +14,7 @@ public class EnemyMng : MonoBehaviour {
     [SerializeField] private float spawnRate;
     private Camera mainCamera;
     private float timer;
-    private float spriteWidth = 0.8f;
+    //private float spriteWidth = 0.8f;
     private static EnemyMng instance = null;
     private Transform specialSpawnPoint;
 
