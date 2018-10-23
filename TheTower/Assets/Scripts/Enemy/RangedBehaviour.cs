@@ -56,4 +56,9 @@ public class RangedBehaviour : MonoBehaviour {
     {
         ready = true;
     }
+
+    public void TurnOff()
+    {
+        ready = false;
+    }
 }
