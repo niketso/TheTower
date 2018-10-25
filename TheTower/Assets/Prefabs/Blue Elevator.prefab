@@ -22,7 +22,8 @@ GameObject:
   - component: {fileID: 212106975275890086}
   - component: {fileID: 61012038872077818}
   - component: {fileID: 114648210386428466}
-  m_Layer: 0
+  - component: {fileID: 95306741708405902}
+  m_Layer: 13
   m_Name: Blue Elevator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1902905906556340}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 49.69, y: -5.09, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 49.62, y: -2.98, z: 0}
+  m_LocalScale: {x: 1, y: 1.08, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -54,19 +55,37 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.011126041}
+  m_Offset: {x: 0, y: 0.011126876}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.16, y: 1.44}
+    oldSize: {x: 2.16, y: 4.82}
     newSize: {x: 2.16, y: 1.44}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.16, y: 1.3969812}
+  m_Size: {x: 2.16, y: 4.8374834}
   m_EdgeRadius: 0
+--- !u!95 &95306741708405902
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1902905906556340}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2e3f6d28fa1dd6642a79482f538ffc54, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114648210386428466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -80,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 0
   nextElevator: {fileID: 0}
+  prompt: {fileID: 0}
   newFloor:
     m_PersistentCalls:
       m_Calls:
@@ -142,8 +162,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d5f66eb9d9fb14142b88980e7596ff85, type: 3}
-  m_Color: {r: 0.2971698, g: 0.41203064, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: ff1fc935e6dfa1048ac68d77cea8ec99, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer spriteRend;
     private Transform rightLimit;
     private Transform leftLimit;
+    private bool canMove;
 
 
     public float TimerToNextDash
@@ -60,6 +61,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        canMove = true;
+
         spriteRend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
 
@@ -69,9 +72,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Update ()
     {
-		PMov();
-        Dash();
-        CheckBounds();
+        if (canMove)
+        {
+		    PMov();
+            Dash();
+            CheckBounds();
+        }
     }
 
     private void CheckBounds()
@@ -151,5 +157,10 @@ public class PlayerMovement : MonoBehaviour
             spriteRend.flipX = false;
         if (lastInput < 0f)
             spriteRend.flipX = true;
+    }
+
+    public void ChangeCanMove()
+    {
+        canMove = !canMove;
     }
 }
