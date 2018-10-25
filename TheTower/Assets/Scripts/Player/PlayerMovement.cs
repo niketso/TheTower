@@ -73,11 +73,9 @@ public class PlayerMovement : MonoBehaviour
     void Update ()
     {
         if (canMove)
-        {
 		    PMov();
-            Dash();
-            CheckBounds();
-        }
+        Dash();
+        CheckBounds();
     }
 
     private void CheckBounds()
