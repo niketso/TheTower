@@ -1581,7 +1581,7 @@ MonoBehaviour:
   range: 1
   whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 16640
 --- !u!114 &469649072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2376,7 +2376,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 370.8333, y: -37.5}
+  m_AnchoredPosition: {x: 238.50002, y: -37.5}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &758363496
@@ -4432,7 +4432,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1422012105}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.0051107, y: -1.7787998, z: -10}
+  m_LocalPosition: {x: -4.0443277, y: -1.7787998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1400882117}
@@ -4928,7 +4928,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 204.16666, y: -37.5}
+  m_AnchoredPosition: {x: 138, y: -37.5}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1502889688
@@ -7537,7 +7537,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2129755743}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.0932417, y: -1.3288932, z: -10}
+  m_LocalPosition: {x: -2.2893233, y: -1.3286145, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
