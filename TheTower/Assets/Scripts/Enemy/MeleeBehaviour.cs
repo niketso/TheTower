@@ -8,6 +8,7 @@ public class MeleeBehaviour : MonoBehaviour {
     private GameObject player;
     private SpriteRenderer sprite;
     private Animator anim;
+    [SerializeField] private float speed;
 
     private void Awake()
     {
@@ -18,7 +19,7 @@ public class MeleeBehaviour : MonoBehaviour {
 
     private void Update ()
     {
-        if (player.transform.position.x > transform.position.x)
+        if (player.transform.position.x > transform.position.x )
             GoRight();
         if (player.transform.position.x < transform.position.x)
             GoLeft();
@@ -27,13 +28,14 @@ public class MeleeBehaviour : MonoBehaviour {
 
     private void GoLeft()
     {
-        transform.Translate(-0.02f, 0f, 0f);
+                
+        transform.Translate(new Vector3(-speed * Time.deltaTime, 0f , 0f ) );
         sprite.flipX = false;
     }
 
     private void GoRight()
     {
-        transform.Translate(0.02f, 0f, 0f);
+        transform.Translate(new Vector3(speed * Time.deltaTime, 0f, 0f) );
         sprite.flipX = true;
     }
 }

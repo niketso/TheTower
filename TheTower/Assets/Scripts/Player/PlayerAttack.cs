@@ -12,6 +12,8 @@ public class PlayerAttack : MonoBehaviour {
     [SerializeField] private float range;
     [SerializeField] private LayerMask whatIsEnemy;
 
+    private bool isAttacking = false;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -19,16 +21,7 @@ public class PlayerAttack : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            anim.SetBool("attacking",true);
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-            attackPos.localPosition = new Vector2 (-1.18f, 0);
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-            attackPos.localPosition = new Vector2(1.18f, 0);
+        SetAttack();
     }
 
     private void OnDrawGizmosSelected()
@@ -37,8 +30,25 @@ public class PlayerAttack : MonoBehaviour {
         Gizmos.DrawWireSphere(attackPos.position, range);
     }
 
+
+    private void SetAttack()
+
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            anim.SetBool("attacking", true);
+            isAttacking = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && !isAttacking)
+            attackPos.localPosition = new Vector2(-1.18f, 0);
+
+        if (Input.GetKeyDown(KeyCode.RightArrow) && !isAttacking)
+            attackPos.localPosition = new Vector2(1.18f, 0);
+    }
     private void Attack()
     {
+
         Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, range, whatIsEnemy);
         for (int i = 0; i < enemies.Length; i++)
         {
@@ -52,6 +62,11 @@ public class PlayerAttack : MonoBehaviour {
 
     private void EndAttack()
     {
+        isAttacking = false;
         anim.SetBool("attacking", false);
+    }
+    private void StartAttack()
+    {
+        isAttacking = true;
     }
 }
