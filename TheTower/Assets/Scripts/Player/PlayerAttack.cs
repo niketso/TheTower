@@ -13,6 +13,7 @@ public class PlayerAttack : MonoBehaviour {
     [SerializeField] private LayerMask whatIsEnemy;
 
     private bool isAttacking = false;
+    private bool allowInput = true;
 
     private void Awake()
     {
@@ -40,11 +41,14 @@ public class PlayerAttack : MonoBehaviour {
             isAttacking = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && !isAttacking)
-            attackPos.localPosition = new Vector2(-1.18f, 0);
+        if (allowInput)
+        {
+             if (Input.GetKey(KeyCode.LeftArrow))
+                 attackPos.localPosition = new Vector2(-1.18f, 0);
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) && !isAttacking)
-            attackPos.localPosition = new Vector2(1.18f, 0);
+             if (Input.GetKey(KeyCode.RightArrow))
+                 attackPos.localPosition = new Vector2(1.18f, 0);
+        }
     }
     private void Attack()
     {
@@ -68,5 +72,10 @@ public class PlayerAttack : MonoBehaviour {
     private void StartAttack()
     {
         isAttacking = true;
+    }
+
+    public void ChangeAllowInput()
+    {
+        allowInput = !allowInput;
     }
 }
