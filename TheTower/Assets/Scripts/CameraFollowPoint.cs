@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class meh : MonoBehaviour
-{
+public class CameraFollowPoint : MonoBehaviour {
+
     private bool followingPlayer;
     [SerializeField] private GameObject player;
 
