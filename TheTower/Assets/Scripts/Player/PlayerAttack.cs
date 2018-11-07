@@ -33,21 +33,20 @@ public class PlayerAttack : MonoBehaviour {
 
 
     private void SetAttack()
-
     {
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            anim.SetBool("attacking", true);
-            isAttacking = true;
-        }
-
         if (allowInput)
-        {
-             if (Input.GetKey(KeyCode.LeftArrow))
-                 attackPos.localPosition = new Vector2(-1.18f, 0);
+        { 
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                anim.SetBool("attacking", true);
+                isAttacking = true;
+            }
+        
+            if (Input.GetKey(KeyCode.LeftArrow))
+                attackPos.localPosition = new Vector2(-1.18f, 0);
 
-             if (Input.GetKey(KeyCode.RightArrow))
-                 attackPos.localPosition = new Vector2(1.18f, 0);
+            if (Input.GetKey(KeyCode.RightArrow))
+                attackPos.localPosition = new Vector2(1.18f, 0);
         }
     }
     private void Attack()
@@ -77,5 +76,6 @@ public class PlayerAttack : MonoBehaviour {
     public void ChangeAllowInput()
     {
         allowInput = !allowInput;
+        Debug.Log("AllowInput now is: " + allowInput);
     }
 }

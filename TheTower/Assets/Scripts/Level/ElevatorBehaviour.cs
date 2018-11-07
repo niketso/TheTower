@@ -16,6 +16,7 @@ public class ElevatorBehaviour : MonoBehaviour {
     private float timer;
 
     public UnityEvent newFloor;
+    public UnityEvent elevatorActive;
 
     public float Timer
     {
@@ -49,6 +50,7 @@ public class ElevatorBehaviour : MonoBehaviour {
         {
             player = collision.gameObject;
             anim.SetBool("Active", true);
+            elevatorActive.Invoke();
         }
     }
 

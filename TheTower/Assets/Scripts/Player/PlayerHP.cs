@@ -9,6 +9,7 @@ public class PlayerHP : MonoBehaviour {
     [SerializeField] private float playerChances;
     [SerializeField] private Transform playerSpawnPoint;
     private float playerHP = 1;
+    private Animator anim;
     public UnityEvent plyDeath;
    private Transform playerDeathPos;
 
@@ -34,6 +35,7 @@ public class PlayerHP : MonoBehaviour {
             plyDeath = new UnityEvent();
 
         playerDeathPos = transform;
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -66,6 +68,7 @@ public class PlayerHP : MonoBehaviour {
     public void TakeEnemyDamage(float damage) 
     {
         playerHP -= damage;
+        anim.SetBool("die", true);
        // Debug.Log("Player has been hit");
     }
 
@@ -77,6 +80,7 @@ public class PlayerHP : MonoBehaviour {
         }
 
         transform.position = playerSpawnPoint.position;
+        anim.SetBool("die", false);
     }
     
 }

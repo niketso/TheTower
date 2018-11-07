@@ -708,6 +708,44 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1819165444428410, guid: f9474d23c63cd804b90f009f70525e42,
     type: 2}
   m_PrefabInternal: {fileID: 1738398090}
+--- !u!114 &179271849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 179271848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a737faff7972834fa85ba771515135f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrivedAtNewFloor:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 469649071}
+        m_MethodName: ChangeAllowInput
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 469649072}
+        m_MethodName: ChangeCanMove
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &190941778
 GameObject:
   m_ObjectHideFlags: 0
@@ -2064,6 +2102,11 @@ Prefab:
       propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.size
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4374365354588928, guid: b8e17da6f0376b64a8f377c71ee8a019, type: 2}
       propertyPath: m_LocalPosition.x
       value: 49.62
@@ -2194,6 +2237,106 @@ Prefab:
     - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
         type: 2}
       propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[5].m_Target
+      value: 
+      objectReference: {fileID: 469649071}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
+      value: ChangeAllowInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[5].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[5].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[6].m_Target
+      value: 
+      objectReference: {fileID: 469649072}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[6].m_MethodName
+      value: ChangeCanMove
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[6].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[6].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[6].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 469649072}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeCanMove
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 469649071}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ChangeAllowInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2477,6 +2620,11 @@ Prefab:
       propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4374365354588928, guid: b8e17da6f0376b64a8f377c71ee8a019, type: 2}
       propertyPath: m_LocalPosition.x
       value: 39.74
@@ -2590,6 +2738,106 @@ Prefab:
     - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
         type: 2}
       propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 469649071}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: ChangeAllowInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 469649072}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: ChangeCanMove
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 469649072}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeCanMove
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 469649071}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ChangeAllowInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2739,7 +2987,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 357.50006, y: -37.5}
+  m_AnchoredPosition: {x: 238, y: -37.5}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &758363496
@@ -5089,6 +5337,44 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4181020630224330, guid: f9474d23c63cd804b90f009f70525e42,
     type: 2}
   m_PrefabInternal: {fileID: 199658942}
+--- !u!114 &1448856229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1448856227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a737faff7972834fa85ba771515135f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrivedAtNewFloor:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 469649071}
+        m_MethodName: ChangeAllowInput
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 469649072}
+        m_MethodName: ChangeCanMove
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1455627968
 GameObject:
   m_ObjectHideFlags: 0
@@ -5402,7 +5688,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 197.50003, y: -37.5}
+  m_AnchoredPosition: {x: 137.75, y: -37.5}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1502889688
@@ -6257,6 +6543,11 @@ Prefab:
       propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4374365354588928, guid: b8e17da6f0376b64a8f377c71ee8a019, type: 2}
       propertyPath: m_LocalPosition.x
       value: 44.72
@@ -6395,6 +6686,106 @@ Prefab:
     - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
         type: 2}
       propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 469649071}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: ChangeAllowInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[5].m_Target
+      value: 
+      objectReference: {fileID: 469649072}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
+      value: ChangeCanMove
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[5].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[5].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 469649072}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeCanMove
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 469649071}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ChangeAllowInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 2}
+      propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6867,6 +7258,44 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4181020630224330, guid: f9474d23c63cd804b90f009f70525e42,
     type: 2}
   m_PrefabInternal: {fileID: 1071014486}
+--- !u!114 &1768894799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1768894797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a737faff7972834fa85ba771515135f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrivedAtNewFloor:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 469649071}
+        m_MethodName: ChangeAllowInput
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 469649072}
+        m_MethodName: ChangeCanMove
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1783129269
 GameObject:
   m_ObjectHideFlags: 0
@@ -8579,7 +9008,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2129755743}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2833457, y: 0.000012636185, z: -10}
+  m_LocalPosition: {x: -0.13371325, y: 0.000012636185, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

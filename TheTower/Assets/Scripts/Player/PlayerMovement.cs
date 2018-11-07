@@ -70,11 +70,13 @@ public class PlayerMovement : MonoBehaviour
         timerToNextDash = timeToDash;
     }
 
-    void Update ()
+    void Update()
     {
         if (canMove)
-		    PMov();
-        Dash();
+        { 
+            PMov();
+            Dash();
+        }
         CheckBounds();
     }
 
@@ -160,5 +162,6 @@ public class PlayerMovement : MonoBehaviour
     public void ChangeCanMove()
     {
         canMove = !canMove;
+        Debug.Log("CanMove now is: " + canMove);
     }
 }
