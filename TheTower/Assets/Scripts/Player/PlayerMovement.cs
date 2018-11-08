@@ -159,9 +159,15 @@ public class PlayerMovement : MonoBehaviour
             spriteRend.flipX = true;
     }
 
-    public void ChangeCanMove()
+    public void DeactivateCanMove()
     {
-        canMove = !canMove;
+        canMove = false;
+        Debug.Log("CanMove now is: " + canMove);
+    }
+
+    public void ActivateCanMove()
+    {
+        canMove = true;
         Debug.Log("CanMove now is: " + canMove);
     }
 }

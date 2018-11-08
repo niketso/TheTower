@@ -73,9 +73,15 @@ public class PlayerAttack : MonoBehaviour {
         isAttacking = true;
     }
 
-    public void ChangeAllowInput()
+    public void DeactivateAllowInput()
     {
-        allowInput = !allowInput;
+        allowInput = false;
+        Debug.Log("AllowInput now is: " + allowInput);
+    }
+
+    public void ActivateInput()
+    {
+        allowInput = true;
         Debug.Log("AllowInput now is: " + allowInput);
     }
 }

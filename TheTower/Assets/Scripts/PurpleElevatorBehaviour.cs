@@ -5,11 +5,21 @@ using UnityEngine.Events;
 
 public class PurpleElevatorBehaviour : MonoBehaviour
 {
+    private bool _allowReset = true;
     public UnityEvent arrivedAtNewFloor;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        arrivedAtNewFloor.Invoke();
+        if (_allowReset)
+        {
+            arrivedAtNewFloor.Invoke();
+            ChangeAllowReset();
+        }
+    }
+
+    public void ChangeAllowReset()
+    {
+        _allowReset = !_allowReset;
     }
 
 }
