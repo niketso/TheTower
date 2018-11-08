@@ -42,6 +42,16 @@ public class ElevatorBehaviour : MonoBehaviour {
             timer -= Time.deltaTime;
 	}
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            player = collision.gameObject;
+            anim.SetBool("Active", true);
+            elevatorActive.Invoke();
+        }
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         prompt.SetActive(true);
