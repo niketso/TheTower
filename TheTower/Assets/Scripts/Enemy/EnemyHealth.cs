@@ -26,4 +26,9 @@ public class EnemyHealth : MonoBehaviour {
         if (health <= 0)
             Destroy(gameObject);
     }
+
+    public void AddLife(float strength)
+    {
+        health += strength;
+    }
 }

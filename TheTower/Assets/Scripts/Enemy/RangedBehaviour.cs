@@ -7,10 +7,23 @@ public class RangedBehaviour : MonoBehaviour {
 
     [SerializeField] private float fireRate;
     [SerializeField] private GameObject shot;
-    [SerializeField] private EnemyMng Manager;
+    [SerializeField] private Spawner spawner;
     private float timer;
     private Animator anim;
     bool ready = false;
+
+    public Spawner Spawner
+    {
+        get
+        {
+            return spawner;
+        }
+
+        set
+        {
+            spawner = value;
+        }
+    }
 
     private void Awake()
     {
@@ -30,11 +43,13 @@ public class RangedBehaviour : MonoBehaviour {
             else
                 timer -= Time.deltaTime;
         }
+
+        ChangeState();
     }
 
     private void TriggerAnimation()
     {
-        if (Manager.PlayerTransform.position.x > transform.position.x)
+        if (spawner.PlayerTransform.position.x > transform.position.x)
         {
             anim.Play("ShootRight");
         }
@@ -60,5 +75,19 @@ public class RangedBehaviour : MonoBehaviour {
     public void TurnOff()
     {
         ready = false;
+    }
+
+    public void ChangeState()
+    {
+       if(spawner.PlayerTransform.position.y == this.transform.position.y)
+       {
+            isReady();
+            Debug.Log("torreta Activa");
+       }
+       else if(spawner.PlayerTransform.position.y != this.transform.position.y)
+       {
+            TurnOff();
+            Debug.Log("torreta off");
+       }
     }
 }
