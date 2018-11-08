@@ -5,11 +5,13 @@ using UnityEngine;
 public class CameraFollowPoint : MonoBehaviour {
 
     private bool followingPlayer;
+    private Vector3 startingPosition;
     [SerializeField] private GameObject player;
 
     private void Awake()
     {
         followingPlayer = false;
+        startingPosition = transform.position;
     }
 
     private void Update()
@@ -21,5 +23,11 @@ public class CameraFollowPoint : MonoBehaviour {
     public void StartFollowing()
     {
         followingPlayer = true;
+    }
+
+    public void StopFollowing()
+    {
+        followingPlayer = false;
+        transform.position = startingPosition;
     }
 }
