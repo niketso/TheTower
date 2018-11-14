@@ -43,9 +43,7 @@ public class PlayerHP : MonoBehaviour {
         if (PlayerChances != 0)
         {
             if (playerHP <= 0) 
-            {
-                
-                plyDeath.Invoke();              
+            {              
                 playerHP = 1;
                 playerChances -= 1;
                 PlayerReset();
@@ -68,7 +66,6 @@ public class PlayerHP : MonoBehaviour {
     public void TakeEnemyDamage(float damage) 
     {
         playerHP -= damage;
-        anim.SetBool("die", true);
        // Debug.Log("Player has been hit");
     }
 
@@ -79,8 +76,21 @@ public class PlayerHP : MonoBehaviour {
             PlayerDeathPos.position = transform.position;
         }
 
+        StartCoroutine(PlayerDeath());
+        
+    }
+
+    private IEnumerator PlayerDeath()
+    {
+        anim.SetBool("die", true);
+        yield return new WaitForSeconds(0.2f);
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(0.5f);
+        Time.timeScale = 1;
+        plyDeath.Invoke();
         transform.position = playerSpawnPoint.position;
         anim.SetBool("die", false);
+        
     }
     
 }
