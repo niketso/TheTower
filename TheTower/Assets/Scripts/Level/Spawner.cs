@@ -50,6 +50,7 @@ public Transform PlayerTransform
                    
                       GameObject go = Instantiate(meleeEnemy, spawnPointRight.position, Quaternion.identity, enemyHolder.transform);
                      go.GetComponent<EnemyHealth>().AddLife(strength);
+                    
                     //Debug.Log("spawn Right");
                     timer = spawnRate;
                     break;

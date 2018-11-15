@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour {
 
-    [SerializeField] private float health;
+    [SerializeField] private float _health;
+    private float _strength;
     private SpriteRenderer spRend;
+
+    public float Health
+    {
+        get
+        {
+            return _health;
+        }
+   
+    }
 
     private void Awake()
     {
@@ -15,7 +25,7 @@ public class EnemyHealth : MonoBehaviour {
     public void TakeDamage(float damage)
     {
         spRend.color = Color.red;
-        health -= damage;
+        _health -= damage;
         Debug.Log("Enemy Damaged");
     }
 
@@ -23,12 +33,18 @@ public class EnemyHealth : MonoBehaviour {
     {
         spRend.color = Color.white;
 
-        if (health <= 0)
+        if (Health <= 0)
             Destroy(gameObject);
     }
 
     public void AddLife(float strength)
     {
-        health += strength;
+        _strength = strength;
+        _health += strength;
+    }
+
+    public float GetStrength()
+    {
+        return _strength;
     }
 }
