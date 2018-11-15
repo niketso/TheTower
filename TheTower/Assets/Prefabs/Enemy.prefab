@@ -90,7 +90,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 2.5
   shot: {fileID: 1479425968185624, guid: e2a67bedbeb53274eb92b1a353a77ad4, type: 2}
-  Manager: {fileID: 0}
+  spawner: {fileID: 0}
 --- !u!114 &114827978622326350
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5981266fba53bd41b9f67ba5831aa8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 1
 --- !u!212 &212351472078041120
 SpriteRenderer:
   m_ObjectHideFlags: 1

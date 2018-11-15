@@ -17,7 +17,10 @@ public class CameraFollowPoint : MonoBehaviour {
     private void Update()
     {
         if (followingPlayer)
-            gameObject.transform.position = player.transform.position;
+        {
+            Vector3 newPos = new Vector3(player.transform.position.x, player.transform.position.y + 2, 0);
+            gameObject.transform.position = newPos;
+        }
     }
 
     public void StartFollowing()

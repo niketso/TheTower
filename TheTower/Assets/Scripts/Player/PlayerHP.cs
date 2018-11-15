@@ -15,18 +15,12 @@ public class PlayerHP : MonoBehaviour {
 
     public float PlayerChances
     {
-        get
-        {
-            return playerChances;
-        }
+        get{ return playerChances; }
     }
 
     public Transform PlayerDeathPos
     {
-        get
-        {
-            return playerDeathPos;
-        } 
+        get { return playerDeathPos; }
     }
 
     private void Awake()
@@ -36,6 +30,7 @@ public class PlayerHP : MonoBehaviour {
 
         playerDeathPos = transform;
         anim = GetComponent<Animator>();
+        Time.timeScale = 1;
     }
 
     private void Update()
@@ -72,12 +67,9 @@ public class PlayerHP : MonoBehaviour {
     private void PlayerReset() {
 
         if (PlayerDeathPos.position != transform.position)
-        {
             PlayerDeathPos.position = transform.position;
-        }
-
-        StartCoroutine(PlayerDeath());
         
+        StartCoroutine(PlayerDeath());
     }
 
     private IEnumerator PlayerDeath()
@@ -90,7 +82,6 @@ public class PlayerHP : MonoBehaviour {
         plyDeath.Invoke();
         transform.position = playerSpawnPoint.position;
         anim.SetBool("die", false);
-        
     }
     
 }
