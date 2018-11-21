@@ -74,7 +74,7 @@ public class ElevatorBehaviour : MonoBehaviour {
     {
         if (player != null)
         {
-            player.transform.SetPositionAndRotation(new Vector3(nextElevator.transform.position.x, nextElevator.transform.localPosition.y, 0), Quaternion.identity);
+            player.transform.SetPositionAndRotation(new Vector3(nextElevator.transform.position.x, nextElevator.transform.position.y - 0.5f, 0), Quaternion.identity);
             newFloor.Invoke();
         }
         else

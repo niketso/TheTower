@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraSwitchController : MonoBehaviour {
+public class CameraSwitchController : MonoBehaviour
+{
 
     private Animator anim;
 
@@ -24,6 +25,26 @@ public class CameraSwitchController : MonoBehaviour {
     public void ChangeToLevel4()
     {
         anim.Play("CameraSwitch4");
+    }
+
+    public void ChangeToLevel5()
+    {
+        anim.Play("CameraSwitch5");
+    }
+
+    public void ChangeToLevel6()
+    {
+        anim.Play("CameraSwitch6");
+    }
+
+    public void ChangeToLevel7()
+    {
+        anim.Play("CameraSwitch7");
+    }
+
+    public void ChangeToLevel8()
+    {
+        anim.Play("CameraSwitch8");
     }
 
     public void RestartLevels()
