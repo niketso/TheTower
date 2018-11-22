@@ -22,7 +22,7 @@ public class PurpleElevatorBehaviour : MonoBehaviour
 
     public void ChangeAllowReset()
     {
-        _allowReset = !_allowReset;
+        _allowReset = true;
     }
 
     private IEnumerator InvokeEvent()
@@ -32,7 +32,7 @@ public class PurpleElevatorBehaviour : MonoBehaviour
         if (_allowReset)
         {
             arrivedAtNewFloor.Invoke();
-            ChangeAllowReset();
+            _allowReset = false;
         }
     }
 }

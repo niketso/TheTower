@@ -26,37 +26,19 @@ public class PlayerMovement : MonoBehaviour
 
     public float TimerToNextDash
     {
-        get
-        {
-            return timerToNextDash;
-        }
-  
+        get { return timerToNextDash; }
     }
 
     public Transform RightLimit
     {
-        get
-        {
-            return rightLimit;
-        }
-
-        set
-        {
-            rightLimit = value;
-        }
+        get { return rightLimit; }
+        set { rightLimit = value; }
     }
 
     public Transform LeftLimit
     {
-        get
-        {
-            return leftLimit;
-        }
-
-        set
-        {
-            leftLimit = value;
-        }
+        get { return leftLimit; }
+        set { leftLimit = value; }
     }
 
     private void Awake()
@@ -75,8 +57,8 @@ public class PlayerMovement : MonoBehaviour
         if (canMove)
         { 
             PMov();
-            Dash();
         }
+        Dash();
         CheckBounds();
     }
 
@@ -162,12 +144,10 @@ public class PlayerMovement : MonoBehaviour
     public void DeactivateCanMove()
     {
         canMove = false;
-        Debug.Log("CanMove now is: " + canMove);
     }
 
     public void ActivateCanMove()
     {
         canMove = true;
-        Debug.Log("CanMove now is: " + canMove);
     }
 }

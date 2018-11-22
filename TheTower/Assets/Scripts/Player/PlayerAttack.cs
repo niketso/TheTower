@@ -60,7 +60,6 @@ public class PlayerAttack : MonoBehaviour {
                 enemies[i].GetComponent<EnemyHealth>().TakeDamage(damage);
             }
         }
-        Debug.Log("Player attacked");
     }
 
     private void EndAttack()
@@ -76,12 +75,10 @@ public class PlayerAttack : MonoBehaviour {
     public void DeactivateAllowInput()
     {
         allowInput = false;
-        Debug.Log("AllowInput now is: " + allowInput);
     }
 
     public void ActivateInput()
     {
         allowInput = true;
-        Debug.Log("AllowInput now is: " + allowInput);
     }
 }

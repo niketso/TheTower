@@ -38,10 +38,12 @@ public class PlayerHP : MonoBehaviour {
         if (PlayerChances != 0)
         {
             if (playerHP <= 0) 
-            {              
+            {
+                gameObject.layer = 10;
                 playerHP = 1;
                 playerChances -= 1;
                 PlayerReset();
+                gameObject.layer = 9;
             }
         }
 
