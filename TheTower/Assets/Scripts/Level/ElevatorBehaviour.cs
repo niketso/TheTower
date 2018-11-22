@@ -44,6 +44,8 @@ public class ElevatorBehaviour : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        prompt.SetActive(true);
+
         if (Input.GetKeyDown(KeyCode.C))
         {
             player = collision.gameObject;
@@ -54,8 +56,7 @@ public class ElevatorBehaviour : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        prompt.SetActive(true);
-
+        
         if (Input.GetKeyDown(KeyCode.C))
         {
             player = collision.gameObject;

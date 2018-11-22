@@ -11,6 +11,16 @@ public class BoundaryManager : MonoBehaviour {
     [SerializeField] private PlayerMovement player;
     private int i = 0;
 
+    public Transform[] RightLimits
+    {
+        get { return rightLimits; }
+    }
+
+    public Transform[] LeftLimits
+    {
+        get{ return leftLimits; }
+    }
+
     private void Awake()
     {
         if (instance != null && instance != this)

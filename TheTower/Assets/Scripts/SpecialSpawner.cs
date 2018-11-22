@@ -12,10 +12,8 @@ public class SpecialSpawner : MonoBehaviour {
 	private Transform specialSpawnPoint;
 	public  void SpawnSpecial()
     {
-       specialSpawnPoint = playerTransform.GetComponent<PlayerHP>().PlayerDeathPos;
-        GameObject go = Instantiate(specialEnemy, specialSpawnPoint.position, Quaternion.identity/*, enemyHolder.transform*/);
+        specialSpawnPoint = playerTransform.GetComponent<PlayerHP>().PlayerDeathPos;
+        GameObject go = Instantiate(specialEnemy, specialSpawnPoint.position, Quaternion.identity);
 		go.GetComponent<RangedBehaviour>().Spawner = _spawner;
     }
-
-
 }

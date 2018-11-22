@@ -8,8 +8,8 @@ public class MeleeBehaviour : MonoBehaviour {
     private GameObject player;
     private SpriteRenderer sprite;
     private Animator anim;
-    private Transform rightLimit;
-    private Transform leftLimit;
+    [SerializeField] private Transform rightLimit;
+    [SerializeField] private Transform leftLimit;
     [SerializeField] private float speed;
 
     public Transform RightLimit
@@ -56,13 +56,13 @@ public class MeleeBehaviour : MonoBehaviour {
     private void GoLeft()
     {
                 
-        transform.Translate(new Vector3(-speed * Time.deltaTime, 0f , 0f ) );
+        transform.Translate(new Vector3(-speed * Time.deltaTime, 0f , 0f ));
         sprite.flipX = false;
     }
 
     private void GoRight()
     {
-        transform.Translate(new Vector3(speed * Time.deltaTime, 0f, 0f) );
+        transform.Translate(new Vector3(speed * Time.deltaTime, 0f, 0f));
         sprite.flipX = true;
     }
 }

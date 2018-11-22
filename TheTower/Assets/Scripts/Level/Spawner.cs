@@ -10,9 +10,10 @@ public class Spawner : MonoBehaviour {
     [SerializeField] private Transform spawnPointLeft;
     [SerializeField] private Transform spawnPointRight;
     [SerializeField] private float spawnRate;
-
+    [SerializeField] private BoundaryManager boundaryManager;
     [SerializeField] private float strength;
-    
+    [SerializeField] private int floorNumber;
+
     private float timer;
 
     public bool playerIsHere = false;
@@ -47,23 +48,25 @@ public Transform PlayerTransform
             switch (rand)
             {
                 case 1:
-                   
-                      GameObject go = Instantiate(meleeEnemy, spawnPointRight.position, Quaternion.identity, enemyHolder.transform);
-                     go.GetComponent<EnemyHealth>().AddLife(strength);
-                    
+                    GameObject go = Instantiate(meleeEnemy, spawnPointRight.position, Quaternion.identity, enemyHolder.transform);
+                    go.GetComponent<EnemyHealth>().AddLife(strength);
+                    go.GetComponent<MeleeBehaviour>().RightLimit = boundaryManager.RightLimits[floorNumber - 1];
+                    go.GetComponent<MeleeBehaviour>().LeftLimit = boundaryManager.LeftLimits[floorNumber - 1];
+
                     //Debug.Log("spawn Right");
                     timer = spawnRate;
                     break;
+
                 case 2:
                     GameObject enemy = Instantiate(meleeEnemy, spawnPointLeft.position, Quaternion.identity, enemyHolder.transform);
                     enemy.GetComponent<EnemyHealth>().AddLife(strength);
+                    enemy.GetComponent<MeleeBehaviour>().RightLimit = boundaryManager.RightLimits[floorNumber - 1];
+                    enemy.GetComponent<MeleeBehaviour>().LeftLimit = boundaryManager.LeftLimits[floorNumber - 1];
 
                     //Debug.Log("spawn Left");
                     timer = spawnRate;
                     break;
             }
-
-
         }
         else
             timer -= Time.deltaTime;
