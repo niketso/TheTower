@@ -17,6 +17,8 @@ public class PlayerHP : MonoBehaviour {
     public UnityEvent plyDeath;
     private Transform playerDeathPos;
 
+    private bool canBeHit = true;
+
     public float PlayerChances
     {
         get{ return playerChances; }
@@ -25,6 +27,12 @@ public class PlayerHP : MonoBehaviour {
     public Transform PlayerDeathPos
     {
         get { return playerDeathPos; }
+    }
+
+    public bool CanBeHit
+    {
+        get { return canBeHit; }
+        set { canBeHit = value; }
     }
 
     private void Awake()
@@ -66,8 +74,12 @@ public class PlayerHP : MonoBehaviour {
 
     public void TakeEnemyDamage(float damage, string type) 
     {
-        playerHP -= damage;
-        lastHitType = type;
+        if (canBeHit)
+        {
+            playerHP -= damage;
+            lastHitType = type;
+            canBeHit = false;
+        }
     }
 
     private void PlayerReset() {
@@ -94,6 +106,7 @@ public class PlayerHP : MonoBehaviour {
         plyDeath.Invoke();
         transform.position = playerSpawnPoint.position;
         anim.SetBool("die", false);
+        canBeHit = true;
     }
     
 }
