@@ -8,6 +8,7 @@ public class RangedBehaviour : MonoBehaviour {
     [SerializeField] private float fireRate;
     [SerializeField] private GameObject shot;
     [SerializeField] private Spawner spawner;
+    private AudioSource audSource;
     private float timer;
     private Animator anim;
     bool ready = false;
@@ -28,6 +29,7 @@ public class RangedBehaviour : MonoBehaviour {
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        audSource = GetComponent<AudioSource>();
         timer = fireRate;
     }
 
@@ -89,5 +91,10 @@ public class RangedBehaviour : MonoBehaviour {
             TurnOff();
             Debug.Log("torreta off");
        }
+    }
+
+    public void PlaySound()
+    {
+        audSource.Play();
     }
 }

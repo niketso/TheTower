@@ -5,16 +5,27 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour {
 
     [SerializeField] private float _health;
+    private Spawner spawner;
+    private SpecialSpawner specialSpawner;
     private float _strength;
     private SpriteRenderer spRend;
 
     public float Health
     {
-        get
-        {
-            return _health;
-        }
+        get { return _health; }
    
+    }
+
+    public Spawner Spawner
+    {
+        get { return spawner; }
+        set { spawner = value; }
+    }
+
+    public SpecialSpawner SpecialSpawner
+    {
+        get{ return specialSpawner; }
+        set { specialSpawner = value; }
     }
 
     private void Awake()
@@ -25,16 +36,37 @@ public class EnemyHealth : MonoBehaviour {
     public void TakeDamage(float damage)
     {
         spRend.color = Color.red;
+
         _health -= damage;
-        Debug.Log("Enemy Damaged");
+
+        if (spawner)
+        {
+            if (Health <= 0)
+            {
+                spawner.PlayDeathAudio();
+                Destroy(gameObject);
+            }
+            else
+            {
+                spawner.PlayHitAudio();
+            }
+        }
+        else if (specialSpawner)
+        {
+            if (Health <= 0)
+            {
+                specialSpawner.PlayDeathAudio();
+                Destroy(gameObject);
+            }
+        }
+
     }
 
     private void Update()
     {
         spRend.color = Color.white;
 
-        if (Health <= 0)
-            Destroy(gameObject);
+        
     }
 
     public void AddLife(float strength)

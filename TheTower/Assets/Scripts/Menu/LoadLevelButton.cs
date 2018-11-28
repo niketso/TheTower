@@ -8,14 +8,13 @@ public class LoadLevelButton : MonoBehaviour {
 
     [SerializeField] private string levelName;
 
-    public void ChangeLevel() {
-        SceneManager.LoadScene(levelName);
+    public void ChangeLevel()
+    {
+        StartCoroutine(ChangingLevel());
     }
 
     public void Menu() {
-        SceneManager.LoadScene("Title");
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        StartCoroutine(LoadMenu());
     }
 
     public void Quit() {
@@ -24,5 +23,19 @@ public class LoadLevelButton : MonoBehaviour {
 #else
         Application.Quit();
 #endif
+    }
+
+    private IEnumerator ChangingLevel()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(levelName);
+    }
+
+    private IEnumerator LoadMenu()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("Title");
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }

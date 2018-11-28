@@ -11,6 +11,8 @@ public class PlayerAttack : MonoBehaviour {
     [SerializeField] private Transform attackPos;
     [SerializeField] private float range;
     [SerializeField] private LayerMask whatIsEnemy;
+    [SerializeField] private AudioClip attackSound;
+    private AudioSource audSource;
 
     private bool isAttacking = false;
     private bool allowInput = true;
@@ -18,6 +20,7 @@ public class PlayerAttack : MonoBehaviour {
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        audSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -80,5 +83,14 @@ public class PlayerAttack : MonoBehaviour {
     public void ActivateInput()
     {
         allowInput = true;
+    }
+
+    public void PlayAttackSound()
+    {
+        audSource.clip = attackSound;
+        audSource.volume = 0.6f;
+        audSource.Play();
+        if(!audSource.isPlaying)
+            audSource.volume = 1f;
     }
 }

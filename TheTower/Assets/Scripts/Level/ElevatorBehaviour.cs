@@ -12,6 +12,7 @@ public class ElevatorBehaviour : MonoBehaviour {
     [SerializeField] private GameObject nextElevator;
     [SerializeField] private GameObject prompt;
     private Animator anim;
+    private AudioSource audSource;
     private GameObject player;
     private float timer;
 
@@ -30,6 +31,7 @@ public class ElevatorBehaviour : MonoBehaviour {
     {
         timer = time;
         anim = GetComponent<Animator>();
+        audSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -80,5 +82,10 @@ public class ElevatorBehaviour : MonoBehaviour {
         }
         else
             Debug.LogError("There's no player to Transport!");
+    }
+
+    public void PlayElevatorSound()
+    {
+        audSource.Play();
     }
 }

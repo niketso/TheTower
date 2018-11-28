@@ -28,7 +28,7 @@ public class BoundaryManager : MonoBehaviour {
             Destroy(this.gameObject);
         }
         instance = this;
-        
+
         player.RightLimit = rightLimits[i];
         player.LeftLimit = leftLimits[i];
     }

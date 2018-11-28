@@ -8,8 +8,6 @@ public class LifeUI : MonoBehaviour {
     public PlayerHP plyr;
     public Image[] healthImages;
     
-
-    
     void Update()
     {
         for (int i = 0; i < maxHp; i++)
@@ -26,9 +24,5 @@ public class LifeUI : MonoBehaviour {
             }
 
         }
-    }
-
-  
+    } 
 }
-
-        

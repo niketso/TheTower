@@ -13,6 +13,9 @@ public class Spawner : MonoBehaviour {
     [SerializeField] private BoundaryManager boundaryManager;
     [SerializeField] private float strength;
     [SerializeField] private int floorNumber;
+    [SerializeField] private AudioClip hitEnemy;
+    [SerializeField] private AudioClip destroyEnemy;
+    private AudioSource clip;
 
     private float timer;
 
@@ -22,6 +25,7 @@ public class Spawner : MonoBehaviour {
     private void Awake()
     {
         timer = spawnRate;
+        clip = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -52,7 +56,8 @@ public Transform PlayerTransform
                     go.GetComponent<EnemyHealth>().AddLife(strength);
                     go.GetComponent<MeleeBehaviour>().RightLimit = boundaryManager.RightLimits[floorNumber - 1];
                     go.GetComponent<MeleeBehaviour>().LeftLimit = boundaryManager.LeftLimits[floorNumber - 1];
-
+                    go.GetComponent<EnemyHealth>().Spawner = this;
+                    
                     //Debug.Log("spawn Right");
                     timer = spawnRate;
                     break;
@@ -62,6 +67,7 @@ public Transform PlayerTransform
                     enemy.GetComponent<EnemyHealth>().AddLife(strength);
                     enemy.GetComponent<MeleeBehaviour>().RightLimit = boundaryManager.RightLimits[floorNumber - 1];
                     enemy.GetComponent<MeleeBehaviour>().LeftLimit = boundaryManager.LeftLimits[floorNumber - 1];
+                    enemy.GetComponent<EnemyHealth>().Spawner = this;
 
                     //Debug.Log("spawn Left");
                     timer = spawnRate;
@@ -82,7 +88,15 @@ public Transform PlayerTransform
         playerIsHere = false;
     }
 
-    
+    public void PlayHitAudio()
+    {
+        clip.clip = hitEnemy;
+        clip.Play();
+    }
 
-
+    public void PlayDeathAudio()
+    {
+        clip.clip = destroyEnemy;
+        clip.Play();
+    }
 }

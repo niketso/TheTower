@@ -8,10 +8,14 @@ public class PlayerHP : MonoBehaviour {
 
     [SerializeField] private float playerChances;
     [SerializeField] private Transform playerSpawnPoint;
+    [SerializeField] private AudioClip deathByMeleeSound;
+    [SerializeField] private AudioClip deathByShotSound;
+    private string lastHitType;
+    private AudioSource audSource;
     private float playerHP = 1;
     private Animator anim;
     public UnityEvent plyDeath;
-   private Transform playerDeathPos;
+    private Transform playerDeathPos;
 
     public float PlayerChances
     {
@@ -30,6 +34,7 @@ public class PlayerHP : MonoBehaviour {
 
         playerDeathPos = transform;
         anim = GetComponent<Animator>();
+        audSource = GetComponent<AudioSource>();
         Time.timeScale = 1;
     }
 
@@ -48,7 +53,7 @@ public class PlayerHP : MonoBehaviour {
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
-            TakeEnemyDamage(1f);
+            TakeEnemyDamage(1f, "Melee");
 
         if(PlayerChances <= 0) {
 
@@ -57,26 +62,31 @@ public class PlayerHP : MonoBehaviour {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-           
     }
 
-    public void TakeEnemyDamage(float damage) 
+    public void TakeEnemyDamage(float damage, string type) 
     {
         playerHP -= damage;
-       // Debug.Log("Player has been hit");
+        lastHitType = type;
     }
 
     private void PlayerReset() {
 
         if (PlayerDeathPos.position != transform.position)
             PlayerDeathPos.position = transform.position;
-        
+
+        if (lastHitType == "Melee")
+            audSource.clip = deathByMeleeSound;
+        else if (lastHitType == "Ranged")
+            audSource.clip = deathByShotSound;
+
         StartCoroutine(PlayerDeath());
     }
 
     private IEnumerator PlayerDeath()
     {
         anim.SetBool("die", true);
+        audSource.Play();
         yield return new WaitForSeconds(0.2f);
         Time.timeScale = 0;
         yield return new WaitForSecondsRealtime(0.5f);

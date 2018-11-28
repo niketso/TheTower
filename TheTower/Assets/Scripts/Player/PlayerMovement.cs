@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float startDashTime;
     [SerializeField] private float timeToDash;
     [SerializeField] private Transform attack;
+    [SerializeField] private AudioClip dashSound;
+    private AudioSource audSource;
     private float dashTime;
     private float timerToNextDash;
 	private float lastInput;
@@ -47,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
         spriteRend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        audSource = GetComponent<AudioSource>();
 
         dashTime = startDashTime;
         timerToNextDash = timeToDash;
@@ -80,6 +83,8 @@ public class PlayerMovement : MonoBehaviour
         {
             gameObject.layer = 10;
             anim.SetBool("dashing",true);
+            audSource.clip = dashSound;
+            audSource.Play();
             timerToNextDash = timeToDash;
 
             timedashing = 0.2f;

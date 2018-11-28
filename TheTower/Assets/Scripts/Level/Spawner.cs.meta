@@ -3,7 +3,17 @@ guid: 7cd8d29d528a263418ddcdc0740e8679
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - meleeEnemy: {instanceID: 0}
+  - enemyHolder: {instanceID: 0}
+  - playerTransform: {instanceID: 0}
+  - spawnPointLeft: {instanceID: 0}
+  - spawnPointRight: {instanceID: 0}
+  - boundaryManager: {instanceID: 0}
+  - hitEnemy: {fileID: 8300000, guid: 0ca1f7b09c4bebd4b9a68aa59bb12e78, type: 3}
+  - destroyEnemy: {fileID: 8300000, guid: 9438d938c1f58a442b5b4d00e434c841, type: 3}
+  - hitTurret: {instanceID: 0}
+  - destroyTurret: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
