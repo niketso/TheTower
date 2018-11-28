@@ -88,9 +88,7 @@ public class PlayerAttack : MonoBehaviour {
     public void PlayAttackSound()
     {
         audSource.clip = attackSound;
-        audSource.volume = 0.6f;
         audSource.Play();
-        if(!audSource.isPlaying)
-            audSource.volume = 1f;
+        
     }
 }
