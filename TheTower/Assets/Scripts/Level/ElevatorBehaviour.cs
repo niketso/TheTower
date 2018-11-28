@@ -51,6 +51,7 @@ public class ElevatorBehaviour : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.C))
         {
             player = collision.gameObject;
+            player.GetComponent<PlayerHP>().CanBeHit = false;
             anim.SetBool("Active", true);
             elevatorActive.Invoke();
         }
@@ -62,6 +63,7 @@ public class ElevatorBehaviour : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.C))
         {
             player = collision.gameObject;
+            player.GetComponent<PlayerHP>().CanBeHit = false;
             anim.SetBool("Active", true);
             elevatorActive.Invoke();
         }
@@ -71,6 +73,8 @@ public class ElevatorBehaviour : MonoBehaviour {
     {
         prompt.SetActive(false);
         anim.SetBool("Active", false);
+        if (player)
+            player.GetComponent<PlayerHP>().CanBeHit = true;
     }
 
     public void TransportPlayer()
@@ -79,6 +83,7 @@ public class ElevatorBehaviour : MonoBehaviour {
         {
             player.transform.SetPositionAndRotation(new Vector3(nextElevator.transform.position.x, nextElevator.transform.position.y - 0.5f, 0), Quaternion.identity);
             newFloor.Invoke();
+            player.GetComponent<PlayerHP>().CanBeHit = true;
         }
         else
             Debug.LogError("There's no player to Transport!");
