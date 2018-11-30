@@ -37,7 +37,6 @@ public class EnemyAttack : MonoBehaviour {
         if (collision.CompareTag("Player"))
         {
             anim.SetBool("canAttack", true);
-            col = collision;
         }
     }
 
