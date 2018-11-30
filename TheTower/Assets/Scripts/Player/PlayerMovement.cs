@@ -82,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z) && timerToNextDash <= 0f)
         {
             gameObject.layer = 10;
+            GetComponent<PlayerHP>().CanBeHit = false;
             anim.SetBool("dashing",true);
             audSource.clip = dashSound;
             audSource.Play();
@@ -106,6 +107,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             gameObject.layer = 9;
+            GetComponent<PlayerHP>().CanBeHit = true;
             anim.SetBool("dashing", false);
             if (moving)
             {
