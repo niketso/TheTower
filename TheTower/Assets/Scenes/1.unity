@@ -1104,7 +1104,6 @@ GameObject:
   - component: {fileID: 137365437}
   - component: {fileID: 137365439}
   - component: {fileID: 137365438}
-  - component: {fileID: 137365440}
   m_Layer: 5
   m_Name: Heart
   m_TagString: Untagged
@@ -1164,24 +1163,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 137365436}
   m_CullTransparentMesh: 0
---- !u!95 &137365440
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 137365436}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 363d728c22068524eb59a41a60d6178f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &165142808
 GameObject:
   m_ObjectHideFlags: 0
@@ -4183,7 +4164,6 @@ GameObject:
   - component: {fileID: 758363495}
   - component: {fileID: 758363497}
   - component: {fileID: 758363496}
-  - component: {fileID: 758363498}
   m_Layer: 5
   m_Name: Heart (2)
   m_TagString: Untagged
@@ -4243,24 +4223,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 758363494}
   m_CullTransparentMesh: 0
---- !u!95 &758363498
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 758363494}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 363d728c22068524eb59a41a60d6178f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &772184132
 GameObject:
   m_ObjectHideFlags: 3
@@ -8388,7 +8350,6 @@ GameObject:
   - component: {fileID: 1502889687}
   - component: {fileID: 1502889689}
   - component: {fileID: 1502889688}
-  - component: {fileID: 1502889690}
   m_Layer: 5
   m_Name: Heart (1)
   m_TagString: Untagged
@@ -8448,24 +8409,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1502889686}
   m_CullTransparentMesh: 0
---- !u!95 &1502889690
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1502889686}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 363d728c22068524eb59a41a60d6178f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1514351030
 GameObject:
   m_ObjectHideFlags: 0
@@ -9030,10 +8973,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plyr: {fileID: 469649069}
-  healthImages:
+  healthAnimators:
   - {fileID: 137365438}
   - {fileID: 1502889688}
   - {fileID: 758363496}
+  deathSprite: {fileID: 21300000, guid: 5c0cdc2c6520b2349824762db54fe8c5, type: 3}
 --- !u!114 &1593741929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12709,6 +12653,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114399587598811696, guid: 1cdc5ad439633834cb4ba38511268823,
+        type: 2}
+      propertyPath: plyDeath.m_PersistentCalls.m_Calls.Array.size
+      value: 21
+      objectReference: {fileID: 0}
     - target: {fileID: 4259763102717416, guid: 1cdc5ad439633834cb4ba38511268823, type: 2}
       propertyPath: m_LocalPosition.x
       value: -5.31
@@ -12840,6 +12789,31 @@ Prefab:
         type: 2}
       propertyPath: m_Volume
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114399587598811696, guid: 1cdc5ad439633834cb4ba38511268823,
+        type: 2}
+      propertyPath: plyDeath.m_PersistentCalls.m_Calls.Array.data[20].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114399587598811696, guid: 1cdc5ad439633834cb4ba38511268823,
+        type: 2}
+      propertyPath: plyDeath.m_PersistentCalls.m_Calls.Array.data[20].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114399587598811696, guid: 1cdc5ad439633834cb4ba38511268823,
+        type: 2}
+      propertyPath: plyDeath.m_PersistentCalls.m_Calls.Array.data[20].m_Target
+      value: 
+      objectReference: {fileID: 1593741928}
+    - target: {fileID: 114399587598811696, guid: 1cdc5ad439633834cb4ba38511268823,
+        type: 2}
+      propertyPath: plyDeath.m_PersistentCalls.m_Calls.Array.data[20].m_MethodName
+      value: PlayAnimation
+      objectReference: {fileID: 0}
+    - target: {fileID: 114399587598811696, guid: 1cdc5ad439633834cb4ba38511268823,
+        type: 2}
+      propertyPath: plyDeath.m_PersistentCalls.m_Calls.Array.data[20].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cdc5ad439633834cb4ba38511268823, type: 2}

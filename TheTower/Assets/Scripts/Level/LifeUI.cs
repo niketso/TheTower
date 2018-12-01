@@ -4,25 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class LifeUI : MonoBehaviour {
-    private int maxHp = 3;
+
+    private int maxHp;
+    private int i;
     public PlayerHP plyr;
-    public Image[] healthImages;
-    
-    void Update()
+    public Image[] healthAnimators;
+    [SerializeField] private Sprite deathSprite;
+
+    private void Awake()
     {
-        for (int i = 0; i < maxHp; i++)
-        {
-            if ( plyr.PlayerChances <= i)
-            {
+        maxHp = healthAnimators.Length;
+        i = healthAnimators.Length - 1;
+    }
 
-                healthImages[i].enabled = false;
-                
-            }
-            else
-            {
-                healthImages[i].enabled = true;
-            }
-
-        }
-    } 
+    public void PlayAnimation()
+    {
+        healthAnimators[i].sprite = deathSprite;
+        healthAnimators[i].CrossFadeAlpha(0.0f, 0.5f, true);
+        i--;
+    }
 }
