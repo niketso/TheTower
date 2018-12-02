@@ -13,6 +13,11 @@ public class LoadLevelButton : MonoBehaviour {
         StartCoroutine(ChangingLevel());
     }
 
+    private void Awake()
+    {
+        Time.timeScale = 1;
+    }
+
     public void Menu() {
         StartCoroutine(LoadMenu());
     }
