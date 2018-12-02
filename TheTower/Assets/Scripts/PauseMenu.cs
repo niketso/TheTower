@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour {
 
     [SerializeField] private GameObject PauseMenuUI;
+    [SerializeField] private PlayerMovement plyMov;
+    [SerializeField] private PlayerAttack plyAttack;
     public static bool gameIsPaused = false;
 
     private void Update()
@@ -28,6 +30,8 @@ public class PauseMenu : MonoBehaviour {
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
+        plyAttack.IsPaused = gameIsPaused;
+        plyMov.IsPaused = gameIsPaused;
     }
 
     public void Pause()
@@ -35,6 +39,8 @@ public class PauseMenu : MonoBehaviour {
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
+        plyAttack.IsPaused = gameIsPaused;
+        plyMov.IsPaused = gameIsPaused;
     }
 
     public void LoadMenu()

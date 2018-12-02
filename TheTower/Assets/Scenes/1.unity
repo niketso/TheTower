@@ -1611,6 +1611,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenuUI: {fileID: 601325003}
+  plyMov: {fileID: 469649072}
+  plyAttack: {fileID: 469649071}
 --- !u!1001 &199658942
 Prefab:
   m_ObjectHideFlags: 0
@@ -13522,7 +13524,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2129755743}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9378886, y: 0.00001168251, z: -10}
+  m_LocalPosition: {x: -0.30334997, y: 0.00001168251, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

@@ -14,8 +14,15 @@ public class PlayerAttack : MonoBehaviour {
     [SerializeField] private AudioClip attackSound;
     private AudioSource audSource;
 
+    private bool isPaused = false;
     private bool isAttacking = false;
     private bool allowInput = true;
+
+    public bool IsPaused
+    {
+        get { return isPaused; }
+        set { isPaused = value; }
+    }
 
     private void Awake()
     {
@@ -25,7 +32,8 @@ public class PlayerAttack : MonoBehaviour {
 
     void Update()
     {
-        SetAttack();
+        if(!isPaused)
+            SetAttack();
     }
 
     private void OnDrawGizmosSelected()
@@ -89,6 +97,5 @@ public class PlayerAttack : MonoBehaviour {
     {
         audSource.clip = attackSound;
         audSource.Play();
-        
     }
 }

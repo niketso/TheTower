@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private Transform rightLimit;
     private Transform leftLimit;
     private bool canMove;
-
+    private bool isPaused;
 
     public float TimerToNextDash
     {
@@ -43,6 +43,12 @@ public class PlayerMovement : MonoBehaviour
         set { leftLimit = value; }
     }
 
+    public bool IsPaused
+    {
+        get{ return isPaused; }
+        set{ isPaused = value; }
+    }
+
     private void Awake()
     {
         canMove = true;
@@ -57,12 +63,15 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (canMove)
-        { 
-            PMov();
+        if (!isPaused)
+        {
+            if (canMove)
+            { 
+                PMov();
+            }
+            Dash();
+            CheckBounds();
         }
-        Dash();
-        CheckBounds();
     }
 
     private void CheckBounds()
