@@ -6,7 +6,7 @@ public class EnemyHealth : MonoBehaviour {
 
     [SerializeField] private float _health;
     private Spawner spawner;
-    private SpecialSpawner specialSpawner;
+    [SerializeField] private SpecialSpawner specialSpawner;
     private float _strength;
     private SpriteRenderer spRend;
 
@@ -59,7 +59,6 @@ public class EnemyHealth : MonoBehaviour {
                 Destroy(gameObject);
             }
         }
-
     }
 
     private void Update()
