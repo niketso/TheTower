@@ -7,10 +7,17 @@ using UnityEngine.SceneManagement;
 public class LoadLevelButton : MonoBehaviour {
 
     [SerializeField] private string levelName;
+    [SerializeField] private GameObject menuCanvas;
+    [SerializeField] private GameObject instructionCanvas;
 
     public void ChangeLevel()
     {
         StartCoroutine(ChangingLevel());
+    }
+
+    public void ChangeToInstructionCanvas()
+    {
+        StartCoroutine(ChangeToInstructions());
     }
 
     private void Awake()
@@ -42,5 +49,12 @@ public class LoadLevelButton : MonoBehaviour {
         SceneManager.LoadScene("Title");
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+
+    private IEnumerator ChangeToInstructions()
+    {
+        yield return new WaitForSeconds(0.5f);
+        menuCanvas.SetActive(false);
+        instructionCanvas.SetActive(true);
     }
 }

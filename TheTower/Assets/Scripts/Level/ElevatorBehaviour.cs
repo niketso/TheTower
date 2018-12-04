@@ -8,40 +8,24 @@ using UnityEngine.Events;
 
 public class ElevatorBehaviour : MonoBehaviour {
 
-    [SerializeField] private float time;
     [SerializeField] private GameObject nextElevator;
     [SerializeField] private GameObject prompt;
     private Animator anim;
     private AudioSource audSource;
     private GameObject player;
-    private float timer;
 
     public UnityEvent newFloor;
     public UnityEvent elevatorActive;
 
-    public float Timer
-    {
-        get
-        {
-            return timer;
-        }
-    }
-
     private void Awake()
     {
-        timer = time;
         anim = GetComponent<Animator>();
         audSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
-        if (timer <= 0)
-        {
-            timer = 0;
-        }
-        else
-            timer -= Time.deltaTime;
+        
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)

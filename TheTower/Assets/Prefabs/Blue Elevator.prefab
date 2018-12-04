@@ -80,7 +80,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 971e16163dad1854893b72fdbd92b9a1, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.6
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -193,7 +193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85192f40d55b14b479092c06b5ef1c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0
   nextElevator: {fileID: 0}
   prompt: {fileID: 0}
   newFloor:
