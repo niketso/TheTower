@@ -862,6 +862,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: 1
+  menuCanvas: {fileID: 0}
+  instructionCanvas: {fileID: 0}
 --- !u!1 &1068986905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,7 +1360,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ff192dc073d8d3244b169b723edbb255, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8ffab845c9cb5594eb302ec18ed77f9e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
