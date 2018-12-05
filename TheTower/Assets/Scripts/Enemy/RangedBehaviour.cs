@@ -8,6 +8,7 @@ public class RangedBehaviour : MonoBehaviour {
     [SerializeField] private float fireRate;
     [SerializeField] private GameObject shot;
     [SerializeField] private Spawner spawner;
+    [SerializeField] private bool isSpawnable = true;
     private AudioSource audSource;
     private float timer;
     private Animator anim;
@@ -81,16 +82,34 @@ public class RangedBehaviour : MonoBehaviour {
 
     public void ChangeState()
     {
-       if(spawner.PlayerTransform.position.y == this.transform.position.y)
+       if(isSpawnable)
        {
+             if(spawner.PlayerTransform.position.y == this.transform.position.y)
+                 {
             isReady();
-            Debug.Log("torreta Activa");
-       }
-       else if(spawner.PlayerTransform.position.y != this.transform.position.y)
-       {
+           // Debug.Log("torreta Activa");
+                 }
+             else if(spawner.PlayerTransform.position.y != this.transform.position.y)
+                 {
             TurnOff();
-            Debug.Log("torreta off");
-       }
+           // Debug.Log("torreta off");
+                 }
+       } else
+         {
+           if(spawner.playerIsHere)
+             {
+                isReady();
+             }
+            else
+            {
+                TurnOff();
+            }
+         }
+           
+       
+       
+      
+       
     }
 
     public void PlaySound()
