@@ -4,7 +4,7 @@
 
 # TheTower
 
-Se trata de un Hack ‘n slash scroller, el cual el objetivo principal es llegar a la cima de la torre la cual está plagada de robots que intentarán impedir que logres llegar hasta su controlador y así librar a la sociedad de su malvado control.
+It is a Hack 'n slash scroller, the main objective is to reach the top of the tower which is full of robots that will try to prevent you from reaching their control station and thus freeing society of its evil control.
 
 This is a game (demo/protoype/vertical slice) developed by students from <a href="https://www.imagecampus.edu.ar/">Image Campus</a>
 
