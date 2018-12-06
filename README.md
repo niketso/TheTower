@@ -1,12 +1,10 @@
 <p align="center">
-<img src="logo.png" alt="PONER NOMBRE DEL JUEGO ACA"/>
+<img src="logo.png" alt="TheTower"/>
 </p>
 
-# Nombre del juego
+# TheTower
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit, quam nunc per litora montes himenaeos. Porttitor tellus dis cubilia vitae tortor felis litora vestibulum lacinia, cras diam ut dictumst orci consequat gravida rhoncus, hac faucibus volutpat ligula massa sem ornare posuere.
-
-Aliquam massa ut at semper parturient ridiculus netus suspendisse eros, vivamus lobortis libero lacinia tempor fusce dis rutrum natoque non, tincidunt tempus mus eleifend luctus tellus odio platea. 
+Se trata de un Hack ‘n slash scroller, el cual el objetivo principal es llegar a la cima de la torre la cual está plagada de robots que intentarán impedir que logres llegar hasta su controlador y así librar a la sociedad de su malvado control.
 
 This is a game (demo/protoype/vertical slice) developed by students from <a href="https://www.imagecampus.edu.ar/">Image Campus</a>
 
@@ -20,7 +18,8 @@ This is a game (demo/protoype/vertical slice) developed by students from <a href
 ## Credits
 (in alphabetical order)
 
-- **Nombre Apellido** - *Programming* - <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/facebook.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/twitter.svg" /> <img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/behance.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/artstation.svg" /></a>
+- **Agustin Ezequiel Garcia** - *Programming* - <a href="https://www.linkedin.com/in/agustin-ezequiel-garcia-80475716a/"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg" /> </a> <a href="https://github.com/lithiot"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a>
+- **Facundo Nicolas Piccitto** - *Programming* - <a href="https://www.linkedin.com/in/facundo-nicolas-piccitto-886b8b167/"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg" /> </a> <a href="https://github.com/niketso"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a>
 - **Nombre Apellido** - *Art* - <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/facebook.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/twitter.svg" /> <img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/behance.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/artstation.svg" /></a>
 - **Nombre Apellido** - *Audio* - <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/facebook.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/twitter.svg" /> <img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/behance.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/artstation.svg" /></a>
 - **Nombre Apellido** - *Testing* - <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/facebook.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/twitter.svg" /> <img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/behance.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/artstation.svg" /></a>
@@ -31,15 +30,9 @@ This game was also possible thanks to the support of these professors:
 - **Sergio Baretto**
 - **Federico Barra**
 - **Jorge Cuéllar**
-- **Fernando Puig**
 - **Eugenio Taboada**
-
-
-## Acknowledgements
-
-Otras personas a las que quieran agradecerles, sino sacar este título
 
 
 ## Links
 
-Download it from itch.io: https://lqngames.itch.io/under-control
+Download it from itch.io: https://niketso.itch.io/thetower
