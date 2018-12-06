@@ -18,11 +18,11 @@ This is a game (demo/protoype/vertical slice) developed by students from <a href
 ## Credits
 (in alphabetical order)
 
+- **Zoe Micaela Camos Escobar** - *Testing*
 - **Agustin Ezequiel Garcia** - *Programming* - <a href="https://www.linkedin.com/in/agustin-ezequiel-garcia-80475716a/"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg" /> </a> <a href="https://github.com/lithiot"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a>
 - **Jose Ernesto Gómez** - *Audio*
 - **Facundo Nicolas Piccitto** - *Programming* - <a href="https://www.linkedin.com/in/facundo-nicolas-piccitto-886b8b167/"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg" /> </a> <a href="https://github.com/niketso"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a>
 - **Nombre Apellido** - *Art* - <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/facebook.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/twitter.svg" /> <img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/behance.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/artstation.svg" /></a>
-- **Zoe Micaela Camos Escobar** - *Testing*
 
 
 This game was also possible thanks to the support of these professors:
