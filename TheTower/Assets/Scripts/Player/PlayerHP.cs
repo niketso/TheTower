@@ -22,6 +22,7 @@ public class PlayerHP : MonoBehaviour {
     public float PlayerChances
     {
         get{ return playerChances; }
+        set { playerChances = value; }
     }
 
     public Transform PlayerDeathPos

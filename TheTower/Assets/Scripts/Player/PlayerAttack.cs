@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour {
@@ -17,6 +18,12 @@ public class PlayerAttack : MonoBehaviour {
     private bool isPaused = false;
     private bool isAttacking = false;
     private bool allowInput = true;
+
+    public float Damage 
+    {
+        get => damage;
+        set => damage = value;
+    }
 
     public bool IsPaused
     {
