@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour {
 
     [SerializeField] private float _health;
-    private Spawner spawner;
+    [SerializeField] private Spawner spawner;
     [SerializeField] private SpecialSpawner specialSpawner;
     private float _strength;
     private SpriteRenderer spRend;

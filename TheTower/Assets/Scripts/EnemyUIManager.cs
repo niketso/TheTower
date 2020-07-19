@@ -6,8 +6,6 @@ public class EnemyUIManager : MonoBehaviour {
     [SerializeField] private Slider enemyHpSlider;
     [SerializeField] private EnemyHealth enemyHp;
 
-
-    
     private void Start()
     {
         enemyHpSlider.maxValue = enemyHp.GetStrength();
@@ -18,6 +16,4 @@ public class EnemyUIManager : MonoBehaviour {
     {   
         enemyHpSlider.value =  enemyHp.Health;
     }
-
-
 }

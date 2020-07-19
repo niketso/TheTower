@@ -13,6 +13,14 @@ public class ElevatorBehaviour : MonoBehaviour {
     private Animator anim;
     private AudioSource audSource;
     private GameObject player;
+    private Collider2D collider;
+
+    private bool isBlocked;
+    public bool IsBlocked 
+    {
+        get => IsBlocked;
+        set => isBlocked = value;
+    }
 
     public UnityEvent newFloor;
     public UnityEvent elevatorActive;
@@ -21,17 +29,22 @@ public class ElevatorBehaviour : MonoBehaviour {
     {
         anim = GetComponent<Animator>();
         audSource = GetComponent<AudioSource>();
+        collider = GetComponent<Collider2D>();
     }
 
-    void Update()
+    public void ChangeBlockedState(bool blocked) 
     {
-        
-	}
+        if (blocked)
+            collider.enabled = false;
+        else
+            collider.enabled = true;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         prompt.SetActive(true);
 
+        
         if (Input.GetKey(KeyCode.C))
         {
             player = collision.gameObject;
@@ -43,7 +56,6 @@ public class ElevatorBehaviour : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        
         if (Input.GetKey(KeyCode.C))
         {
             player = collision.gameObject;
