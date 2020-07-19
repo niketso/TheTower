@@ -3087,6 +3087,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad08213b8aa3a044d81cb474731e6588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &469649077 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3526249629913319520, guid: 1cdc5ad439633834cb4ba38511268823,
+    type: 3}
+  m_PrefabInstance: {fileID: 2005839286}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469649068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfe9372cf4814140abf1da4fb7d9605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &494131844
 GameObject:
   m_ObjectHideFlags: 0
@@ -7341,7 +7353,7 @@ GameObject:
   - component: {fileID: 1246834058}
   - component: {fileID: 1246834057}
   m_Layer: 5
-  m_Name: ElevatorPrompt
+  m_Name: InteractPrompt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13656,7 +13668,7 @@ PrefabInstance:
     - target: {fileID: 114399587598811696, guid: 1cdc5ad439633834cb4ba38511268823,
         type: 3}
       propertyPath: plyDeath.m_PersistentCalls.m_Calls.Array.size
-      value: 21
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 114399587598811696, guid: 1cdc5ad439633834cb4ba38511268823,
         type: 3}
@@ -13777,6 +13789,61 @@ PrefabInstance:
         type: 3}
       propertyPath: plyDeath.m_PersistentCalls.m_Calls.Array.data[20].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114399587598811696, guid: 1cdc5ad439633834cb4ba38511268823,
+        type: 3}
+      propertyPath: plyDeath.m_PersistentCalls.m_Calls.Array.data[21].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114399587598811696, guid: 1cdc5ad439633834cb4ba38511268823,
+        type: 3}
+      propertyPath: plyDeath.m_PersistentCalls.m_Calls.Array.data[21].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114399587598811696, guid: 1cdc5ad439633834cb4ba38511268823,
+        type: 3}
+      propertyPath: plyDeath.m_PersistentCalls.m_Calls.Array.data[21].m_Target
+      value: 
+      objectReference: {fileID: 469649077}
+    - target: {fileID: 114399587598811696, guid: 1cdc5ad439633834cb4ba38511268823,
+        type: 3}
+      propertyPath: plyDeath.m_PersistentCalls.m_Calls.Array.data[21].m_MethodName
+      value: TriggerSpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 114399587598811696, guid: 1cdc5ad439633834cb4ba38511268823,
+        type: 3}
+      propertyPath: plyDeath.m_PersistentCalls.m_Calls.Array.data[21].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 212235176441879000, guid: 1cdc5ad439633834cb4ba38511268823,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bd57f0574e70ac945b6ce3f51882e9b4, type: 2}
+    - target: {fileID: 3526249629913319520, guid: 1cdc5ad439633834cb4ba38511268823,
+        type: 3}
+      propertyPath: spawnEffectSpeed
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3526249629913319520, guid: 1cdc5ad439633834cb4ba38511268823,
+        type: 3}
+      propertyPath: unspawnEffectSpeed
+      value: 0.006
+      objectReference: {fileID: 0}
+    - target: {fileID: 3526249629913319520, guid: 1cdc5ad439633834cb4ba38511268823,
+        type: 3}
+      propertyPath: effectColor.r
+      value: 0.8435726
+      objectReference: {fileID: 0}
+    - target: {fileID: 3526249629913319520, guid: 1cdc5ad439633834cb4ba38511268823,
+        type: 3}
+      propertyPath: effectColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3526249629913319520, guid: 1cdc5ad439633834cb4ba38511268823,
+        type: 3}
+      propertyPath: effectColor.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cdc5ad439633834cb4ba38511268823, type: 3}
@@ -14283,7 +14350,7 @@ GameObject:
   - component: {fileID: 2117282319}
   - component: {fileID: 2117282318}
   m_Layer: 5
-  m_Name: ElevatorPromptText
+  m_Name: InteractPromptText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
