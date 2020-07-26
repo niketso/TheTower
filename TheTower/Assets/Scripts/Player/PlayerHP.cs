@@ -44,6 +44,7 @@ public class PlayerHP : MonoBehaviour {
         playerDeathPos = transform;
         anim = GetComponent<Animator>();
         audSource = GetComponent<AudioSource>();
+        audSource.volume = PlayerPrefs.GetFloat("volume");
         Time.timeScale = 1;
     }
 
@@ -89,9 +90,17 @@ public class PlayerHP : MonoBehaviour {
             PlayerDeathPos.position = transform.position;
 
         if (lastHitType == "Melee")
+        {
             audSource.clip = deathByMeleeSound;
+           // audSource.volume = PlayerPrefs.GetFloat("volume");
+        }
+
         else if (lastHitType == "Ranged")
+        {
             audSource.clip = deathByShotSound;
+            //audSource.volume = PlayerPrefs.GetFloat("volume");
+        }
+        
 
         StartCoroutine(PlayerDeath());
     }
@@ -99,7 +108,9 @@ public class PlayerHP : MonoBehaviour {
     private IEnumerator PlayerDeath()
     {
         anim.SetBool("die", true);
+        audSource.volume = PlayerPrefs.GetFloat("volume");
         audSource.Play();
+        audSource.clip = deathByShotSound;
         yield return new WaitForSeconds(0.2f);
         Time.timeScale = 0;
         yield return new WaitForSecondsRealtime(0.5f);

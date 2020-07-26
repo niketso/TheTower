@@ -2,14 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
-public class PauseMenu : MonoBehaviour {
+public class PauseMenu : MonoBehaviour
+{
 
     [SerializeField] private GameObject PauseMenuUI;
+    [SerializeField] private GameObject OptionsMenuUI;
+    [SerializeField] private AudioMixer mixer;
+    [SerializeField] private Slider volumeSlider;
     [SerializeField] private PlayerMovement plyMov;
     [SerializeField] private PlayerAttack plyAttack;
     public static bool gameIsPaused = false;
 
+    private void Awake()
+    {
+        mixer.SetFloat("mainVolume", PlayerPrefs.GetFloat("volume"));
+        volumeSlider.value = PlayerPrefs.GetFloat("volume");
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -57,6 +68,25 @@ public class PauseMenu : MonoBehaviour {
 #else
         Application.Quit();
 #endif
+    }
+
+    public void OptionsMenu()
+    {
+        PauseMenuUI.SetActive(false);
+        OptionsMenuUI.SetActive(true);
+
+    }
+
+    public void BacktoPause()
+    {
+        OptionsMenuUI.SetActive(false);
+        PauseMenuUI.SetActive(true);
+    }
+
+    public void SetVolume(float sliderValue)
+    {
+        mixer.SetFloat("mainVolume", Mathf.Log10(sliderValue) * 20);
+        PlayerPrefs.SetFloat("volume", sliderValue);
     }
 }
 

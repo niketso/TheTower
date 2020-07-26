@@ -56,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
         spriteRend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         audSource = GetComponent<AudioSource>();
+        audSource.volume = PlayerPrefs.GetFloat("volume");
 
         dashTime = startDashTime;
         timerToNextDash = timeToDash;
@@ -94,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
             GetComponent<PlayerHP>().CanBeHit = false;
             anim.SetBool("dashing",true);
             audSource.clip = dashSound;
+            audSource.volume = PlayerPrefs.GetFloat("volume");
             audSource.Play();
             timerToNextDash = timeToDash;
 

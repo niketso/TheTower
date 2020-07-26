@@ -35,6 +35,7 @@ public class PlayerAttack : MonoBehaviour {
     {
         anim = GetComponent<Animator>();
         audSource = GetComponent<AudioSource>();
+        audSource.volume = PlayerPrefs.GetFloat("volume");
     }
 
     void Update()

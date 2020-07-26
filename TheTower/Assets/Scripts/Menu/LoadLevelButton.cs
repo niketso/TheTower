@@ -57,4 +57,5 @@ public class LoadLevelButton : MonoBehaviour {
         menuCanvas.SetActive(false);
         instructionCanvas.SetActive(true);
     }
+
 }

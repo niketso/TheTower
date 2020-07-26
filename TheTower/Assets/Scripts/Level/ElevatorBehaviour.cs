@@ -45,7 +45,7 @@ public class ElevatorBehaviour : MonoBehaviour {
         prompt.SetActive(true);
 
         
-        if (Input.GetKey(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             player = collision.gameObject;
             player.GetComponent<PlayerHP>().CanBeHit = false;
@@ -56,7 +56,7 @@ public class ElevatorBehaviour : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKey(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             player = collision.gameObject;
             player.GetComponent<PlayerHP>().CanBeHit = false;
