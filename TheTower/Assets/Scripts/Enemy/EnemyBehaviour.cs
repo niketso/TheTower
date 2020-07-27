@@ -30,11 +30,11 @@ public class EnemyBehaviour : MonoBehaviour
 
     protected void CheckBounds()
     {
-        if (transform.position.x <= rightLimit.position.x) {
-            transform.position = new Vector2(rightLimit.position.x , transform.position.y);
-        }
-        else if (transform.position.x >= leftLimit.position.x) {
+        if (transform.position.x <= leftLimit.position.x) {
             transform.position = new Vector2(leftLimit.position.x , transform.position.y);
+        }
+        else if (transform.position.x >= rightLimit.position.x) {
+            transform.position = new Vector2(rightLimit.position.x , transform.position.y);
         }
     }
 

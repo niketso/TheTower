@@ -70,7 +70,7 @@ public class Spawner : MonoBehaviour
         int maxAttempts = 4;
         int currentAttempts = 0;
 
-        Vector3 spawnPos = player.position;
+        Vector3 spawnPos = Vector3.zero;
         Transform rightLimit = BoundaryManager.instance.RightLimits[GameManager.instance.CurrentFloor];
         Transform leftLimit = BoundaryManager.instance.LeftLimits[GameManager.instance.CurrentFloor];
         EnemyBehaviour behaviour;
@@ -78,6 +78,7 @@ public class Spawner : MonoBehaviour
 
         do 
         {
+            spawnPos = player.position;
             float offset = Random.Range(enemySpawnMinRange, enemySpawnMaxRange);
             int side = Random.Range(1, 3);
 
@@ -96,7 +97,7 @@ public class Spawner : MonoBehaviour
             else
                 currentAttempts++;
 
-        } while (spawnPos.x > leftLimit.position.x && spawnPos.x < rightLimit.position.x);
+        } while (spawnPos.x < leftLimit.position.x || spawnPos.x > rightLimit.position.x);
 
         GameObject go = meleePool.GetObjectFromPool(spawnPos);
         CurrentEnemyQuantity += 1;
