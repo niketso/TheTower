@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShaderController : MonoBehaviour
+public class ShaderController : MonoBehaviour, iPoolable
 {
     public float maxValue = 0;
     [Range(0, 1)]
@@ -11,15 +11,6 @@ public class ShaderController : MonoBehaviour
     public Color effectColor;
 
     private Material shader;
-
-    private void Awake()
-    {
-        shader = GetComponent<SpriteRenderer>().material;
-
-        shader.SetColor("_EdgeColor" , effectColor);
-
-        TriggerSpawn();
-    }
 
     public void TriggerSpawn() 
     {
@@ -33,5 +24,20 @@ public class ShaderController : MonoBehaviour
             shader.SetFloat("_Fade" , i);
             yield return null;
         }
+    }
+
+    public void OnUnpool()
+    {
+        if(shader == null)
+            shader = GetComponent<SpriteRenderer>().material;
+
+        shader.SetColor("_EdgeColor" , effectColor);
+
+        TriggerSpawn();
+    }
+
+    public void OnPool()
+    {
+        shader.SetFloat("_Fade" , 0);
     }
 }

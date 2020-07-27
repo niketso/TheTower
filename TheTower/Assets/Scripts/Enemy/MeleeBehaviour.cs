@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 
-public class MeleeBehaviour : EnemyBehaviour 
+public class MeleeBehaviour : EnemyBehaviour
 {
     private void Update ()
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BoundaryManager : MonoBehaviour {
 
-    private static BoundaryManager instance = null;
+    public static BoundaryManager instance = null;
 
     [SerializeField] private Transform[] rightLimits;
     [SerializeField] private Transform[] leftLimits;

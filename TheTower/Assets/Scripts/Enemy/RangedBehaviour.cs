@@ -13,6 +13,7 @@ public class RangedBehaviour : MonoBehaviour {
     private float timer;
     private Animator anim;
     bool ready = false;
+    private Transform playerPos;
 
     public Spawner Spawner
     {
@@ -27,11 +28,12 @@ public class RangedBehaviour : MonoBehaviour {
         }
     }
 
-    private void Awake()
+    private void Start()
     {
         anim = GetComponent<Animator>();
         audSource = GetComponent<AudioSource>();
         timer = fireRate;
+        playerPos = GameManager.instance.Player.transform;
     }
 
     private void Update()
@@ -52,7 +54,7 @@ public class RangedBehaviour : MonoBehaviour {
 
     private void TriggerAnimation()
     {
-        if (spawner.PlayerTransform.position.x > transform.position.x)
+        if (playerPos.position.x > transform.position.x)
         {
             anim.Play("ShootRight");
         }
@@ -82,34 +84,28 @@ public class RangedBehaviour : MonoBehaviour {
 
     public void ChangeState()
     {
-       if(isSpawnable)
-       {
-             if(spawner.PlayerTransform.position.y == this.transform.position.y)
-                 {
-            isReady();
-           // Debug.Log("torreta Activa");
-                 }
-             else if(spawner.PlayerTransform.position.y != this.transform.position.y)
-                 {
-            TurnOff();
-           // Debug.Log("torreta off");
-                 }
-       } else
-         {
-           if(spawner.playerIsHere)
-             {
-                isReady();
-             }
-            else
-            {
-                TurnOff();
-            }
-         }
-           
-       
-       
-      
-       
+       //if(isSpawnable)
+       //{
+       //      if(playerPos.position.x == this.transform.position.y)
+       //      {
+       //         isReady();
+       //      }
+       //      else if(playerPos.position.x != this.transform.position.y)
+       //      {
+       //         TurnOff();
+       //      }
+       //} 
+       //else
+       //{
+       //     if(spawner.playerIsHere)
+       //     {
+       //         isReady();
+       //     }
+       //     else
+       //     {
+       //         TurnOff();
+       //     }
+       //}
     }
 
     public void PlaySound()

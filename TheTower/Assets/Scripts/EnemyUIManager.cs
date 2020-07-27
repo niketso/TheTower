@@ -1,19 +1,28 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
 
-public class EnemyUIManager : MonoBehaviour {
+public class EnemyUIManager : MonoBehaviour, iPoolable 
+{
 
     [SerializeField] private Slider enemyHpSlider;
     [SerializeField] private EnemyHealth enemyHp;
 
-    private void Start()
+    public void OnPool()
     {
-        enemyHpSlider.maxValue = enemyHp.GetStrength();
-        enemyHpSlider.value = enemyHpSlider.maxValue;
+        enemyHp.OnHealthChanged -= UpdateSlider;
     }
 
-    private void Update()
-    {   
-        enemyHpSlider.value =  enemyHp.Health;
+    public void OnUnpool()
+    {
+        enemyHpSlider.maxValue = enemyHpSlider.value = enemyHp.baseHealth;
+        enemyHp.OnHealthChanged += UpdateSlider;
+    }
+
+    public void UpdateSlider(float health) 
+    {
+        if (enemyHpSlider.maxValue < health)
+            enemyHpSlider.maxValue = health;
+
+        enemyHpSlider.value = health;
     }
 }

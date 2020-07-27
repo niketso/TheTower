@@ -24,7 +24,7 @@ public class EnemyBehaviour : MonoBehaviour
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameManager.instance.Player;
         anim = GetComponent<Animator>();
     }
 

@@ -17,14 +17,8 @@ public class EnemyAttack : MonoBehaviour {
         audSource = GetComponent<AudioSource>();
     }
 
-    void Update ()
-    {
-
-	}
-
     private void OnTriggerEnter2D(Collider2D collision) 
     {
-
         if (collision.CompareTag("Player"))
         {
             anim.SetBool("canAttack", true);
