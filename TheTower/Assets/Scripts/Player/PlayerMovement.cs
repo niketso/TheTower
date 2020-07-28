@@ -168,4 +168,9 @@ public class PlayerMovement : MonoBehaviour
     {
         canMove = true;
     }
+
+    public void SetCanMove(bool state) 
+    {
+        canMove = state;
+    }
 }

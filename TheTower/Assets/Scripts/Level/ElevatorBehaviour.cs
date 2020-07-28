@@ -22,7 +22,6 @@ public class ElevatorBehaviour : MonoBehaviour {
         set => isBlocked = value;
     }
 
-    public UnityEvent newFloor;
     public UnityEvent elevatorActive;
 
     private void Awake()
@@ -44,33 +43,33 @@ public class ElevatorBehaviour : MonoBehaviour {
     {
         prompt.SetActive(true);
 
-        
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            player = collision.gameObject;
-            player.GetComponent<PlayerHP>().CanBeHit = false;
-            anim.SetBool("Active", true);
-            elevatorActive.Invoke();
-        }
+        Interact(collision.gameObject);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            player = collision.gameObject;
-            player.GetComponent<PlayerHP>().CanBeHit = false;
-            anim.SetBool("Active", true);
-            elevatorActive.Invoke();
-        }
+        Interact(collision.gameObject);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         prompt.SetActive(false);
+        
         anim.SetBool("Active", false);
+        
         if (player)
             player.GetComponent<PlayerHP>().CanBeHit = true;
+    }
+
+    public void Interact(GameObject go) 
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            player = go;
+            player.GetComponent<PlayerHP>().CanBeHit = false;
+            anim.SetBool("Active" , true);
+            elevatorActive.Invoke();
+        }
     }
 
     public void TransportPlayer()
@@ -78,7 +77,9 @@ public class ElevatorBehaviour : MonoBehaviour {
         if (player != null)
         {
             player.transform.SetPositionAndRotation(new Vector3(nextElevator.transform.position.x, nextElevator.transform.position.y - 0.5f, 0), Quaternion.identity);
-            newFloor.Invoke();
+
+            GameManager.instance.ChangeFloor(GameManager.instance.CurrentFloor + 1);
+
             player.GetComponent<PlayerHP>().CanBeHit = true;
         }
         else

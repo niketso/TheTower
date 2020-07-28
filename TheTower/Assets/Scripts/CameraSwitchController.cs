@@ -6,49 +6,39 @@ public class CameraSwitchController : MonoBehaviour
 {
 
     private Animator anim;
+    private CameraFollowPoint currentFollowPoint;
+
+    public List<CameraFollowPoint> followPoints = new List<CameraFollowPoint>();
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
     }
 
-    public void ChangeToLevel2()
+    private void Start()
     {
-        anim.Play("CameraSwitch2");
+        GameManager.instance.OnCurrentFloorChanged += ChangeToNextLevel;
+
+        if (followPoints.Count > 0) 
+        {
+            currentFollowPoint = followPoints[GameManager.instance.CurrentFloor];
+            currentFollowPoint.SetFollowing(true);
+        }
+        else
+            Debug.LogError("CameraSwitchController::Start::The list of follow points is empty");
     }
 
-    public void ChangeToLevel3()
+    public void ChangeToNextLevel(int level) 
     {
-        anim.Play("CameraSwitch3");
-    }
+        anim.Play($"CameraSwitch{level}");
 
-    public void ChangeToLevel4()
-    {
-        anim.Play("CameraSwitch4");
-    }
-
-    public void ChangeToLevel5()
-    {
-        anim.Play("CameraSwitch5");
-    }
-
-    public void ChangeToLevel6()
-    {
-        anim.Play("CameraSwitch6");
-    }
-
-    public void ChangeToLevel7()
-    {
-        anim.Play("CameraSwitch7");
-    }
-
-    public void ChangeToLevel8()
-    {
-        anim.Play("CameraSwitch8");
-    }
-
-    public void RestartLevels()
-    {
-        anim.Play("CameraSwitch");
+        if (followPoints.Count <= level)
+            Debug.LogError("CameraSwitchController::ChangeToNextLevel::The desired followPoint does not exist");
+        else 
+        {
+            currentFollowPoint.SetFollowing(false);
+            currentFollowPoint = followPoints[level];
+            currentFollowPoint.SetFollowing(true);
+        }
     }
 }

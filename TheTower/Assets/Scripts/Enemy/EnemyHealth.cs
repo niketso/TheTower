@@ -41,6 +41,7 @@ public class EnemyHealth : MonoBehaviour, iPoolable
     {
         Health = baseHealth;
         OnHealthChanged += CheckAliveState;
+        GameManager.instance.OnCurrentFloorChanged += Despawn;
     }
 
     public void strenghtenEnemy(float strength) 
@@ -68,7 +69,7 @@ public class EnemyHealth : MonoBehaviour, iPoolable
         switch (type) 
         {
             case EnemyType.MELEE:
-                GameManager.instance.MeleePool.ReturnToPool(this.gameObject);
+                Despawn();
                 break;
             case EnemyType.SPECIAL:
                 // Ask spawner if it should be returned to pool first, then act acordingly
@@ -82,87 +83,9 @@ public class EnemyHealth : MonoBehaviour, iPoolable
                 break;
         }
     }
+
+    private void Despawn(int level = 0)
+    {
+        GameManager.instance.MeleePool.ReturnToPool(this.gameObject);
+    }
 }
-
-
-
-
-
-
-
-
-/*
-    public EnemyType type;
-    public float health;
-    private Spawner spawner;
-    private SpecialSpawner specialSpawner;
-    private float strength;
-    private SpriteRenderer spRend;
-
-    public float Health
-    {
-        get => health;
-        set => health = value;
-    }
-
-    public Spawner Spawner
-    {
-        get { return spawner; }
-        set { spawner = value; }
-    }
-
-    public SpecialSpawner SpecialSpawner
-    {
-        get{ return specialSpawner; }
-        set { specialSpawner = value; }
-    }
-
-    private void Awake()
-    {
-        spRend = GetComponent<SpriteRenderer>();
-    }
-
-    public void TakeDamage(float damage)
-    {
-        spRend.color = Color.red;
-
-        Health -= damage;
-
-        if (spawner)
-        {
-            if (Health <= 0)
-            {
-                spawner.PlayDeathAudio();
-                GameManager.instance.MeleePool.ReturnToPool(this.gameObject);
-            }
-            else
-            {
-                spawner.PlayHitAudio();
-            }
-        }
-        else if (specialSpawner)
-        {
-            if (Health <= 0)
-            {
-                specialSpawner.PlayDeathAudio();
-                Destroy(gameObject);
-            }
-        }
-    }
-
-    private void Update()
-    {
-        spRend.color = Color.white;
-    }
-
-    public void AddLife(float strength)
-    {
-        this.strength = strength;
-        Health += strength;
-    }
-
-    public float GetStrength()
-    {
-        return strength;
-    }
-     */

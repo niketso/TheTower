@@ -39,9 +39,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GoToNextFloor() 
+    public void ChangeFloor(int newFloor) 
     {
-        CurrentFloor += 1;
+        CurrentFloor = newFloor;
     }
 
     [SerializeField] private ObjectPool meleePool;

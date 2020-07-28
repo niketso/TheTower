@@ -6,10 +6,10 @@ public class BoundaryManager : MonoBehaviour {
 
     public static BoundaryManager instance = null;
 
-    [SerializeField] private Transform[] rightLimits;
-    [SerializeField] private Transform[] leftLimits;
+    public Transform[] rightLimits;
+    public Transform[] leftLimits;
+
     [SerializeField] private PlayerMovement player;
-    private int i = 0;
 
     public Transform[] RightLimits
     {
@@ -29,21 +29,18 @@ public class BoundaryManager : MonoBehaviour {
         }
         instance = this;
 
-        player.RightLimit = rightLimits[i];
-        player.LeftLimit = leftLimits[i];
+        player.RightLimit = rightLimits[0];
+        player.LeftLimit = leftLimits[0];
     }
 
-    public void ChangeLimits()
+    private void Start()
     {
-        i++;
-        player.RightLimit = rightLimits[i];
-        player.LeftLimit = leftLimits[i];
+        GameManager.instance.OnCurrentFloorChanged += ChangeLimits;
     }
 
-    public void ResetLimits()
+    public void ChangeLimits(int level)
     {
-        i = 0;
-        player.RightLimit = rightLimits[i];
-        player.LeftLimit = leftLimits[i];
+        player.RightLimit = rightLimits[level];
+        player.LeftLimit = leftLimits[level];
     }
 }
