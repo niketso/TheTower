@@ -5,6 +5,11 @@ using UnityEngine.Animations;
 
 public class MeleeBehaviour : EnemyBehaviour
 {
+    private void Start()
+    {
+        MyType = EnemyType.MELEE;
+    }
+
     private void Update ()
     {
         if (player.transform.position.x > transform.position.x )

@@ -34,14 +34,13 @@ public class Parallax : MonoBehaviour
         }
         else
             StartCoroutine(MoveParalax(transform.position, origin));
-
     }
 
     IEnumerator MoveParalax(Vector3 initialPos, Vector3 finalPos)
     {
         float i = 0;
 
-        Debug.Log("parallax::ElevatorUp()");
+        Debug.Log("parallax::MoveParallax()");
 
         do
         {

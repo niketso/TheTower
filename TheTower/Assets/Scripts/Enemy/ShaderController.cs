@@ -5,34 +5,53 @@ using UnityEngine;
 
 public class ShaderController : MonoBehaviour, iPoolable
 {
-    public float maxValue = 0;
-    [Range(0, 1)]
+    [Range(0, 0.5f)]
     public float spawnEffectSpeed;
+    [Range(0, 0.5f)]
+    public float despawnEffectSpeed;
     public Color effectColor;
 
     private Material shader;
 
-    public void TriggerSpawn() 
+    public void TriggerSpawn(Action<bool> callback = null) 
     {
-        StartCoroutine(SpawnEffect());
+        StartCoroutine(TriggerShader(0, 1, spawnEffectSpeed, success => { if (callback != null) callback.Invoke(success); }));
     }
 
-    IEnumerator SpawnEffect() 
+    public void TriggerDespawn(Action<bool> callback = null) 
     {
-        for (float i = 0; i < maxValue; i += spawnEffectSpeed) 
+        StartCoroutine(TriggerShader(1 , 0 , despawnEffectSpeed, success => { if (callback != null) callback.Invoke(success); }));
+    }
+
+    IEnumerator TriggerShader(float startingValue, float endValue, float speed, Action<bool> callback = null) 
+    {
+        float progress = 0.0f;
+        float value;
+
+        do
         {
-            shader.SetFloat("_Fade" , i);
+            value = Mathf.Lerp(startingValue, endValue, progress);
+            shader.SetFloat("_Fade", value);
             yield return null;
-        }
+
+            progress += speed;
+
+        } while (value != endValue);
+
+        if (callback != null)
+            callback.Invoke(true);
+    }
+
+    private void Awake()
+    {
+        if (shader == null)
+            shader = GetComponent<SpriteRenderer>().material;
+
+        shader.SetColor("_EdgeColor" , effectColor);
     }
 
     public void OnUnpool()
     {
-        if(shader == null)
-            shader = GetComponent<SpriteRenderer>().material;
-
-        shader.SetColor("_EdgeColor" , effectColor);
-
         TriggerSpawn();
     }
 

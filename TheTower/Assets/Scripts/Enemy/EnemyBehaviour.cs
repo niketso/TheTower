@@ -7,6 +7,11 @@ public class EnemyBehaviour : MonoBehaviour
     protected GameObject player;
     protected SpriteRenderer sprite;
     protected Animator anim;
+
+    private EnemyType myType;
+
+    public EnemyType MyType { get => myType; protected set => myType = value; }
+
     [SerializeField] protected Transform rightLimit;
     [SerializeField] protected Transform leftLimit;
     [SerializeField] protected float speed;

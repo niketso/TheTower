@@ -58,7 +58,7 @@ public class ElevatorBehaviour : MonoBehaviour {
         anim.SetBool("Active", false);
         
         if (player)
-            player.GetComponent<PlayerHP>().CanBeHit = true;
+            player.GetComponent<PlayerHP>().Invulnerable = false;
     }
 
     public void Interact(GameObject go) 
@@ -66,7 +66,7 @@ public class ElevatorBehaviour : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.C))
         {
             player = go;
-            player.GetComponent<PlayerHP>().CanBeHit = false;
+            player.GetComponent<PlayerHP>().Invulnerable = true;
             anim.SetBool("Active" , true);
             elevatorActive.Invoke();
         }
@@ -80,7 +80,7 @@ public class ElevatorBehaviour : MonoBehaviour {
 
             GameManager.instance.ChangeFloor(GameManager.instance.CurrentFloor + 1);
 
-            player.GetComponent<PlayerHP>().CanBeHit = true;
+            player.GetComponent<PlayerHP>().Invulnerable = false;
         }
         else
             Debug.LogError("There's no player to Transport!");

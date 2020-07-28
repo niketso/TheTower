@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum EnemyType
 {
-    MELEE, SPECIAL, BLOCKER, COUNT
+    MELEE, RANGED, BLOCKER, COUNT
 }
 
 public class EnemyHealth : MonoBehaviour, iPoolable
@@ -71,7 +71,7 @@ public class EnemyHealth : MonoBehaviour, iPoolable
             case EnemyType.MELEE:
                 Despawn();
                 break;
-            case EnemyType.SPECIAL:
+            case EnemyType.RANGED:
                 // Ask spawner if it should be returned to pool first, then act acordingly
                 Destroy(this.gameObject);
                 break;

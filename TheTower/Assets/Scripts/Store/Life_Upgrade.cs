@@ -12,7 +12,7 @@ public class Life_Upgrade : Upgrade
 
         if (!hp) return;
 
-        hp.PlayerChances += value;
+        hp.playerChances += value;
         ui.AddLife();
 
         Debug.LogError($" {player.name}'s chances increased by {value} ");

@@ -26,7 +26,7 @@ public class ShotBehaviour : MonoBehaviour, iPoolable
     {
         if (collision.transform.CompareTag("Player")) 
         {
-            collision.transform.GetComponent<PlayerHP>().TakeEnemyDamage(damage, "Ranged");
+            collision.transform.GetComponent<PlayerHP>().TakeDamage(EnemyType.RANGED);
             GameManager.instance.ShotPool.ReturnToPool(this.gameObject);
         }
     }

@@ -1,13 +1,126 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class PlayerHP : MonoBehaviour {
+public class PlayerHP : MonoBehaviour 
+{
+    public float playerChances;
 
-    [SerializeField] private float playerChances;
+    public Action<Vector3> OnPlayerDeath;
+    public Action OnPlayerRespawned;
+
     [SerializeField] private Transform playerSpawnPoint;
+    private bool invulnerable;
+    private ShaderController shader;
+    private Animator anim;
+
+    public bool Invulnerable { get => invulnerable; 
+        set 
+        {
+            Debug.Log($"Invulnerable{value}");
+            invulnerable = value;
+        }}
+
+    private void Awake()
+    {
+        Invulnerable = false;
+        shader = GetComponent<ShaderController>();
+        anim = GetComponent<Animator>();
+
+        OnPlayerDeath += KillPlayer;
+    }
+
+    private void Start()
+    {
+        shader.TriggerSpawn();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+            TakeDamage(EnemyType.MELEE);
+    }
+
+    public void TakeDamage(EnemyType type) 
+    {
+        if (Invulnerable) return;
+
+       if (OnPlayerDeath != null)
+            OnPlayerDeath.Invoke(transform.position);
+    }
+
+    private void KillPlayer(Vector3 pos)
+    {
+        playerChances--;
+
+        Invulnerable = true;
+        anim.SetBool("die" , true);
+
+        // Play audio
+
+        shader.TriggerDespawn( success => 
+        {
+            if (playerChances > 0)
+                RespawnPlayer();
+            else
+                SceneManager.LoadScene("LoseScreen");
+        });
+    }
+
+    private void RespawnPlayer()
+    {
+        anim.SetBool("die" , false);
+        transform.position = playerSpawnPoint.position;
+        GameManager.instance.ChangeFloor(0);
+
+        shader.TriggerSpawn(success => 
+        {
+            Invulnerable = false;
+
+            if (OnPlayerRespawned != null)
+                OnPlayerRespawned.Invoke();
+        });
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ 
     [SerializeField] private AudioClip deathByMeleeSound;
     [SerializeField] private AudioClip deathByShotSound;
     private string lastHitType;
@@ -120,5 +233,4 @@ public class PlayerHP : MonoBehaviour {
         anim.SetBool("die", false);
         canBeHit = true;
     }
-    
-}
+     */

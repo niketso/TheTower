@@ -7,6 +7,8 @@ public class EnemyAttack : MonoBehaviour {
     private Animator anim;
     private Collider2D col;
     private AudioSource audSource;
+    private EnemyBehaviour behaviour;
+
     [SerializeField] private float range;
     [SerializeField] private float damage;
     [SerializeField] private LayerMask toDamage;
@@ -15,6 +17,7 @@ public class EnemyAttack : MonoBehaviour {
     {
         anim = GetComponent<Animator>();
         audSource = GetComponent<AudioSource>();
+        behaviour = GetComponent<EnemyBehaviour>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision) 
@@ -44,7 +47,7 @@ public class EnemyAttack : MonoBehaviour {
     {
         if(col != null)
             if (col.transform.CompareTag("Player"))
-                col.GetComponent<PlayerHP>().TakeEnemyDamage(damage, "Melee");
+                col.GetComponent<PlayerHP>().TakeDamage(behaviour.MyType);
     }
 
     public void PlayAttackSound()
