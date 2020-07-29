@@ -18,8 +18,11 @@ public class PauseMenu : MonoBehaviour
 
     private void Awake()
     {
-        mixer.SetFloat("mainVolume", PlayerPrefs.GetFloat("volume"));
-        volumeSlider.value = PlayerPrefs.GetFloat("volume");
+       
+    }
+    private void Start()
+    {
+        volumeSlider.value = AudioManager.instance.startingVolume;
     }
     private void Update()
     {
@@ -39,6 +42,8 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         PauseMenuUI.SetActive(false);
+        OptionsMenuUI.SetActive(false);
+
         Time.timeScale = 1f;
         gameIsPaused = false;
         plyAttack.IsPaused = gameIsPaused;
@@ -84,9 +89,11 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void SetVolume(float sliderValue)
-    {
-        mixer.SetFloat("mainVolume", Mathf.Log10(sliderValue) * 20);
+    {        
+        AudioManager.instance.startingVolume = sliderValue;
         PlayerPrefs.SetFloat("volume", sliderValue);
+        AudioManager.instance.UpdateVolume(sliderValue);
+
     }
 }
 

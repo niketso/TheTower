@@ -43,12 +43,14 @@ public class EnemyHealth : MonoBehaviour {
         {
             if (Health <= 0)
             {
-                spawner.PlayDeathAudio();
+                 spawner.PlayDeathAudio();
+                //AudioManager.instance.Play("");
                 Destroy(gameObject);
             }
             else
             {
                 spawner.PlayHitAudio();
+               // AudioManager.instance.Play("");
             }
         }
         else if (specialSpawner)
@@ -56,6 +58,7 @@ public class EnemyHealth : MonoBehaviour {
             if (Health <= 0)
             {
                 specialSpawner.PlayDeathAudio();
+                //AudioManager.instance.Play("");
                 Destroy(gameObject);
             }
         }

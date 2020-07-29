@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5749745805551864708
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5749745805551864711}
+  - component: {fileID: 5749745805551864710}
+  m_Layer: 0
+  m_Name: Audio manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5749745805551864711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5749745805551864708}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5749745805551864710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5749745805551864708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ab6d699dc64584999b2a6d123b83b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingVolume: 0.5
+  sounds:
+  - name: DashBar
+    clip: {fileID: 8300000, guid: 1447310bdba1cbd4281ca74eea3cfd11, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: DestroyRobot
+    clip: {fileID: 8300000, guid: 9438d938c1f58a442b5b4d00e434c841, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: Elevator
+    clip: {fileID: 8300000, guid: 971e16163dad1854893b72fdbd92b9a1, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: MenuSelect
+    clip: {fileID: 8300000, guid: ad1f6e2e9df1ddb4b89693e63d2ba64f, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: PlayerDash
+    clip: {fileID: 8300000, guid: 70b6204200c8f324db11839cfe7cfff7, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: PlayerDeathSword
+    clip: {fileID: 8300000, guid: 364cf7498df437549b082a23cf73cc5e, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: PlayerDeathTurret
+    clip: {fileID: 8300000, guid: a378d8bf74205234b85322da10c256a3, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: PlayerSwingSword
+    clip: {fileID: 8300000, guid: bbb36fcda3019a8489c4341bbd5e8a9b, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: RobotHitNotDestroy
+    clip: {fileID: 8300000, guid: 0ca1f7b09c4bebd4b9a68aa59bb12e78, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: RobotSpawn
+    clip: {fileID: 8300000, guid: 7053e5b3f4d23b6439d1755865a1127a, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: RobotSwordSwing
+    clip: {fileID: 8300000, guid: ddae116a82d703843b0cd53146a52a3b, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: TurretChargeAndShoot
+    clip: {fileID: 8300000, guid: 446bb7ea3c4089d42b5a5d7e97b275b2, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: TurretDestroy
+    clip: {fileID: 8300000, guid: 63c6aa2a78f779a4ab24091b6eb3be7d, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: MusicGameplay
+    clip: {fileID: 8300000, guid: eef5f55b2510d69469a891b579004683, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: MusicMenu
+    clip: {fileID: 8300000, guid: e781864ded0760f4398c1bda1d31c83a, type: 3}
+    volume: 1
+    source: {fileID: 0}

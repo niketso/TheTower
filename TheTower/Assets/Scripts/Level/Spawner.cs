@@ -13,9 +13,9 @@ public class Spawner : MonoBehaviour {
     [SerializeField] private BoundaryManager boundaryManager;
     [SerializeField] private float strength;
     [SerializeField] private int floorNumber;
-    [SerializeField] private AudioClip hitEnemy;
-    [SerializeField] private AudioClip destroyEnemy;
-    private AudioSource clip;
+   // [SerializeField] private AudioClip hitEnemy;
+   // [SerializeField] private AudioClip destroyEnemy;
+  //  private AudioSource clip;
 
     private float timer;
 
@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour {
     private void Awake()
     {
         timer = spawnRate;
-        clip = GetComponent<AudioSource>();
+       // clip = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -90,13 +90,15 @@ public Transform PlayerTransform
 
     public void PlayHitAudio()
     {
-        clip.clip = hitEnemy;
-        clip.Play();
+        // clip.clip = hitEnemy;
+        // clip.Play();
+        AudioManager.instance.Play("RobotHitNotDestroy");
     }
 
     public void PlayDeathAudio()
     {
-        clip.clip = destroyEnemy;
-        clip.Play();
+        // clip.clip = destroyEnemy;
+        //clip.Play();
+        AudioManager.instance.Play("DestroyRobot");
     }
 }

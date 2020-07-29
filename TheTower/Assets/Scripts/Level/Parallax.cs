@@ -27,6 +27,7 @@ public class Parallax : MonoBehaviour
         transform.position = new Vector3(transform.position.x, dist, transform.position.z);
 
        BuildingPosition();
+       
     }
 
     public void ResetParallax()

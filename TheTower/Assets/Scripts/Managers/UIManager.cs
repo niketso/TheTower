@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour {
     
     [SerializeField] private PlayerMovement playerMov;
     [SerializeField] private Slider dashSlider;
-    private AudioSource clip;
+   // private AudioSource clip;
     private static UIManager instance = null;
 
     public static UIManager Instance
@@ -28,7 +28,7 @@ public class UIManager : MonoBehaviour {
         }
         instance = this;
 
-        clip = dashSlider.GetComponent<AudioSource>();
+       // clip = dashSlider.GetComponent<AudioSource>();
 
         //DontDestroyOnLoad(this.gameObject);
     }
@@ -37,9 +37,10 @@ public class UIManager : MonoBehaviour {
     {             
         dashSlider.value = dashSlider.maxValue - playerMov.TimerToNextDash;//dashSlider.maxValue - dashSlider.minValue;
 
-        if (dashSlider.value != dashSlider.maxValue && !clip.isPlaying)
+        if (dashSlider.value != dashSlider.maxValue /* && !clip.isPlaying*/)
         {
-            clip.PlayDelayed(0.1f);
+            //clip.PlayDelayed(0.1f);
+            AudioManager.instance.Play("DashBar");
         }
 	}
 }

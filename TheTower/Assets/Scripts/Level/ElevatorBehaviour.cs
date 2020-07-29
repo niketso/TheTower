@@ -11,7 +11,7 @@ public class ElevatorBehaviour : MonoBehaviour {
     [SerializeField] private GameObject nextElevator;
     [SerializeField] private GameObject prompt;
     private Animator anim;
-    private AudioSource audSource;
+    //private AudioSource audSource;
     private GameObject player;
     private Collider2D collider;
 
@@ -28,7 +28,7 @@ public class ElevatorBehaviour : MonoBehaviour {
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        audSource = GetComponent<AudioSource>();
+       // audSource = GetComponent<AudioSource>();
         collider = GetComponent<Collider2D>();
     }
 
@@ -87,6 +87,7 @@ public class ElevatorBehaviour : MonoBehaviour {
 
     public void PlayElevatorSound()
     {
-        audSource.Play();
+        //audSource.Play();
+        AudioManager.instance.Play("Elevator");
     }
 }

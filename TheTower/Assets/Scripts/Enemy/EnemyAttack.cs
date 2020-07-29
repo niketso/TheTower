@@ -6,7 +6,7 @@ public class EnemyAttack : MonoBehaviour {
 
     private Animator anim;
     private Collider2D col;
-    private AudioSource audSource;
+   // private AudioSource audSource;
     [SerializeField] private float range;
     [SerializeField] private float damage;
     [SerializeField] private LayerMask toDamage;
@@ -14,7 +14,7 @@ public class EnemyAttack : MonoBehaviour {
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        audSource = GetComponent<AudioSource>();
+       // audSource = GetComponent<AudioSource>();
     }
 
     void Update ()
@@ -55,6 +55,8 @@ public class EnemyAttack : MonoBehaviour {
 
     public void PlayAttackSound()
     {
-        audSource.Play();
+        //audSource.Play();
+        AudioManager.instance.Play("RobotSwordSwing");
+
     }
 }
