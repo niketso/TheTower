@@ -15,14 +15,25 @@ public class GameManager : MonoBehaviour
         else 
         {
             instance = this;
-            DontDestroyOnLoad(this);
         }
+    }
+
+    private void OnDestroy()
+    {
+        instance = null;
     }
 
     [SerializeField] private GameObject player;
     public GameObject Player 
     {
-        get => player;
+        get 
+        {
+            if (!player)
+                player = GameObject.FindGameObjectWithTag("Player");
+
+            return player;
+        }
+        set { player = value; }
     }
 
     private int currentFloor;

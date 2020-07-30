@@ -4,19 +4,6 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public static Spawner instance;
-
-    private void Awake()
-    {
-        if (instance && instance != this)
-            Destroy(this.gameObject);
-        else
-        {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-    }
-
     [SerializeField] private float spawnRate;
     [SerializeField] private int maxEnemiesSpawned;
     public float enemySpawnMinRange;
@@ -36,7 +23,16 @@ public class Spawner : MonoBehaviour
         get => maxEnemiesSpawned; 
         set => maxEnemiesSpawned = value; 
     }
-    public int CurrentEnemyQuantity { get => currentEnemyQuantity; set => currentEnemyQuantity = value; }
+    public int CurrentEnemyQuantity 
+    { 
+        get => currentEnemyQuantity; 
+        set 
+        {
+            currentEnemyQuantity = value;
+
+            if (currentEnemyQuantity < 0) currentEnemyQuantity = 0;
+        }
+    }
 
     private void Start()
     {
@@ -60,6 +56,11 @@ public class Spawner : MonoBehaviour
     private void SpawnEnemy() 
     {
         if (CurrentEnemyQuantity >= MaxEnemiesSpawned) return;
+
+        if (!player)
+            player = GameManager.instance.Player.transform;
+
+        if (!player) return;
 
         foreach (int level in LevelsWithoutEnemies) 
         {
