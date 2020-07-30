@@ -17,12 +17,15 @@ public class PlayerHP : MonoBehaviour
     private ShaderController shader;
     private Animator anim;
 
-    public bool Invulnerable { get => invulnerable; 
+    public bool Invulnerable 
+    { 
+        get => invulnerable; 
         set 
         {
             Debug.Log($"Invulnerable{value}");
             invulnerable = value;
-        }}
+        }
+    }
 
     private void Awake()
     {
@@ -49,7 +52,9 @@ public class PlayerHP : MonoBehaviour
 
     public void TakeDamage(EnemyType type) 
     {
-        if (Invulnerable) return;
+       if (Invulnerable) return;
+       
+
 
        if (OnPlayerDeath != null)
             OnPlayerDeath.Invoke(transform.position);

@@ -2245,6 +2245,11 @@ PrefabInstance:
       propertyPath: isSpawnable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114247720870101746, guid: 4a83d6d4be446e149baeebbab153d145,
+        type: 3}
+      propertyPath: myLevel
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 114827978622326350, guid: 4a83d6d4be446e149baeebbab153d145,
         type: 3}
       propertyPath: specialSpawner
@@ -4895,6 +4900,11 @@ PrefabInstance:
       propertyPath: isSpawnable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114247720870101746, guid: 4a83d6d4be446e149baeebbab153d145,
+        type: 3}
+      propertyPath: myLevel
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 114827978622326350, guid: 4a83d6d4be446e149baeebbab153d145,
         type: 3}
       propertyPath: specialSpawner
@@ -5288,15 +5298,7 @@ MonoBehaviour:
   m_AnimatedTarget: {fileID: 1514351032}
   m_LayerIndex: 0
   m_ShowDebugText: 0
-  m_ChildCameras:
-  - {fileID: 385376778}
-  - {fileID: 54579568}
-  - {fileID: 1701091896}
-  - {fileID: 1095145162}
-  - {fileID: 1771351030}
-  - {fileID: 1894654289}
-  - {fileID: 1955438807}
-  - {fileID: 315047564}
+  m_ChildCameras: []
   m_Instructions:
   - m_FullHash: -979960095
     m_VirtualCamera: {fileID: 385376778}
@@ -6659,6 +6661,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 70650325190998900, guid: 4a83d6d4be446e149baeebbab153d145,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114247720870101746, guid: 4a83d6d4be446e149baeebbab153d145,
         type: 3}
       propertyPath: spawner
@@ -6669,6 +6676,11 @@ PrefabInstance:
       propertyPath: isSpawnable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114247720870101746, guid: 4a83d6d4be446e149baeebbab153d145,
+        type: 3}
+      propertyPath: gunpoint
+      value: 
+      objectReference: {fileID: 1832962905}
     - target: {fileID: 114827978622326350, guid: 4a83d6d4be446e149baeebbab153d145,
         type: 3}
       propertyPath: specialSpawner
@@ -10865,6 +10877,11 @@ PrefabInstance:
       propertyPath: isSpawnable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114247720870101746, guid: 4a83d6d4be446e149baeebbab153d145,
+        type: 3}
+      propertyPath: myLevel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114827978622326350, guid: 4a83d6d4be446e149baeebbab153d145,
         type: 3}
       propertyPath: specialSpawner
@@ -12728,6 +12745,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e09c6bd3c7d688a4098b5b5db449e0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1832962905 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4262024561178367640, guid: 4a83d6d4be446e149baeebbab153d145,
+    type: 3}
+  m_PrefabInstance: {fileID: 988873983}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1842573865
 GameObject:
   m_ObjectHideFlags: 0

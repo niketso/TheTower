@@ -16,17 +16,19 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] protected Transform leftLimit;
     [SerializeField] protected float speed;
 
-    public Transform RightLimit {
+    public Transform RightLimit 
+    {
         get { return rightLimit; }
         set { rightLimit = value; }
     }
 
-    public Transform LeftLimit {
+    public Transform LeftLimit 
+    {
         get { return leftLimit; }
         set { leftLimit = value; }
     }
 
-    private void Awake()
+    protected virtual void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
         player = GameManager.instance.Player;

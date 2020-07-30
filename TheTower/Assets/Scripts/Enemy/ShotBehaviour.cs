@@ -27,7 +27,7 @@ public class ShotBehaviour : MonoBehaviour, iPoolable
         if (collision.transform.CompareTag("Player")) 
         {
             collision.transform.GetComponent<PlayerHP>().TakeDamage(EnemyType.RANGED);
-            GameManager.instance.ShotPool.ReturnToPool(this.gameObject);
+            GoBackToPool();
         }
     }
 
@@ -37,6 +37,8 @@ public class ShotBehaviour : MonoBehaviour, iPoolable
         leftLimit = GameManager.instance.LeftLimit;
         rightLimit = GameManager.instance.RightLimit;
         sprite = GetComponent<SpriteRenderer>();
+
+        GameManager.instance.OnCurrentFloorChanged += GoBackToPool;
 
         if (player.transform.position.x < transform.position.x) 
         {
@@ -53,5 +55,12 @@ public class ShotBehaviour : MonoBehaviour, iPoolable
         player = null;
         leftLimit = null;
         rightLimit = null;
+
+        GameManager.instance.OnCurrentFloorChanged -= GoBackToPool;
+    }
+
+    private void GoBackToPool(int level = 0)
+    {
+        GameManager.instance.ShotPool.ReturnToPool(this.gameObject);
     }
 }

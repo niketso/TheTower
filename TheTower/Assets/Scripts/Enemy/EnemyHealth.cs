@@ -56,15 +56,11 @@ public class EnemyHealth : MonoBehaviour, iPoolable
 
     private void CheckAliveState(float health) 
     {
-        if (!Spawner) return;
-
         if (health > 0) 
-        {//spawner.PlayHitAudio();
-            return;
-            
-        }
+        {
 
-        //spawner.PlayDeathAudio();
+            return;
+        }
 
         switch (type) 
         {
@@ -72,7 +68,6 @@ public class EnemyHealth : MonoBehaviour, iPoolable
                 Despawn();
                 break;
             case EnemyType.RANGED:
-                // Ask spawner if it should be returned to pool first, then act acordingly
                 Destroy(this.gameObject);
                 break;
             case EnemyType.BLOCKER:

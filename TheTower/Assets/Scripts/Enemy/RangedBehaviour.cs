@@ -3,13 +3,87 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 
-public class RangedBehaviour : MonoBehaviour {
+public class RangedBehaviour : EnemyBehaviour 
+{
+    public int myLevel;
+    public bool active;
 
+    public float timeBetweenAttacks;
+    private float internalTimer;
+
+    public Transform gunpoint;
+
+    protected override void Start()
+    {
+        base.Start();
+
+        active = false;
+        internalTimer = timeBetweenAttacks;
+
+        ToggleActiveState(GameManager.instance.CurrentFloor);
+        GameManager.instance.OnCurrentFloorChanged += ToggleActiveState;
+    }
+
+    private void Update()
+    {
+        if (!active) return;
+
+        if (internalTimer <= 0)
+            TriggerAnimation();
+        else
+            internalTimer -= Time.deltaTime;
+    }
+
+    private void ToggleActiveState(int level) 
+    {
+        active = level == myLevel;
+    }
+
+    private void TriggerAnimation()
+    {
+        if (player.transform.position.x > transform.position.x)
+        {
+            anim.Play("ShootRight");
+        }
+        else
+        {
+            anim.Play("ShootLeft");
+        }
+    }
+
+    public void Shoot() 
+    {
+        GameManager.instance.ShotPool.GetObjectFromPool(gunpoint.position);
+
+        internalTimer = timeBetweenAttacks;
+    }
+
+    public void PlaySound() 
+    {
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
     [SerializeField] private float fireRate;
     [SerializeField] private GameObject shot;
     [SerializeField] private Spawner spawner;
     [SerializeField] private bool isSpawnable = true;
-  //  private AudioSource audSource;
+    //  private AudioSource audSource;
     private float timer;
     private Animator anim;
     bool ready = false;
@@ -31,7 +105,7 @@ public class RangedBehaviour : MonoBehaviour {
     private void Start()
     {
         anim = GetComponent<Animator>();
-       // audSource = GetComponent<AudioSource>();
+        // audSource = GetComponent<AudioSource>();
         timer = fireRate;
         playerPos = GameManager.instance.Player.transform;
     }
@@ -52,17 +126,7 @@ public class RangedBehaviour : MonoBehaviour {
         ChangeState();
     }
 
-    private void TriggerAnimation()
-    {
-        if (playerPos.position.x > transform.position.x)
-        {
-            anim.Play("ShootRight");
-        }
-        else
-        {
-            anim.Play("ShootLeft");
-        }
-    }
+
 
     public void shoot()
     {
@@ -113,4 +177,4 @@ public class RangedBehaviour : MonoBehaviour {
         //audSource.Play();
         AudioManager.instance.Play("TurretChargeAndShoot");
     }
-}
+     */

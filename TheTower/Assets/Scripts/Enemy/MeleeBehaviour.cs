@@ -5,8 +5,10 @@ using UnityEngine.Animations;
 
 public class MeleeBehaviour : EnemyBehaviour
 {
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
+
         MyType = EnemyType.MELEE;
     }
 
