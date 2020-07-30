@@ -137,7 +137,7 @@ public class PlayerHP : MonoBehaviour
     [SerializeField] private AudioClip deathByMeleeSound;
     [SerializeField] private AudioClip deathByShotSound;
     private string lastHitType;
-    private AudioSource audSource;
+   // private AudioSource audSource;
     private float playerHP = 1;
     private Animator anim;
     public UnityEvent plyDeath;
@@ -169,8 +169,8 @@ public class PlayerHP : MonoBehaviour
 
         playerDeathPos = transform;
         anim = GetComponent<Animator>();
-        audSource = GetComponent<AudioSource>();
-        audSource.volume = PlayerPrefs.GetFloat("volume");
+        //audSource = GetComponent<AudioSource>();
+        //audSource.volume = PlayerPrefs.GetFloat("volume");
         Time.timeScale = 1;
     }
 
@@ -217,14 +217,16 @@ public class PlayerHP : MonoBehaviour
 
         if (lastHitType == "Melee")
         {
-            audSource.clip = deathByMeleeSound;
+            // audSource.clip = deathByMeleeSound;
+           
            // audSource.volume = PlayerPrefs.GetFloat("volume");
         }
 
         else if (lastHitType == "Ranged")
         {
-            audSource.clip = deathByShotSound;
+            // audSource.clip = deathByShotSound;
             //audSource.volume = PlayerPrefs.GetFloat("volume");
+           // FindObjectOfType<AudioManager>().Play("PlayerDeathTurret");
         }
         
 
@@ -234,9 +236,12 @@ public class PlayerHP : MonoBehaviour
     private IEnumerator PlayerDeath()
     {
         anim.SetBool("die", true);
-        audSource.volume = PlayerPrefs.GetFloat("volume");
-        audSource.Play();
-        audSource.clip = deathByShotSound;
+        // audSource.volume = PlayerPrefs.GetFloat("volume");
+        //solo para probar
+        // FindObjectOfType<AudioManager>().Play("PlayerDeathSword");
+        AudioManager.instance.Play("PlayerDeathSword");
+        //audSource.Play();
+        // audSource.clip = deathByShotSound;
         yield return new WaitForSeconds(0.2f);
         Time.timeScale = 0;
         yield return new WaitForSecondsRealtime(0.5f);

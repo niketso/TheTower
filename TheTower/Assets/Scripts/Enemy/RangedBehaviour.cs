@@ -9,7 +9,7 @@ public class RangedBehaviour : MonoBehaviour {
     [SerializeField] private GameObject shot;
     [SerializeField] private Spawner spawner;
     [SerializeField] private bool isSpawnable = true;
-    private AudioSource audSource;
+  //  private AudioSource audSource;
     private float timer;
     private Animator anim;
     bool ready = false;
@@ -31,7 +31,7 @@ public class RangedBehaviour : MonoBehaviour {
     private void Start()
     {
         anim = GetComponent<Animator>();
-        audSource = GetComponent<AudioSource>();
+       // audSource = GetComponent<AudioSource>();
         timer = fireRate;
         playerPos = GameManager.instance.Player.transform;
     }
@@ -110,6 +110,7 @@ public class RangedBehaviour : MonoBehaviour {
 
     public void PlaySound()
     {
-        audSource.Play();
+        //audSource.Play();
+        AudioManager.instance.Play("TurretChargeAndShoot");
     }
 }

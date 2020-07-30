@@ -12,8 +12,8 @@ public class PlayerAttack : MonoBehaviour {
     [SerializeField] private Transform attackPos;
     [SerializeField] private float range;
     [SerializeField] private LayerMask whatIsEnemy;
-    [SerializeField] private AudioClip attackSound;
-    private AudioSource audSource;
+    //[SerializeField] private AudioClip attackSound;
+    //private AudioSource audSource;
 
     private bool isPaused = false;
     private bool isAttacking = false;
@@ -34,8 +34,8 @@ public class PlayerAttack : MonoBehaviour {
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        audSource = GetComponent<AudioSource>();
-        audSource.volume = PlayerPrefs.GetFloat("volume");
+       // audSource = GetComponent<AudioSource>();
+       // audSource.volume = PlayerPrefs.GetFloat("volume");
 
         ElevatorBehaviour.OnElevatorStart += DeactivateAllowInput;
         ElevatorBehaviour.OnElevatorFinish += ActivateAllowInput;
@@ -106,7 +106,9 @@ public class PlayerAttack : MonoBehaviour {
 
     public void PlayAttackSound()
     {
-        audSource.clip = attackSound;
-        audSource.Play();
+        // audSource.clip = attackSound;
+        // audSource.Play();
+        //FindObjectOfType<AudioManager>().Play("PlayerSwingSword");
+        AudioManager.instance.Play("PlayerSwingSword");
     }
 }

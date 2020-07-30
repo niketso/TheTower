@@ -8,14 +8,14 @@ public class SpecialSpawner : MonoBehaviour {
 	[SerializeField] private GameObject specialEnemy;
 	[SerializeField] private GameObject enemyHolder;
 	[SerializeField] private Spawner _spawner;
-    [SerializeField] private AudioClip destroyTurret;
-    private AudioSource audSource;
+   // [SerializeField] private AudioClip destroyTurret;
+   // private AudioSource audSource;
 
 	private Transform specialSpawnPoint;
 
     private void Awake()
     {
-        audSource = GetComponent<AudioSource>();
+       // audSource = GetComponent<AudioSource>();
     }
 
     public  void SpawnSpecial()
@@ -28,7 +28,8 @@ public class SpecialSpawner : MonoBehaviour {
 
     public void PlayDeathAudio()
     {
-        audSource.clip = destroyTurret;
-        audSource.Play();
+        // audSource.clip = destroyTurret;
+        // audSource.Play();
+        AudioManager.instance.Play("TurretDestroy");
     }
 }
