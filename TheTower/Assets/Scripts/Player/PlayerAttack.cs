@@ -36,6 +36,9 @@ public class PlayerAttack : MonoBehaviour {
         anim = GetComponent<Animator>();
         audSource = GetComponent<AudioSource>();
         audSource.volume = PlayerPrefs.GetFloat("volume");
+
+        ElevatorBehaviour.OnElevatorStart += DeactivateAllowInput;
+        ElevatorBehaviour.OnElevatorFinish += ActivateAllowInput;
     }
 
     void Update()
@@ -96,7 +99,7 @@ public class PlayerAttack : MonoBehaviour {
         allowInput = false;
     }
 
-    public void ActivateInput()
+    public void ActivateAllowInput()
     {
         allowInput = true;
     }

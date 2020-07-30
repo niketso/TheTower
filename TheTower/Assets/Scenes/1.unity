@@ -3666,6 +3666,11 @@ PrefabInstance:
       propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1386382750}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 3}
+      propertyPath: transportPoint
+      value: 
+      objectReference: {fileID: 1738398091}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8e17da6f0376b64a8f377c71ee8a019, type: 3}
 --- !u!4 &592325487 stripped
@@ -4225,6 +4230,11 @@ PrefabInstance:
       propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 3}
+      propertyPath: transportPoint
+      value: 
+      objectReference: {fileID: 259933402}
     - target: {fileID: 212106975275890086, guid: b8e17da6f0376b64a8f377c71ee8a019,
         type: 3}
       propertyPath: m_SortingOrder
@@ -4639,6 +4649,11 @@ PrefabInstance:
       propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 3}
+      propertyPath: transportPoint
+      value: 
+      objectReference: {fileID: 1768894798}
     - target: {fileID: 212106975275890086, guid: b8e17da6f0376b64a8f377c71ee8a019,
         type: 3}
       propertyPath: m_SortingOrder
@@ -5961,6 +5976,11 @@ PrefabInstance:
       propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 3}
+      propertyPath: transportPoint
+      value: 
+      objectReference: {fileID: 274997914}
     - target: {fileID: 212106975275890086, guid: b8e17da6f0376b64a8f377c71ee8a019,
         type: 3}
       propertyPath: m_SortingOrder
@@ -7321,6 +7341,11 @@ PrefabInstance:
       propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 3}
+      propertyPath: transportPoint
+      value: 
+      objectReference: {fileID: 391747658}
     - target: {fileID: 212106975275890086, guid: b8e17da6f0376b64a8f377c71ee8a019,
         type: 3}
       propertyPath: m_SortingOrder
@@ -10787,6 +10812,11 @@ PrefabInstance:
       propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 3}
+      propertyPath: transportPoint
+      value: 
+      objectReference: {fileID: 1448856228}
     - target: {fileID: 212106975275890086, guid: b8e17da6f0376b64a8f377c71ee8a019,
         type: 3}
       propertyPath: m_SortingOrder
@@ -11178,17 +11208,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 14489565}
     m_Modifications:
-    - target: {fileID: 179271849, guid: f9474d23c63cd804b90f009f70525e42, type: 3}
-      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 469649072}
-    - target: {fileID: 179271849, guid: f9474d23c63cd804b90f009f70525e42, type: 3}
-      propertyPath: newFloor.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 469649071}
     - target: {fileID: 1819165444428410, guid: f9474d23c63cd804b90f009f70525e42, type: 3}
       propertyPath: m_Name
-      value: Orange Elevator
+      value: ElevatorPoint
       objectReference: {fileID: 0}
     - target: {fileID: 4181020630224330, guid: f9474d23c63cd804b90f009f70525e42, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13286,6 +13308,11 @@ PrefabInstance:
       propertyPath: elevatorActive.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 114648210386428466, guid: b8e17da6f0376b64a8f377c71ee8a019,
+        type: 3}
+      propertyPath: transportPoint
+      value: 
+      objectReference: {fileID: 2091242795}
     - target: {fileID: 212106975275890086, guid: b8e17da6f0376b64a8f377c71ee8a019,
         type: 3}
       propertyPath: m_SortingOrder
@@ -13331,7 +13358,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969605878}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7cd8d29d528a263418ddcdc0740e8679, type: 3}
   m_Name: 
@@ -14520,6 +14547,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1631087236}
     m_Modifications:
+    - target: {fileID: -1343382508032123993, guid: 69de2bb91823c234684c9d9b55b9b920,
+        type: 3}
+      propertyPath: prompt
+      value: 
+      objectReference: {fileID: 1246834055}
     - target: {fileID: 1244800958710071841, guid: 69de2bb91823c234684c9d9b55b9b920,
         type: 3}
       propertyPath: m_Name
@@ -14594,6 +14626,11 @@ PrefabInstance:
       propertyPath: ui
       value: 
       objectReference: {fileID: 1593741928}
+    - target: {fileID: 4184255981011684764, guid: 99e0752f480717b4faa22a7dea05723c,
+        type: 3}
+      propertyPath: prompt
+      value: 
+      objectReference: {fileID: 1246834055}
     - target: {fileID: 5425685173518361718, guid: 99e0752f480717b4faa22a7dea05723c,
         type: 3}
       propertyPath: m_Name

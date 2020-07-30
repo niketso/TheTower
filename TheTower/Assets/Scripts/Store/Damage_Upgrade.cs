@@ -12,6 +12,8 @@ public class Damage_Upgrade : Upgrade
 
         attack.Damage += value;
 
-        Debug.LogError($" {player.name}'s attack is augmented by {value} ");
+        Debug.Log($" {player.name}'s attack is augmented by {value} ");
+
+        base.TriggerEffect(player);
     }
 }

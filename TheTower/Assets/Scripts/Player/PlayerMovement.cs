@@ -60,6 +60,9 @@ public class PlayerMovement : MonoBehaviour
 
         dashTime = startDashTime;
         timerToNextDash = timeToDash;
+
+        ElevatorBehaviour.OnElevatorStart += DeactivateCanMove;
+        ElevatorBehaviour.OnElevatorFinish += ActivateCanMove;
     }
 
     void Update()
@@ -114,6 +117,9 @@ public class PlayerMovement : MonoBehaviour
                 transform.Translate(Vector3.left * dashSpeed * Time.deltaTime);
 
             timedashing -= Time.deltaTime;
+
+            if (timedashing <= 0)
+                GetComponent<PlayerHP>().Invulnerable = false;
         }
         else
         {
@@ -167,10 +173,5 @@ public class PlayerMovement : MonoBehaviour
     public void ActivateCanMove()
     {
         canMove = true;
-    }
-
-    public void SetCanMove(bool state) 
-    {
-        canMove = state;
     }
 }

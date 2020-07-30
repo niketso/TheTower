@@ -5,8 +5,10 @@ using UnityEngine;
 public class Upgrade : MonoBehaviour
 {
     public int value;
+    public GameObject prompt;
 
     private StoreFunctionality myStore;
+    private GameObject target;
 
     public StoreFunctionality MyStore 
     {
@@ -14,16 +16,40 @@ public class Upgrade : MonoBehaviour
         set => myStore = value;
     }
 
-    public virtual void TriggerEffect(GameObject player) { }
-
-    private void OnTriggerStay2D(Collider2D collision)
+    private void Awake()
     {
-        if (!collision.CompareTag("Player")) return;
+        target = null;
+    }
 
-        if (Input.GetKeyDown(KeyCode.C)) 
+    public virtual void TriggerEffect(GameObject player) 
+    {
+        MyStore.DeactivateUpgrades();
+    }
+
+    private void Update()
+    {
+        if (!target) return;
+
+        if (Input.GetKeyDown(KeyCode.C))
+            TriggerEffect(target);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (target) return;
+
+        prompt.SetActive(true);
+
+        if (collision.CompareTag("Player"))
+            target = collision.gameObject;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (target && collision.gameObject == target) 
         {
-            TriggerEffect(collision.gameObject);
-            MyStore.DeactivateUpgrades();
+            target = null;
+            prompt.SetActive(false);
         }
     }
 }

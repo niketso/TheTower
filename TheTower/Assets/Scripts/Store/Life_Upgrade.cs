@@ -15,6 +15,8 @@ public class Life_Upgrade : Upgrade
         hp.playerChances += value;
         ui.AddLife();
 
-        Debug.LogError($" {player.name}'s chances increased by {value} ");
+        Debug.Log($" {player.name}'s chances increased by {value} ");
+
+        base.TriggerEffect(player);
     }
 }

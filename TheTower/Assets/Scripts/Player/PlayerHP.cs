@@ -31,6 +31,9 @@ public class PlayerHP : MonoBehaviour
         anim = GetComponent<Animator>();
 
         OnPlayerDeath += KillPlayer;
+
+        ElevatorBehaviour.OnElevatorStart += ActivateInvulnerability;
+        ElevatorBehaviour.OnElevatorFinish += DeactivateInvulnerability;
     }
 
     private void Start()
@@ -83,6 +86,16 @@ public class PlayerHP : MonoBehaviour
             if (OnPlayerRespawned != null)
                 OnPlayerRespawned.Invoke();
         });
+    }
+
+    public void ActivateInvulnerability() 
+    {
+        Invulnerable = true;
+    }
+
+    public void DeactivateInvulnerability() 
+    {
+        Invulnerable = false;
     }
 }
 
