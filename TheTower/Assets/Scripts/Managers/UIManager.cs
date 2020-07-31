@@ -27,19 +27,14 @@ public class UIManager : MonoBehaviour {
             Destroy(this.gameObject);
         }
         instance = this;
-
-       // clip = dashSlider.GetComponent<AudioSource>();
-
-        //DontDestroyOnLoad(this.gameObject);
     }
 
     void Update ()
     {             
-        dashSlider.value = dashSlider.maxValue - playerMov.TimerToNextDash;//dashSlider.maxValue - dashSlider.minValue;
+        dashSlider.value = dashSlider.maxValue - playerMov.TimerToNextDash;
 
-        if (dashSlider.value != dashSlider.maxValue /* && !clip.isPlaying*/)
+        if (dashSlider.value != dashSlider.maxValue /* chequear que el audio no se este corriendo actualmente */)
         {
-            //clip.PlayDelayed(0.1f);
             AudioManager.instance.Play("DashBar");
         }
 	}

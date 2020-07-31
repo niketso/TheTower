@@ -56,6 +56,16 @@ public class PlayerHP : MonoBehaviour
 
         GameManager.instance.spawner.SpawnSpecialEnemy(transform.position);
 
+        switch (type)
+        {
+            case EnemyType.MELEE:
+                // Play death by melee damage
+                break;
+            case EnemyType.RANGED:
+                // Play death by ranged damage
+                break;
+        }
+
         if (OnPlayerDeath != null) 
         {
             OnPlayerDeath.Invoke();
@@ -69,8 +79,6 @@ public class PlayerHP : MonoBehaviour
 
         Invulnerable = true;
         anim.SetBool("die" , true);
-
-        // Play audio
 
         shader.TriggerDespawn( success => 
         {

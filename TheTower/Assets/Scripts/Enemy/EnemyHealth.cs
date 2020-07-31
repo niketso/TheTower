@@ -61,6 +61,8 @@ public class EnemyHealth : MonoBehaviour, iPoolable
         Health = baseHealth;
         OnHealthChanged += CheckAliveState;
 
+        // Play enemy spawn audio
+
         if (type != EnemyType.BLOCKER)
             GameManager.instance.OnCurrentFloorChanged += Despawn;
     }
@@ -78,10 +80,22 @@ public class EnemyHealth : MonoBehaviour, iPoolable
     private void CheckAliveState(float health) 
     {
         if (health > 0) 
+        {
+            // Play damaged (no kill) audio
             return;
+        }
 
         if (OnDeath != null)
             OnDeath.Invoke();
+
+        if (type != EnemyType.RANGED)
+        {
+            // Play death audio
+        }
+        else 
+        {
+            // Play turret death audio
+        }
 
         GetComponent<ShaderController>().TriggerDespawn(success => 
         {

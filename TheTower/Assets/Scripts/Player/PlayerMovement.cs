@@ -12,8 +12,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float startDashTime;
     [SerializeField] private float timeToDash;
     [SerializeField] private Transform attack;
-   // [SerializeField] private AudioClip dashSound;
-   // private AudioSource audSource;
     private float dashTime;
     private float timerToNextDash;
 	private float lastInput;
@@ -55,8 +53,6 @@ public class PlayerMovement : MonoBehaviour
 
         spriteRend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        //audSource = GetComponent<AudioSource>();
-        //audSource.volume = PlayerPrefs.GetFloat("volume");
 
         dashTime = startDashTime;
         timerToNextDash = timeToDash;
@@ -101,10 +97,6 @@ public class PlayerMovement : MonoBehaviour
             gameObject.layer = 10;
             GetComponent<PlayerHP>().Invulnerable = true;
             anim.SetBool("dashing",true);
-            //audSource.clip = dashSound;
-            //audSource.volume = PlayerPrefs.GetFloat("volume");
-            // audSource.Play();
-            //FindObjectOfType<AudioManager>().Play("PlayerDash");
             AudioManager.instance.Play("PlayerDash");
             timerToNextDash = timeToDash;
 
@@ -130,7 +122,6 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             gameObject.layer = 9;
-            //GetComponent<PlayerHP>().Invulnerable = false;
             anim.SetBool("dashing", false);
             if (moving)
             {
