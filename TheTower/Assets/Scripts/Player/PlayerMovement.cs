@@ -61,6 +61,10 @@ public class PlayerMovement : MonoBehaviour
         dashTime = startDashTime;
         timerToNextDash = timeToDash;
 
+        PlayerHP hp = GetComponent<PlayerHP>();
+        hp.OnPlayerDeath += DeactivateCanMove;
+        hp.OnPlayerRespawned += ActivateCanMove;
+
         ElevatorBehaviour.OnElevatorStart += DeactivateCanMove;
         ElevatorBehaviour.OnElevatorFinish += ActivateCanMove;
     }

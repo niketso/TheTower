@@ -7,14 +7,21 @@ public class EnemyUIManager : MonoBehaviour, iPoolable
     [SerializeField] private Slider enemyHpSlider;
     [SerializeField] private EnemyHealth enemyHp;
 
-    public void OnPool()
+    private void Start()
     {
         enemyHp.OnHealthChanged -= UpdateSlider;
+        enemyHp.OnHealthChanged += UpdateSlider;
+    }
+
+    public void OnPool()
+    {
     }
 
     public void OnUnpool()
     {
-        enemyHpSlider.maxValue = enemyHpSlider.value = enemyHp.baseHealth;
+        enemyHpSlider.maxValue = enemyHp.baseHealth;
+        enemyHpSlider.value = enemyHp.baseHealth;
+        enemyHp.OnHealthChanged -= UpdateSlider;
         enemyHp.OnHealthChanged += UpdateSlider;
     }
 

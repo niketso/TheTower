@@ -10,6 +10,7 @@ public class ElevatorBehaviour : MonoBehaviour
 {
     public Transform transportPoint;
     public GameObject prompt;
+    public int myLevel;
 
     static public Action OnElevatorStart;
     static public Action OnElevatorFinish;
@@ -19,12 +20,7 @@ public class ElevatorBehaviour : MonoBehaviour
     private Collider2D collider;
     private GameObject target;
 
-    private bool isBlocked;
-    public bool IsBlocked 
-    {
-        get => isBlocked;
-        set => isBlocked = value;
-    }
+    private int blockersCount;
 
     private void Awake()
     {
@@ -33,6 +29,11 @@ public class ElevatorBehaviour : MonoBehaviour
 
         active = false;
         target = null;
+    }
+
+    private void Start()
+    {
+        GameManager.instance.Elevators.Add(myLevel , this);
     }
 
     private void Update()
@@ -47,6 +48,16 @@ public class ElevatorBehaviour : MonoBehaviour
 
     public void ChangeBlockedState(bool blocked)
     {
+        if (blocked)
+            blockersCount += 1;
+        else 
+        {
+            blockersCount -= 1;
+
+            if (blockersCount > 0)
+                return;
+        }
+        
         collider.enabled = !blocked;
     }
 

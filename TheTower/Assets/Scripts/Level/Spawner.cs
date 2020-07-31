@@ -104,9 +104,9 @@ public class Spawner : MonoBehaviour
         CurrentEnemyQuantity += 1;
 
         health = go.GetComponent<EnemyHealth>();
-        health.Spawner = this;
         health.strenghtenEnemy(EnemyStrengthPerLevel[GameManager.instance.CurrentFloor]);
-        
+        health.pooled = true;
+
         behaviour = go.GetComponent<EnemyBehaviour>();
         behaviour.RightLimit = rightLimit;
         behaviour.LeftLimit = leftLimit;
@@ -114,8 +114,17 @@ public class Spawner : MonoBehaviour
         internalTimer = spawnRate;
     }
 
-    private void SpawnSpecialEnemy(Vector3 position) 
+    public void SpawnSpecialEnemy(Vector3 position) 
     {
-        // Spawn special enemy
+        GameObject go = GameManager.instance.SpecialPool.GetObjectFromPool(position);
+
+        EnemyHealth health = go.GetComponent<EnemyHealth>();
+        EnemyBehaviour behaviour = go.GetComponent<EnemyBehaviour>();
+
+        behaviour.RightLimit = BoundaryManager.instance.RightLimits[GameManager.instance.CurrentFloor];
+        behaviour.LeftLimit = BoundaryManager.instance.LeftLimits[GameManager.instance.CurrentFloor];
+        behaviour.MyLevel = GameManager.instance.CurrentFloor;
+
+        health.pooled = true;
     }
 }

@@ -2,19 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockerBehaviour : EnemyBehaviour
+public class BlockerBehaviour : EnemyBehaviour, iPoolable
 {
     public float minDistance;
 
     public ElevatorBehaviour elevatorToBlock;
 
-    private void Start()
+    protected override void Start()
     {
-        elevatorToBlock.ChangeBlockedState(true);
+        base.Start();
+
+        if (!pooled) 
+        {
+            if (!elevatorToBlock)
+                elevatorToBlock = GameManager.instance.Elevators[MyLevel];
+
+            elevatorToBlock.ChangeBlockedState(true);
+        }
+
     }
 
     private void Update()
     {
+        if (!active) return;
+
         float distance = (player.transform.position - transform.position).magnitude;
 
         if (distance < minDistance) 
@@ -31,6 +42,25 @@ public class BlockerBehaviour : EnemyBehaviour
 
     private void OnDestroy()
     {
-        elevatorToBlock.ChangeBlockedState(false); 
+        if(elevatorToBlock)
+            elevatorToBlock.ChangeBlockedState(false); 
+    }
+
+    public void OnUnpool()
+    {
+        OnMyLevelChange += LoadElevator;
+    }
+
+    public void LoadElevator() 
+    {
+        elevatorToBlock = GameManager.instance.Elevators[MyLevel];
+
+        elevatorToBlock.ChangeBlockedState(true);
+    }
+
+    public void OnPool()
+    {
+        OnMyLevelChange -= LoadElevator;
+        elevatorToBlock.ChangeBlockedState(false);
     }
 }

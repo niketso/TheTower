@@ -5,15 +5,10 @@ using UnityEngine.Animations;
 
 public class MeleeBehaviour : EnemyBehaviour
 {
-    protected override void Start()
-    {
-        base.Start();
-
-        MyType = EnemyType.MELEE;
-    }
-
     private void Update ()
     {
+        if (!active) return;
+
         if (player.transform.position.x > transform.position.x )
             GoRight();
         if (player.transform.position.x < transform.position.x)

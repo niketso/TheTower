@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public enum EnemyType
@@ -14,6 +15,10 @@ public class EnemyHealth : MonoBehaviour, iPoolable
     public float baseHealth;
     private float health;
     public Action<float> OnHealthChanged;
+    public Action<Vector2, Action<bool>> OnDeath;
+
+    public bool pooled = false;
+
     public float Health 
     {
         get => health;
@@ -26,22 +31,34 @@ public class EnemyHealth : MonoBehaviour, iPoolable
         }
     }
 
-    public Spawner Spawner { get => spawner; set => spawner = value; }
-
     private Spawner spawner;
     private SpriteRenderer sprite;
+
+    private void Start()
+    {
+        if (pooled) return;
+
+        Health = baseHealth;
+        OnHealthChanged -= CheckAliveState;
+        OnHealthChanged += CheckAliveState;
+    }
 
     public void OnPool()
     {
         OnHealthChanged -= CheckAliveState;
-        spawner.CurrentEnemyQuantity -= 1;
+        GameManager.instance.OnCurrentFloorChanged -= Despawn;
+        
+        if(type != EnemyType.BLOCKER)
+         spawner.CurrentEnemyQuantity -= 1;
     }
 
     public void OnUnpool()
     {
         Health = baseHealth;
         OnHealthChanged += CheckAliveState;
-        GameManager.instance.OnCurrentFloorChanged += Despawn;
+
+        if (type != EnemyType.BLOCKER)
+            GameManager.instance.OnCurrentFloorChanged += Despawn;
     }
 
     public void strenghtenEnemy(float strength) 
@@ -62,21 +79,33 @@ public class EnemyHealth : MonoBehaviour, iPoolable
             return;
         }
 
-        switch (type) 
-        {
-            case EnemyType.MELEE:
-                Despawn();
-                break;
-            case EnemyType.RANGED:
-                Destroy(this.gameObject);
-                break;
-            case EnemyType.BLOCKER:
-                Destroy(this.gameObject);
-                break;
-            default:
-                Debug.LogError($"{gameObject.name}::EnemyHealth::CheckAliveState::Exeption found");
-                break;
-        }
+        if (OnDeath != null)
+            OnDeath.Invoke(Vector2.right , success =>
+            {
+                switch (type)
+                {
+                    case EnemyType.MELEE:
+                        Despawn();
+                        break;
+                    case EnemyType.RANGED:
+                        Destroy();
+                        break;
+                    case EnemyType.BLOCKER:
+                        if (pooled)
+                            Despawn();
+                        else
+                            Destroy();
+                        break;
+                    default:
+                        Debug.LogError($"{gameObject.name}::EnemyHealth::CheckAliveState::Exeption found");
+                        break;
+                }
+            });
+    }
+
+    private void Destroy() 
+    {
+        Destroy(this.gameObject);
     }
 
     private void Despawn(int level = 0)

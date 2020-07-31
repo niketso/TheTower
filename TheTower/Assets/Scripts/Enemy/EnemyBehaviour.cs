@@ -4,14 +4,30 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
+    public bool active;
+
+    private EnemyType myType;
+    public EnemyType MyType { get => myType; protected set => myType = value; }
+
+    public System.Action OnMyLevelChange;
+    [SerializeField] private int myLevel;
+
+    public int MyLevel 
+    { 
+        get => myLevel;
+        set 
+        {
+            myLevel = value;
+
+            if (OnMyLevelChange != null)
+                OnMyLevelChange.Invoke();
+        } 
+    }
+
     protected GameObject player;
     protected SpriteRenderer sprite;
     protected Animator anim;
-
-    private EnemyType myType;
-
-    public EnemyType MyType { get => myType; protected set => myType = value; }
-
+    protected bool pooled;
     [SerializeField] protected Transform rightLimit;
     [SerializeField] protected Transform leftLimit;
     [SerializeField] protected float speed;
@@ -33,6 +49,11 @@ public class EnemyBehaviour : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         player = GameManager.instance.Player;
         anim = GetComponent<Animator>();
+
+        pooled = GetComponent<EnemyHealth>().pooled;
+
+        ToggleActiveState(GameManager.instance.CurrentFloor);
+        GameManager.instance.OnCurrentFloorChanged += ToggleActiveState;
     }
 
     protected void CheckBounds()
@@ -56,4 +77,11 @@ public class EnemyBehaviour : MonoBehaviour
         transform.Translate(new Vector3(speed * Time.deltaTime , 0f , 0f));
         sprite.flipX = true;
     }
+
+    private void ToggleActiveState(int level)
+    {
+        active = level == MyLevel;
+    }
+
+    public virtual void PlaySound() { }
 }

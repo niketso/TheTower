@@ -73,6 +73,8 @@ public class GameManager : MonoBehaviour
         get => specialPool;
     }
 
+    public Spawner spawner;
+
     [SerializeField] private Transform leftLimit;
     public Transform LeftLimit 
     {
@@ -84,6 +86,9 @@ public class GameManager : MonoBehaviour
     {
         get => rightLimit;
     }
+
+    public Dictionary<int, ElevatorBehaviour> elevators = new Dictionary<int, ElevatorBehaviour>();
+    public Dictionary<int , ElevatorBehaviour> Elevators { get => elevators; }
 
     private void Start()
     {

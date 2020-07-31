@@ -387,6 +387,7 @@ GameObject:
   - component: {fileID: 787548542}
   - component: {fileID: 787548546}
   - component: {fileID: 2252035794689672113}
+  - component: {fileID: 6688911732838894104}
   m_Layer: 8
   m_Name: en_Blocker
   m_TagString: Enemy
@@ -527,6 +528,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54cc33b0076f36447962ac9cef1f3505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myLevel: 0
+  active: 0
   rightLimit: {fileID: 0}
   leftLimit: {fileID: 0}
   speed: 5
@@ -546,6 +549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   baseHealth: 4
+  pooled: 0
 --- !u!114 &2252035794689672113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,3 +564,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHpSlider: {fileID: 1705889912}
   enemyHp: {fileID: 787548546}
+--- !u!114 &6688911732838894104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6780146798792057611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfe9372cf4814140abf1da4fb7d9605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnEffectSpeed: 0.015
+  despawnEffectSpeed: 0
+  effectColor: {r: 0, g: 0, b: 0, a: 0}

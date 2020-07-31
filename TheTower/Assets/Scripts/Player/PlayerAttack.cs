@@ -34,8 +34,12 @@ public class PlayerAttack : MonoBehaviour {
     private void Awake()
     {
         anim = GetComponent<Animator>();
-       // audSource = GetComponent<AudioSource>();
-       // audSource.volume = PlayerPrefs.GetFloat("volume");
+        // audSource = GetComponent<AudioSource>();
+        // audSource.volume = PlayerPrefs.GetFloat("volume");
+        PlayerHP playerhp = GetComponent<PlayerHP>();
+
+        playerhp.OnPlayerDeath += DeactivateAllowInput;
+        playerhp.OnPlayerRespawned += ActivateAllowInput;
 
         ElevatorBehaviour.OnElevatorStart += DeactivateAllowInput;
         ElevatorBehaviour.OnElevatorFinish += ActivateAllowInput;

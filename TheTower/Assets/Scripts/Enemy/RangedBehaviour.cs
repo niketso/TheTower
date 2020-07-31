@@ -5,9 +5,6 @@ using UnityEngine.Animations;
 
 public class RangedBehaviour : EnemyBehaviour 
 {
-    public int myLevel;
-    public bool active;
-
     public float timeBetweenAttacks;
     private float internalTimer;
 
@@ -17,11 +14,8 @@ public class RangedBehaviour : EnemyBehaviour
     {
         base.Start();
 
-        active = false;
+        active = MyLevel == GameManager.instance.CurrentFloor;
         internalTimer = timeBetweenAttacks;
-
-        ToggleActiveState(GameManager.instance.CurrentFloor);
-        GameManager.instance.OnCurrentFloorChanged += ToggleActiveState;
     }
 
     private void Update()
@@ -32,11 +26,6 @@ public class RangedBehaviour : EnemyBehaviour
             TriggerAnimation();
         else
             internalTimer -= Time.deltaTime;
-    }
-
-    private void ToggleActiveState(int level) 
-    {
-        active = level == myLevel;
     }
 
     private void TriggerAnimation()
@@ -56,11 +45,6 @@ public class RangedBehaviour : EnemyBehaviour
         GameManager.instance.ShotPool.GetObjectFromPool(gunpoint.position);
 
         internalTimer = timeBetweenAttacks;
-    }
-
-    public void PlaySound() 
-    {
-        
     }
 }
 
