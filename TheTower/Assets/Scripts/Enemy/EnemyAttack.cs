@@ -61,7 +61,7 @@ public class EnemyAttack : MonoBehaviour {
     public void PlayAttackSound()
     {
         //audSource.Play();
-        AudioManager.instance.Play("RobotSwordSwing");
+        AudioManager.instance.Play("RobotSwordSwing",false);
     }
 
     public void ToggleInvulnerability()

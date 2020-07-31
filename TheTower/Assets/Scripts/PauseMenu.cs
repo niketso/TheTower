@@ -95,5 +95,15 @@ public class PauseMenu : MonoBehaviour
         AudioManager.instance.UpdateVolume(sliderValue);
 
     }
+
+    public void PlayAudio()
+    {
+        AudioManager.instance.Play("MenuSelect", false);
+    }
+
+    public void SetFullScreen(bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
+    }
 }
 

@@ -49,6 +49,6 @@ public class RangedBehaviour : EnemyBehaviour
 
     public override void PlaySound()
     {
-        // Play shoot audio
+        AudioManager.instance.Play("TurretChargeAndShoot", false);// Play shoot audio
     }
 }

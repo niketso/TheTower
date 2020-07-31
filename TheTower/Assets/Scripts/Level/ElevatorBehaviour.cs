@@ -104,5 +104,6 @@ public class ElevatorBehaviour : MonoBehaviour
     public void PlayElevatorSound() 
     {
         // Play audio
+        AudioManager.instance.Play("Elevator", false);
     }
 }

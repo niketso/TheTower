@@ -58,4 +58,8 @@ public class LoadLevelButton : MonoBehaviour {
         instructionCanvas.SetActive(true);
     }
 
+    public void PlaySound()
+    {
+        AudioManager.instance.Play("MenuSelect", false);
+    }
 }

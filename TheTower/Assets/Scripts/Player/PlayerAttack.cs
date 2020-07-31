@@ -109,10 +109,7 @@ public class PlayerAttack : MonoBehaviour {
     }
 
     public void PlayAttackSound()
-    {
-        // audSource.clip = attackSound;
-        // audSource.Play();
-        //FindObjectOfType<AudioManager>().Play("PlayerSwingSword");
-        AudioManager.instance.Play("PlayerSwingSword");
+    {       
+        AudioManager.instance.Play("PlayerSwingSword",false);
     }
 }

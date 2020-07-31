@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour {
     
     [SerializeField] private PlayerMovement playerMov;
     [SerializeField] private Slider dashSlider;
-   // private AudioSource clip;
+   
     private static UIManager instance = null;
 
     public static UIManager Instance
@@ -33,9 +33,10 @@ public class UIManager : MonoBehaviour {
     {             
         dashSlider.value = dashSlider.maxValue - playerMov.TimerToNextDash;
 
-        if (dashSlider.value != dashSlider.maxValue /* chequear que el audio no se este corriendo actualmente */)
+        if (dashSlider.value != dashSlider.maxValue && !AudioManager.instance.SoundPlaying("dashBar"))  /* chequear que el audio no se este corriendo actualmente */
         {
-            AudioManager.instance.Play("DashBar");
+            AudioManager.instance.Play("DashBar", false);
+            
         }
 	}
 }

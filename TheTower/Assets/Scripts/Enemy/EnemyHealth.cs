@@ -61,7 +61,7 @@ public class EnemyHealth : MonoBehaviour, iPoolable
         Health = baseHealth;
         OnHealthChanged += CheckAliveState;
 
-        // Play enemy spawn audio
+        AudioManager.instance.Play("RobotSpawn", false);// Play enemy spawn audio
 
         if (type != EnemyType.BLOCKER)
             GameManager.instance.OnCurrentFloorChanged += Despawn;
@@ -81,7 +81,7 @@ public class EnemyHealth : MonoBehaviour, iPoolable
     {
         if (health > 0) 
         {
-            // Play damaged (no kill) audio
+            AudioManager.instance.Play("RobotHitNotDestroy", false);// Play damaged (no kill) audio
             return;
         }
 
@@ -90,11 +90,11 @@ public class EnemyHealth : MonoBehaviour, iPoolable
 
         if (type != EnemyType.RANGED)
         {
-            // Play death audio
+            AudioManager.instance.Play("DestroyRobot", false);// Play death audio
         }
         else 
         {
-            // Play turret death audio
+            AudioManager.instance.Play("TurretDestroy", false);// Play turret death audio
         }
 
         GetComponent<ShaderController>().TriggerDespawn(success => 

@@ -15,12 +15,12 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         volumeSlider.value = AudioManager.instance.startingVolume;
-        AudioManager.instance.Play("MusicMenu");
+        AudioManager.instance.Play("MusicMenu",true);
     }
 
     public void PlaySound()
     {
-        AudioManager.instance.Play("MenuSelect");
+        AudioManager.instance.Play("MenuSelect",false);
     }
 
     public void OptionsMenu()
@@ -56,6 +56,9 @@ public class MainMenu : MonoBehaviour
     }
 
 
-
+    public void SetFullscreen(bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
+    }
 }
 

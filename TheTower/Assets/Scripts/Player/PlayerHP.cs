@@ -60,9 +60,11 @@ public class PlayerHP : MonoBehaviour
         {
             case EnemyType.MELEE:
                 // Play death by melee damage
+                AudioManager.instance.Play("PlayerDeathSword", false);
                 break;
             case EnemyType.RANGED:
                 // Play death by ranged damage
+                AudioManager.instance.Play("PlayerDeathTurret", false);
                 break;
         }
 

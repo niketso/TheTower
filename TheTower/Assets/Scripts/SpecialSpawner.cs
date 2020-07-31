@@ -30,6 +30,6 @@ public class SpecialSpawner : MonoBehaviour {
     {
         // audSource.clip = destroyTurret;
         // audSource.Play();
-        AudioManager.instance.Play("TurretDestroy");
+        AudioManager.instance.Play("TurretDestroy",false);
     }
 }

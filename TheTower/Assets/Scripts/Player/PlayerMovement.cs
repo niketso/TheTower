@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
             gameObject.layer = 10;
             GetComponent<PlayerHP>().Invulnerable = true;
             anim.SetBool("dashing",true);
-            AudioManager.instance.Play("PlayerDash");
+            AudioManager.instance.Play("PlayerDash",false);
             timerToNextDash = timeToDash;
 
             timedashing = 0.2f;
