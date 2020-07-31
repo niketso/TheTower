@@ -528,8 +528,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54cc33b0076f36447962ac9cef1f3505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myLevel: 0
   active: 0
+  myLevel: 0
   rightLimit: {fileID: 0}
   leftLimit: {fileID: 0}
   speed: 5
@@ -577,5 +577,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnEffectSpeed: 0.015
-  despawnEffectSpeed: 0
-  effectColor: {r: 0, g: 0, b: 0, a: 0}
+  despawnEffectSpeed: 0.015
+  effectColor: {r: 0, g: 0.99215686, b: 1, a: 0}

@@ -711,8 +711,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bfe9372cf4814140abf1da4fb7d9605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnEffectSpeed: 0.015
-  despawnEffectSpeed: 0
+  spawnEffectSpeed: 0.02
+  despawnEffectSpeed: 0.015
   effectColor: {r: 0, g: 0.9914341, b: 1, a: 0}
 --- !u!1 &1931027069137946
 GameObject:

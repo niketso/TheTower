@@ -104,6 +104,7 @@ public class Spawner : MonoBehaviour
         CurrentEnemyQuantity += 1;
 
         health = go.GetComponent<EnemyHealth>();
+        health.Spawner = this;
         health.strenghtenEnemy(EnemyStrengthPerLevel[GameManager.instance.CurrentFloor]);
         health.pooled = true;
 

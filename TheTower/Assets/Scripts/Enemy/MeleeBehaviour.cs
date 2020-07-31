@@ -3,8 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 
-public class MeleeBehaviour : EnemyBehaviour
+public class MeleeBehaviour : EnemyBehaviour, iPoolable
 {
+    public void OnPool()
+    {
+    }
+
+    public void OnUnpool()
+    {
+        active = true;
+    }
+
     private void Update ()
     {
         if (!active) return;

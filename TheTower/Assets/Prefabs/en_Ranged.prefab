@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 70650325190998900}
   - component: {fileID: 95704497946760396}
   - component: {fileID: 82471444689712808}
+  - component: {fileID: -5046741870333791847}
   m_Layer: 14
   m_Name: en_Ranged
   m_TagString: Enemy
@@ -55,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: bd57f0574e70ac945b6ce3f51882e9b4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,11 +100,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 157fbe9a2e5cfaa49b8e86ee6f8bd2da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
+  myLevel: 0
   rightLimit: {fileID: 0}
   leftLimit: {fileID: 0}
   speed: 0
-  myLevel: 0
-  active: 0
   timeBetweenAttacks: 2
   gunpoint: {fileID: 4262024561178367640}
 --- !u!114 &114827978622326350
@@ -120,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   baseHealth: 2
+  pooled: 0
 --- !u!70 &70650325190998900
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -251,6 +253,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-5046741870333791847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403654523157818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfe9372cf4814140abf1da4fb7d9605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnEffectSpeed: 0
+  despawnEffectSpeed: 0.015
+  effectColor: {r: 1, g: 0, b: 0, a: 0}
 --- !u!1 &6376023484174343529
 GameObject:
   m_ObjectHideFlags: 0

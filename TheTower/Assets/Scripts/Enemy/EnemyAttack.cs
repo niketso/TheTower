@@ -16,7 +16,6 @@ public class EnemyAttack : MonoBehaviour {
     [SerializeField] private float damage;
     [SerializeField] private LayerMask toDamage;
 
-
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -25,6 +24,8 @@ public class EnemyAttack : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!behaviour.active) return;
+
         if (collision.CompareTag("Player"))
         {
             anim.SetBool("canAttack", true);
@@ -34,6 +35,8 @@ public class EnemyAttack : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (!behaviour.active) return;
+
         if (collision.CompareTag("Player"))
         {
             anim.SetBool("canAttack", true);
@@ -48,6 +51,8 @@ public class EnemyAttack : MonoBehaviour {
 
     public void Damage()
     {
+        if (!behaviour.active) return;
+
         if(col != null)
             if (col.transform.CompareTag("Player"))
                 col.GetComponent<PlayerHP>().TakeDamage(behaviour.MyType);

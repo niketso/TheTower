@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking.NetworkSystem;
 
 public class EnemyBehaviour : MonoBehaviour
 {
@@ -50,8 +51,10 @@ public class EnemyBehaviour : MonoBehaviour
         player = GameManager.instance.Player;
         anim = GetComponent<Animator>();
 
-        pooled = GetComponent<EnemyHealth>().pooled;
-
+        EnemyHealth health = GetComponent<EnemyHealth>();
+        pooled = health.pooled;
+        health.OnDeath += Deactivate;
+        
         ToggleActiveState(GameManager.instance.CurrentFloor);
         GameManager.instance.OnCurrentFloorChanged += ToggleActiveState;
     }
@@ -78,9 +81,14 @@ public class EnemyBehaviour : MonoBehaviour
         sprite.flipX = true;
     }
 
-    private void ToggleActiveState(int level)
+    protected void ToggleActiveState(int level)
     {
         active = level == MyLevel;
+    }
+
+    protected void Deactivate() 
+    {
+        active = false;
     }
 
     public virtual void PlaySound() { }

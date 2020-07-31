@@ -14,8 +14,10 @@ public class EnemyHealth : MonoBehaviour, iPoolable
     public EnemyType type;
     public float baseHealth;
     private float health;
+    
     public Action<float> OnHealthChanged;
-    public Action<Vector2, Action<bool>> OnDeath;
+    public Action OnDeath;
+    public Action OnSpawn;
 
     public bool pooled = false;
 
@@ -30,6 +32,8 @@ public class EnemyHealth : MonoBehaviour, iPoolable
                 OnHealthChanged.Invoke(health);
         }
     }
+
+    public Spawner Spawner { get => spawner; set => spawner = value; }
 
     private Spawner spawner;
     private SpriteRenderer sprite;
@@ -49,7 +53,7 @@ public class EnemyHealth : MonoBehaviour, iPoolable
         GameManager.instance.OnCurrentFloorChanged -= Despawn;
         
         if(type != EnemyType.BLOCKER)
-         spawner.CurrentEnemyQuantity -= 1;
+            Spawner.CurrentEnemyQuantity -= 1;
     }
 
     public void OnUnpool()
@@ -74,33 +78,32 @@ public class EnemyHealth : MonoBehaviour, iPoolable
     private void CheckAliveState(float health) 
     {
         if (health > 0) 
-        {
-
             return;
-        }
 
         if (OnDeath != null)
-            OnDeath.Invoke(Vector2.right , success =>
+            OnDeath.Invoke();
+
+        GetComponent<ShaderController>().TriggerDespawn(success => 
+        {
+            switch (type)
             {
-                switch (type)
-                {
-                    case EnemyType.MELEE:
+                case EnemyType.MELEE:
+                    Despawn();
+                    break;
+                case EnemyType.RANGED:
+                    Destroy();
+                    break;
+                case EnemyType.BLOCKER:
+                    if (pooled)
                         Despawn();
-                        break;
-                    case EnemyType.RANGED:
+                    else
                         Destroy();
-                        break;
-                    case EnemyType.BLOCKER:
-                        if (pooled)
-                            Despawn();
-                        else
-                            Destroy();
-                        break;
-                    default:
-                        Debug.LogError($"{gameObject.name}::EnemyHealth::CheckAliveState::Exeption found");
-                        break;
-                }
-            });
+                    break;
+                default:
+                    Debug.LogError($"{gameObject.name}::EnemyHealth::CheckAliveState::Exeption found");
+                    break;
+            }
+        });
     }
 
     private void Destroy() 
