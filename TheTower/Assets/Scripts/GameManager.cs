@@ -73,6 +73,12 @@ public class GameManager : MonoBehaviour
         get => specialPool;
     }
 
+    [SerializeField] private ObjectPool splatPool;
+    public ObjectPool SplatPool
+    {
+        get => splatPool;
+    }
+
     public Spawner spawner;
 
     [SerializeField] private Transform leftLimit;

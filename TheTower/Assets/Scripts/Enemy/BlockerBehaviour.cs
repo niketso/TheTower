@@ -28,7 +28,7 @@ public class BlockerBehaviour : EnemyBehaviour, iPoolable
 
         float distance = (player.transform.position - transform.position).magnitude;
 
-        if (distance < minDistance) 
+        if (distance < minDistance)
         {
             if (player.transform.position.x < transform.position.x)
                 GoRight();

@@ -54,7 +54,7 @@ public class PlayerHP : MonoBehaviour
     {
        if (Invulnerable) return;
 
-        GameManager.instance.spawner.SpawnSpecialEnemy(transform.position);
+        GameManager.instance.spawner.SpawnSpecialEnemy(transform.position + (Vector3.up * 0.9f));
 
         switch (type)
         {

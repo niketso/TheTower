@@ -554,6 +554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   baseHealth: 1
+  maxSplatOffset: 1
   pooled: 0
 --- !u!114 &114518498552116772
 MonoBehaviour:

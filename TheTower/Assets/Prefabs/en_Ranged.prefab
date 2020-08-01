@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   baseHealth: 2
+  maxSplatOffset: 1
   pooled: 0
 --- !u!70 &70650325190998900
 CapsuleCollider2D:

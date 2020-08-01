@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using UnityEngine;
 
@@ -13,8 +14,10 @@ public class EnemyHealth : MonoBehaviour, iPoolable
 {
     public EnemyType type;
     public float baseHealth;
-    private float health;
+    public float maxSplatOffset;
     
+    private float health;
+
     public Action<float> OnHealthChanged;
     public Action OnDeath;
     public Action OnSpawn;
@@ -45,6 +48,9 @@ public class EnemyHealth : MonoBehaviour, iPoolable
         Health = baseHealth;
         OnHealthChanged -= CheckAliveState;
         OnHealthChanged += CheckAliveState;
+
+        OnDeath -= SpawnSplat;
+        OnDeath += SpawnSplat;
     }
 
     public void OnPool()
@@ -62,6 +68,9 @@ public class EnemyHealth : MonoBehaviour, iPoolable
         OnHealthChanged += CheckAliveState;
 
         AudioManager.instance.Play("RobotSpawn", false);// Play enemy spawn audio
+
+        OnDeath -= SpawnSplat;
+        OnDeath += SpawnSplat;
 
         if (type != EnemyType.BLOCKER)
             GameManager.instance.OnCurrentFloorChanged += Despawn;
@@ -128,5 +137,12 @@ public class EnemyHealth : MonoBehaviour, iPoolable
     private void Despawn(int level = 0)
     {
         GameManager.instance.MeleePool.ReturnToPool(this.gameObject);
+    }
+
+    private void SpawnSplat() 
+    {
+        Vector3 pos = new Vector3(UnityEngine.Random.Range(-maxSplatOffset, maxSplatOffset), UnityEngine.Random.Range(-maxSplatOffset, maxSplatOffset), 0.0f);
+
+        GameManager.instance.SplatPool.GetObjectFromPool(transform.position + pos);
     }
 }

@@ -10,6 +10,8 @@ public class RangedBehaviour : EnemyBehaviour
 
     public Transform gunpoint;
 
+    private Vector3 cachedPosition;
+
     protected override void Start()
     {
         base.Start();
@@ -38,17 +40,20 @@ public class RangedBehaviour : EnemyBehaviour
         {
             anim.Play("ShootLeft");
         }
+
+        cachedPosition = player.transform.position;
     }
 
     public void Shoot() 
     {
-        GameManager.instance.ShotPool.GetObjectFromPool(gunpoint.position);
+        ShotBehaviour shot = GameManager.instance.ShotPool.GetObjectFromPool(gunpoint.position).GetComponent<ShotBehaviour>();
+        shot.Setup(cachedPosition);
 
         internalTimer = timeBetweenAttacks;
     }
 
     public override void PlaySound()
     {
-        AudioManager.instance.Play("TurretChargeAndShoot", false);// Play shoot audio
+        AudioManager.instance.Play("TurretChargeAndShoot", false);
     }
 }

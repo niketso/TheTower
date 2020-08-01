@@ -5,8 +5,9 @@ using UnityEngine;
 public class ShotBehaviour : MonoBehaviour, iPoolable 
 {
 	
-    [SerializeField] float vel;
-    [SerializeField] float damage;
+    public float vel;
+    public float damage;
+    private float internalVelocity;
     private SpriteRenderer sprite;
     private Transform leftLimit;
     private Transform rightLimit;
@@ -14,7 +15,7 @@ public class ShotBehaviour : MonoBehaviour, iPoolable
 
     void Update ()
     {
-        transform.Translate(vel * Time.deltaTime, 0, 0);
+        transform.Translate(internalVelocity * Time.deltaTime, 0, 0);
 
         if (transform.position.x > rightLimit.position.x)
             GameManager.instance.ShotPool.ReturnToPool(this.gameObject);
@@ -39,12 +40,15 @@ public class ShotBehaviour : MonoBehaviour, iPoolable
         sprite = GetComponent<SpriteRenderer>();
 
         GameManager.instance.OnCurrentFloorChanged += GoBackToPool;
+    }
 
-        if (player.transform.position.x < transform.position.x) 
+    public void Setup(Vector3 pos) 
+    {
+        if (pos.x < transform.position.x)
         {
-            vel = vel * -1;
+            internalVelocity = vel * -1;
         }
-        else 
+        else
         {
             sprite.flipX = true;
         }
