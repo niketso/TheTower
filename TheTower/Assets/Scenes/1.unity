@@ -3809,18 +3809,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2005839286}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &469649069 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114399587598811696, guid: 1cdc5ad439633834cb4ba38511268823,
-    type: 3}
-  m_PrefabInstance: {fileID: 2005839286}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 469649068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26214d4fd1185ce4080804f2c75eb2a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &469649071 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114444904995808546, guid: 1cdc5ad439633834cb4ba38511268823,
@@ -11970,14 +11958,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48258bd4904f1ea45908e4a43dcdf24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plyr: {fileID: 469649069}
-  healthAnimators:
-  - {fileID: 137365438}
-  - {fileID: 1502889688}
-  - {fileID: 758363496}
-  - {fileID: 156707063}
+  health: {fileID: 0}
+  hearts:
+  - {fileID: 137365436}
+  - {fileID: 1502889686}
+  - {fileID: 758363494}
+  - {fileID: 156707061}
   deathSprite: {fileID: 21300000, guid: 5c0cdc2c6520b2349824762db54fe8c5, type: 3}
   aliveSprite: {fileID: 21300000, guid: 4d254a58699a502459042e998118e250, type: 3}
+  currentChances: 0
 --- !u!114 &1593741929
 MonoBehaviour:
   m_ObjectHideFlags: 0

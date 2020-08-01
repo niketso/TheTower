@@ -141,7 +141,7 @@ public class EnemyHealth : MonoBehaviour, iPoolable
 
     private void SpawnSplat() 
     {
-        Vector3 pos = new Vector3(UnityEngine.Random.Range(-maxSplatOffset, maxSplatOffset), UnityEngine.Random.Range(-maxSplatOffset, maxSplatOffset), 0.0f);
+        Vector3 pos = new Vector3(UnityEngine.Random.Range(-maxSplatOffset, maxSplatOffset), UnityEngine.Random.Range(0.0f, maxSplatOffset), 0.0f);
 
         GameManager.instance.SplatPool.GetObjectFromPool(transform.position + pos);
     }
