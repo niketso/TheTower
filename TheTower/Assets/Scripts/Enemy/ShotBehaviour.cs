@@ -39,6 +39,8 @@ public class ShotBehaviour : MonoBehaviour, iPoolable
         rightLimit = GameManager.instance.RightLimit;
         sprite = GetComponent<SpriteRenderer>();
 
+        internalVelocity = vel;
+
         GameManager.instance.OnCurrentFloorChanged += GoBackToPool;
     }
 

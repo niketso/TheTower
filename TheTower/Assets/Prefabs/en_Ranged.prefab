@@ -105,7 +105,7 @@ MonoBehaviour:
   rightLimit: {fileID: 0}
   leftLimit: {fileID: 0}
   speed: 0
-  timeBetweenAttacks: 2
+  timeBetweenAttacks: 3.5
   gunpoint: {fileID: 4262024561178367640}
 --- !u!114 &114827978622326350
 MonoBehaviour:
