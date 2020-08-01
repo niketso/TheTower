@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHP : MonoBehaviour 
 {
-    public float playerChances;
+    public int playerChances;
 
     public Action OnPlayerDeath;
     public Action OnPlayerRespawned;
