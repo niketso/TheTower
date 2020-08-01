@@ -10,10 +10,12 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject OptionsMenuUI;
     [SerializeField] private GameObject CreditsMenuUI;
     [SerializeField] private Slider volumeSlider;
+    
 
 
     private void Start()
     {
+       
         volumeSlider.value = AudioManager.instance.startingVolume;
         AudioManager.instance.Play("MusicMenu",true);
     }
@@ -58,6 +60,7 @@ public class MainMenu : MonoBehaviour
 
     public void SetFullscreen(bool isFullscreen)
     {
+        PlayerPrefs.SetString("fullscreen", isFullscreen.ToString());
         Screen.fullScreen = isFullscreen;
     }
 }

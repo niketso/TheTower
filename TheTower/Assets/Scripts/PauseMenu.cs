@@ -101,9 +101,6 @@ public class PauseMenu : MonoBehaviour
         AudioManager.instance.Play("MenuSelect", false);
     }
 
-    public void SetFullScreen(bool isFullscreen)
-    {
-        Screen.fullScreen = isFullscreen;
-    }
+    
 }
 
