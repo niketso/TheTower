@@ -33,9 +33,8 @@ public class FullscreenManager : MonoBehaviour
         }
         else
         {
-            Screen.fullScreen =  defaultFullscreen ;
+            Screen.fullScreen =  defaultFullscreen;
+            Screen.SetResolution(1024 , 768 , false);
         }
     }
-
-
 }
