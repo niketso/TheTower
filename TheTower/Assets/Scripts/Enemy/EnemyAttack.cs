@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyAttack : MonoBehaviour {
+public class EnemyAttack : MonoBehaviour, iPoolable
+{
 
     private Animator anim;
     private Collider2D col;
     private EnemyBehaviour behaviour;
+    private EnemyHealth health;
 
     private bool invulnerable;
     public bool Invulnerable { get => invulnerable; set => invulnerable = value; }
@@ -20,16 +22,27 @@ public class EnemyAttack : MonoBehaviour {
     {
         anim = GetComponent<Animator>();
         behaviour = GetComponent<EnemyBehaviour>();
+        health = GetComponent<EnemyHealth>();
+    }
+
+    public void OnPool() 
+    {
+    }
+
+    public void OnUnpool() 
+    {
+        invulnerable = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!behaviour.active) return;
 
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !invulnerable)
         {
             anim.SetBool("canAttack", true);
             col = collision;
+            ToggleInvulnerability();
         }
     }
 
@@ -37,9 +50,10 @@ public class EnemyAttack : MonoBehaviour {
     {
         if (!behaviour.active) return;
 
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !invulnerable)
         {
             anim.SetBool("canAttack", true);
+            ToggleInvulnerability();
         }
     }
 
@@ -53,19 +67,21 @@ public class EnemyAttack : MonoBehaviour {
     {
         if (!behaviour.active) return;
 
-        if(col != null)
+        ToggleInvulnerability();
+
+        if (col != null)
             if (col.transform.CompareTag("Player"))
                 col.GetComponent<PlayerHP>().TakeDamage(behaviour.MyType);
     }
 
     public void PlayAttackSound()
     {
-        //audSource.Play();
         AudioManager.instance.Play("RobotSwordSwing",false);
     }
 
     public void ToggleInvulnerability()
     {
         invulnerable = !invulnerable;
+        Debug.Log($"{gameObject.name}::{invulnerable}");
     }
 }
