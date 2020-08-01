@@ -6,7 +6,7 @@ using UnityEngine;
 public class FullscreenManager : MonoBehaviour
 {
     public static FullscreenManager instance;
-    private bool defaultFullscreen = false;
+    public bool defaultFullscreen = false;
 
 
     public static FullscreenManager Instance

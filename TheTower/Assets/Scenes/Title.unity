@@ -443,8 +443,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "CREDITS:\n\n Zoe Micaela Camos Escobar  Testing\r\n\n Francisco Gallino  
-    Art \n\n Agustin Ezequiel Garcia  Programming  \r\n\n Jose Ernesto Gomez  Audio\r\n\nCamila
-    Intili  Art\n\n Facundo Nicolas Piccitto  Programming  \r\n\n \n\n"
+    Art \n\n Agustin Ezequiel Garcia  Programming  \r\n\n Jose Ernesto Gomez  Audio\r\n\n
+    Camila Intili  Art\n\n Facundo Nicolas Piccitto  Programming  \r\n\n \n\n"
 --- !u!222 &197193331
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -622,7 +622,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &309952857
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,7 +779,7 @@ PrefabInstance:
     - target: {fileID: 5749745805551864710, guid: d5bf1053abbc36948990c3841b87aae9,
         type: 3}
       propertyPath: startingVolume
-      value: 0.164
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5749745805551864711, guid: d5bf1053abbc36948990c3841b87aae9,
         type: 3}
@@ -867,6 +867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b57e013bc176774fa8b2bc66d67b7f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultFullscreen: 0
 --- !u!4 &348660265
 Transform:
   m_ObjectHideFlags: 0
@@ -3882,6 +3883,7 @@ MonoBehaviour:
   OptionsMenuUI: {fileID: 409813198}
   CreditsMenuUI: {fileID: 2045313014}
   volumeSlider: {fileID: 171099143}
+  fullscreenToggle: {fileID: 0}
 --- !u!1 &1967332106
 GameObject:
   m_ObjectHideFlags: 0
